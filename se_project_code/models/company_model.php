@@ -15,6 +15,7 @@ class company_model {
 
     public static function getAll()
     {
+        echo "getAll";
         require("connection_connect.php");
         $companyList = [];
         $sql="select id , name , link from company as c";
@@ -24,7 +25,7 @@ class company_model {
             $id=$my_row['id'];
             $name=$my_row['name'];
             $link=$my_row['link'];
-            echo $id;
+            
             $companyList[] = new company_model($id,$name,$link);
         }
 
