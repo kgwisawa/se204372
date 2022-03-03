@@ -13,11 +13,11 @@ if($conn->connect_error) {
 
 // echo "Successfully server"."<br>";
 
-// // if(!$conn->select_db($dbname)){
-// //     echo $conn->connect_error;
-// // }else{
-// //     echo "Successfully database"."<br>";
-// // }
+// if(!$conn->select_db($dbname)){
+//     echo $conn->connect_error;
+// }else{
+//     echo "Successfully database"."<br>";
+// }
 
 // // $sql = "select * from employees";
 // // $result = $conn->query($sql);
@@ -28,6 +28,4 @@ if($conn->connect_error) {
 // //     echo "name:".$row["name"];
 // // }
 
-
-$conn->close();
 ?>
