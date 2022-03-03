@@ -4,7 +4,7 @@
 
 <body>
     <!-- Flickity HTML init -->
-    <div class="carousel" data-flickity='{ "autoPlay": true}'>
+    <div class="carousel" data-flickity='{ "autoPlay": true,"freeScroll": true,"wrapAround": true}'>
         <div class="carousel-cell"><br>kuy</br></div>
         <div class="carousel-cell"><br>kuy2</br></div>
         <div class="carousel-cell"><br>kuy3</br></div>
