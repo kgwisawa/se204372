@@ -1,14 +1,41 @@
+.wrapper {
+    margin-top: 20px;
+    margin-left: 20px;
+    position: relative;
+    display: flex;
+    min-width: 100px;
+  }
+  .search-icon {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    width: 14px;
+  }
+  .search {
+    border: 1px solid grey;
+    border-radius: 20px;
+    height: 30px;
+    width: 20%;
+    padding: 2px 23px 2px 30px;
+    outline: 0;
+    background-color: #f5f5f5;
+  }
+  .search:hover, .search:focus {
+    border: 1.5px solid #8C8;
+    background-color: white;
+  }
 .carousel {
     background: #fff;
 }
 
 .carousel-cell {
-    width: 350px;
-    height: 250px;
+    width: 250px;
+    height: 200px;
     margin-right: 50px;
     margin-top: 50px;
     background: #8C8;
     border-radius: 20px;
+    border-width: 10px;
     /* counter-increment: gallery-cell; */
 }
 .carousel-cellimg {
