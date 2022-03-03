@@ -8,11 +8,21 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     $action='home';
 }
 ?>
-<html>
-    <head></head>
-    <body>
-        <?php echo "controller=".$controller.",action=".$action ;?>
-        <br>[<a href="">Home</a>]<br>
-        <?php require_once("routes.php");?>
-    </body>
+<!DOCTYPE html>
+
+<html lang="en">
+    
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet"  href="styles.css"> -->
+    <title>Home</title>
+</head>
+<body>
+<?php echo "controller=".$controller.",action=".$action ;?>
+<br>[<a href="">Home</a>]<br>
+<?php require_once("routes.php");?>
+</body>
 </html>
