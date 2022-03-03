@@ -17,7 +17,7 @@ class company_model {
     {
         require("connection_connect.php");
         $companyList = [];
-        $sql="select * from company";
+        $sql="select id , name , link from company as c";
         $result = $conn->query($sql);
         while($my_row = $result->fetch_assoc())
         {
