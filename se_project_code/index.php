@@ -27,10 +27,10 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
         <img class="logo" src="assets/image/KU Internship.png" alt="logo">
             <nav>
                 <ul class="nav__links">
-                    <li><a href="#">ข่าว</a></li>
+                    <li><a href="?controller=pages&action=home">ข่าว</a></li>
                     <li><a href="#">ฝึกงาน</a></li>
                     <a class="cta" href="#"><button>Sing in</button></a>
-                    <div> </div>
+                    
                 </ul>
             </nav>
 
