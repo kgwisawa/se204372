@@ -9,13 +9,13 @@
     </div>
     <!-- Flickity HTML init -->
     <div class="carousel" data-flickity='{ "freeScroll": true,"wrapAround": true,"prevNextButtons": false,"pauseAutoPlayOnHover": false}'>
-        <div class="carousel-cell"><br>kuy</br></div>
-        <div class="carousel-cell"><br>kuy2</br></div>
-        <div class="carousel-cell"><br>kuy3</br></div>
-        <div class="carousel-cell"><br>kuy4</br></div>
-        <div class="carousel-cell"><br>kuy5</br></div>
-        <div class="carousel-cell"><br>kuy6</br></div>
-        <div class="carousel-cell"><br>kuy7</br></div>
+        <?php
+            foreach($company_List as $com)
+            {
+                echo"<div class=\"carousel-cellimg\"><br>$com->name</br></div>";
+            }
+         
+        ?>
     </div>
     <h2>News</h2>
     <div class="carousel" data-flickity='{ "autoPlay": true,"freeScroll": true,"wrapAround": true,"prevNextButtons": false,"autoPlay": 2000}'>

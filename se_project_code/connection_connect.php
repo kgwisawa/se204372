@@ -15,19 +15,23 @@ if($conn->connect_error) {
 
 // echo "Successfully server"."<br>";
 
-// if(!$conn->select_db($dbname)){
-//     echo $conn->connect_error;
-// }else{
-//     echo "Successfully database"."<br>";
+if(!$conn->select_db($dbname)){
+    echo $conn->connect_error;
+}else{
+    echo "Successfully database"."<br>";
+}
+// echo "kuy";
+
+// $sql = "select id , name , link from company ";
+// $result = $conn->query($sql);
+// echo "kuy2";
+// while($my_row = $result->fetch_assoc())
+// {
+//     echo "id".$my_row[id];
+//     echo "name".$my_row[name];
+//     echo "link".$my_row[link];
+
 // }
-
-// // $sql = "select * from employees";
-// // $result = $conn->query($sql);
-
-// // echo "num row =".$result->num_rows."<br>";
-// // while($row = $result->fetch_assoc()){
-// //     echo "id:".$row["id"];
-// //     echo "name:".$row["name"];
-// // }
+// echo "kuy3";
 
 ?>
