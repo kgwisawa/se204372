@@ -24,7 +24,7 @@ class company_model {
             $id=$my_row['id'];
             $name=$my_row['name'];
             $link=$my_row['link'];
-            
+            echo $id;
             $companyList[] = new company_model($id,$name,$link);
         }
 
