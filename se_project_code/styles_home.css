@@ -3,9 +3,19 @@
 }
 
 .carousel-cell {
-    width: 27%;
+    width: 350px;
     height: 250px;
     margin-right: 50px;
+    margin-top: 50px;
+    background: #8C8;
+    border-radius: 20px;
+    /* counter-increment: gallery-cell; */
+}
+.carousel-cellimg {
+    width: 600px;
+    height: 300px;
+    margin-right: 50px;
+    margin-top: 50px;
     background: #8C8;
     border-radius: 20px;
     /* counter-increment: gallery-cell; */
