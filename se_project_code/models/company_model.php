@@ -15,7 +15,7 @@ class company_model {
 
     public static function getAll()
     {
-        echo "getAll";
+        // echo "getAll";
         require("connection_connect.php");
         $companyList = [];
         $sql="select id , name , link from company as c";
