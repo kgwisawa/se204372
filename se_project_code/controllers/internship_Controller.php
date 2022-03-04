@@ -1,8 +1,10 @@
 <?php
 class InternshipController{
-    public function home(){
-        $key = $_GET['key'];
-        $internship_List = internship_model::getAll($key);
+
+    public function internship(){
+        // $key = $_GET['key'];
+        echo "start";
+        $internship_List = internship_model::getAll();
         require_once('views/internship/internship.php');
     }
 
