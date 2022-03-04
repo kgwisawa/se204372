@@ -11,26 +11,31 @@
             <input type = "hidden" name="controller" value="pages"/>
             <button type = "submit" name="action" value="search">Search</button>
         </form>
+        
     </div>
     <!-- Flickity HTML init -->
-            
-    <div class="carousel" data-flickity='{ "freeScroll": true,"wrapAround": true,"prevNextButtons": false,"pauseAutoPlayOnHover": false}'>
+    <div class="carousel" data-flickity='{"wrapAround": true,"prevNextButtons": false,"pauseAutoPlayOnHover": false}'>
         <?php
             foreach($company_List as $com)
             {
-                echo"<div class=\"carousel-cellimg\"><br>$com->name</br></div>";
+                echo"<div class=\"carousel-cell\"><br>$com->name</br></div>";
             }
          
         ?>
     </div>
-         
     <h2>News</h2>
-    <div class="carousel" data-flickity='{ "autoPlay": true,"freeScroll": true,"wrapAround": true,"prevNextButtons": false,"autoPlay": 2000}'>
-        <div class="carousel-cellimg"><br>kuy</br></div>
-        <div class="carousel-cellimg"><br>kuy</br></div>
-        <div class="carousel-cellimg"><br>kuy</br></div>
-        <div class="carousel-cellimg"><br>kuy</br></div>
-    </div>
+    <div class="carousel"
+   data-flickity='{ "lazyLoad": true ,"wrapAround": true,"prevNextButtons": false,"pauseAutoPlayOnHover": false}'>
+  <div class="carouselimg-cell">
+    <img class="carouselimg-cell-image"
+      data-flickity-lazyload="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/tulip.jpg" alt="tulip" />
+  </div>
+  <div class="carouselimg-cell">
+    <img class="carouselimg-cell-image"
+      data-flickity-lazyload="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/grapes.jpg" alt="grapes" />
+  </div>
+  
+</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
