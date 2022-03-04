@@ -11,9 +11,9 @@
             <input type = "hidden" name="controller" value="pages"/>
             <button type = "submit" name="action" value="search">Search</button>
         </form>
-        
     </div>
     <!-- Flickity HTML init -->
+            
     <div class="carousel" data-flickity='{ "freeScroll": true,"wrapAround": true,"prevNextButtons": false,"pauseAutoPlayOnHover": false}'>
         <?php
             foreach($company_List as $com)
@@ -23,6 +23,7 @@
          
         ?>
     </div>
+         
     <h2>News</h2>
     <div class="carousel" data-flickity='{ "autoPlay": true,"freeScroll": true,"wrapAround": true,"prevNextButtons": false,"autoPlay": 2000}'>
         <div class="carousel-cellimg"><br>kuy</br></div>

@@ -18,13 +18,13 @@ class company_model {
         // echo "getAll";
         require("connection_connect.php");
         $companyList = [];
-        $sql="select id , name , link from company as c";
+        $sql="SELECT cp_id , cp_name ,cp_link FROM company";
         $result = $conn->query($sql);
         while($my_row = $result->fetch_assoc())
         {
-            $id=$my_row['id'];
-            $name=$my_row['name'];
-            $link=$my_row['link'];
+            $id=$my_row['cp_id'];
+            $name=$my_row['cp_name'];
+            $link=$my_row['cp_link'];
             
             $companyList[] = new company_model($id,$name,$link);
         }
@@ -38,22 +38,23 @@ class company_model {
 
     public static function search($key)
 {
+    
 	require("connection_connect.php");
         $companyList = [];
-        $sql="select id , name , link from company  
-        where (id like'%$key%'or name like '%$key%')";
+        $sql="SELECT cp_id , cp_name ,cp_link FROM company  
+        where (cp_id like'%$key%'or cp_name like '%$key%')";
         $result = $conn->query($sql);
         while($my_row = $result->fetch_assoc())
         {
-            $id=$my_row['id'];
-            $name=$my_row['name'];
-            $link=$my_row['link'];
+            $id=$my_row['cp_id'];
+            $name=$my_row['cp_name'];
+            $link=$my_row['cp_link'];
             
             $companyList[] = new company_model($id,$name,$link);
         }
 
         require("connection_close.php");
-    
+
     return $companyList;
 }
 

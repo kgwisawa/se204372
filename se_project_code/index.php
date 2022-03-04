@@ -29,7 +29,16 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
                 <ul class="nav__links">
                     <li><a href="?controller=pages&action=home">ข่าว</a></li>
                     <li><a href="#">ฝึกงาน</a></li>
-                    <a class="cta" href="#"><button>Sing in</button></a>
+                    <!-- <a class="cta" href="#"><button>Sing in</button></a> -->
+
+<?php 
+ $login_status = $_GET['login_status'];  
+if ($login_status  == true){
+    echo "<a class=\"cta\" href='?controller=pages&action=home'><button>Sing in</button></a>";
+} else {
+    echo "<a class=\"cta\" href='#'><button>Sing in</button></a>";
+}
+?>
                     
                 </ul>
             </nav>
