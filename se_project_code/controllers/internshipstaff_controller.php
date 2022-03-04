@@ -1,11 +1,11 @@
 <?php
-class InternshipController{
+class InternshipstaffController{
 
     public function internship(){
         // $key = $_GET['key'];
         echo "start";
-        $internship_List = internship_model::getAll();
-        require_once('views/internship/internship.php');
+        $internship_List = internshipstaff_model::getAll();
+        require_once('views/internship/internshipstaff.php');
     }
 
     public function error()

@@ -1,7 +1,7 @@
 <?php
 $controllers = array(
     'pages' => ['home', 'error', 'search'],
-    'internship' => ['internship']
+    'internshipstaff' => ['internship']
 );
 function call($controller, $action)
 {
@@ -11,9 +11,9 @@ function call($controller, $action)
             require_once('./models/company_model.php');
             $controller = new PagesController();
             break;
-        case "internship":
-            require_once('./models/internship_model.php');
-            $controller = new InternshipController();
+        case "internshipstaff":
+            require_once('./models/internshipstaff_model.php');
+            $controller = new InternshipstaffController();
             break;
     }
     $controller->{$action}();

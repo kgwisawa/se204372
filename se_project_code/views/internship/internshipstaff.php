@@ -12,7 +12,7 @@
     </tr>
 
     <?php 
-    echo "ควย";
+
     foreach ($internship_List as $il) {
         echo "
         <tr> 

@@ -1,5 +1,5 @@
 <?php
-class internship_model
+class internshipstaff_model
 {
     public $lnid;
     public $lnname;
@@ -48,7 +48,7 @@ class internship_model
             $confirm = $my_row['id_confirm'];
             // echo $my_row['ln_id'];
 
-            $internshipList[] = new internship_model(
+            $internshipList[] = new internshipstaff_model(
                 $lnid,
                 $lnname,
                 $cpname,

@@ -37,7 +37,7 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 
  $login_status =  true;//$_GET['login_status'];  
 if ($login_status  == true){
-    echo "<li><a href='?controller=internship&action=internship'>ฝึกงาน</a></li>";
+    echo "<li><a href='?controller=internshipstaff&action=internship'>ฝึกงาน</a></li>";
     echo "<a class=\"cta\" href='?controller=pages&action=home'><button>Sign in</button></a>";
 } else {
     echo "<li><a href='#'>ฝึกงาน</a></li>";
