@@ -3,9 +3,9 @@ $servername = "localhost";
 $username = "memo_care";
 $password = "memo_care";
 $dbname = "memo_care";
-
 //Create connection
 $conn = new mysqli($servername,$username,$password);
+mysqli_set_charset($conn,"utf8");
 //Check connection
 if($conn->connect_error) {
     die("Connection failed: ".$conn->connect_error);

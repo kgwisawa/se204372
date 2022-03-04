@@ -24,7 +24,7 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
     <!-- <?php echo "controller=" . $controller . ",action=" . $action; ?> -->
 
     <header>
-        <img class="logo" src="assets/image/KU Internship.png" alt="logo">
+        <img class="logo" src="assets/image/KU Internship.png" alt="logo" >
             <nav>
                 <ul class="nav__links">
                     <li><a href="?controller=pages&action=home">ข่าว</a></li>
