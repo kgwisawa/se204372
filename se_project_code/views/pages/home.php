@@ -14,7 +14,7 @@
         
     </div>
     <!-- Flickity HTML init -->
-    <div class="carousel" data-flickity='{"wrapAround": true,"prevNextButtons": false,"pauseAutoPlayOnHover": false}'>
+    <div class="carousel" data-flickity='{"wrapAround": true,"prevNextButtons": false,"autoPlay": 3000}'>
         <?php
             foreach($company_List as $com)
             {
@@ -25,7 +25,7 @@
     </div>
     <h2>News</h2>
     <div class="carousel"
-   data-flickity='{ "lazyLoad": true ,"wrapAround": true,"prevNextButtons": false,"pauseAutoPlayOnHover": false}'>
+   data-flickity='{ "lazyLoad": true ,"wrapAround": true,"prevNextButtons": false,"pauseAutoPlayOnHover": false,"autoPlay": 5000}'>
   <div class="carouselimg-cell">
     <img class="carouselimg-cell-image"
       data-flickity-lazyload="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/tulip.jpg" alt="tulip" />
