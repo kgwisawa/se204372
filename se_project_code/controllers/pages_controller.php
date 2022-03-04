@@ -11,7 +11,7 @@ class PagesController{
 
     public function search(){
         $key = $_GET['key'];
-        $company_list = company_model::search($key);
+        $company_List = company_model::search($key);
         require_once('views/pages/home.php');
     }
 
