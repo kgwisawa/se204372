@@ -1,7 +1,7 @@
 <?php
 $controllers = array(
     'pages' => ['home', 'error', 'search'],
-    //'internship' => []
+    'internship' => ['internship']
 );
 function call($controller, $action)
 {

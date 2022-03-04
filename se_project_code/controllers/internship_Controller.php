@@ -3,7 +3,7 @@ class InternshipController{
     public function home(){
         $key = $_GET['key'];
         $internship_List = internship_model::getAll($key);
-        require_once('views/pages/home.php');
+        require_once('views/internship/internship.php');
     }
 
     public function error()

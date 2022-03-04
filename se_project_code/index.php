@@ -28,15 +28,20 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
             <nav>
                 <ul class="nav__links">
                     <li><a href="?controller=pages&action=home">ข่าว</a></li>
-                    <li><a href="#">ฝึกงาน</a></li>
+                    <!-- <li><a href="#">ฝึกงาน</a></li> -->
                     <!-- <a class="cta" href="#"><button>Sing in</button></a> -->
 
 <?php 
- $login_status = $_GET['login_status'];  
+
+
+
+ $login_status =  true;//$_GET['login_status'];  
 if ($login_status  == true){
-    echo "<a class=\"cta\" href='?controller=pages&action=home'><button>Sing in</button></a>";
+    echo "<li><a href='?controller=internship&action=internship'>ฝึกงาน</a></li>";
+    echo "<a class=\"cta\" href='?controller=pages&action=home'><button>Sign in</button></a>";
 } else {
-    echo "<a class=\"cta\" href='#'><button>Sing in</button></a>";
+    echo "<li><a href='#'>ฝึกงาน</a></li>";
+    echo "<a class=\"cta\" href='#'><button>Sign in</button></a>";
 }
 ?>
                     
