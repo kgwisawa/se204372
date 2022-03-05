@@ -56,7 +56,7 @@ app.post("/create/company", (req, res) => {
     const link = req.body.link;
 
     db.query(
-      "UPDATE company SET (cp_name = ? , cp_link = ?) WHERE cp_link = ?",
+      "UPDATE company SET cp_name = ? , cp_link = ? WHERE cp_link = ?",
       [name, link ,id],
       (err, result) => {
         if (err) {
