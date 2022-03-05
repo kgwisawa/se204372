@@ -11,8 +11,9 @@ function App() {
     });
   };
   return (
-    <Navbar>
+    
     <div className="App container">
+    <Navbar></Navbar>
       <h1>Test</h1>
       <div className="information">
         <br />
@@ -33,7 +34,6 @@ function App() {
         })}
       </div>
     </div>
-    </Navbar>
   );
 }
 
