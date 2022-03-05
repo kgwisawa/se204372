@@ -2,6 +2,10 @@ import {React} from 'react'
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './view/home';
+import About from './view/home';
+import Services from './view/home';
+import Contact from './view/home';
+import SignUp from './view/home';
 import './App.css';
 function App() {
 
@@ -9,7 +13,11 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path='/' exact component={Home} />
+      <Route path='/' exact component={Home} />
+        <Route path='/about' component={About} />
+        <Route path='/services' component={Services} />
+        <Route path='/contact-us' component={Contact} />
+        <Route path='/sign-up' component={SignUp} />
       </Routes>
     </Router>
 
