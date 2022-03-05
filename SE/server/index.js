@@ -68,6 +68,7 @@ app.post("/create/company", (req, res) => {
     );
   });
 
+//////////////////////////////////////////////////////////// delete
   app.delete("/delete/company", (req, res) => {
     const id = req.params.id;
     db.query("DELETE FROM company WHERE cp_id = ?", id, (err, result) => {
@@ -80,6 +81,8 @@ app.post("/create/company", (req, res) => {
   });
 
 //////////////////////////////////////////////////////////// Model Company end
+
+
 
 
 app.listen('3001', () => {

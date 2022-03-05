@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import Axios from "axios";
+import Navbar from "./navbar";
 
 function App() {
   const [companyList, setCompanyList] = useState([]);
@@ -10,6 +11,7 @@ function App() {
     });
   };
   return (
+    <Navbar>
     <div className="App container">
       <h1>Test</h1>
       <div className="information">
@@ -31,6 +33,7 @@ function App() {
         })}
       </div>
     </div>
+    </Navbar>
   );
 }
 
