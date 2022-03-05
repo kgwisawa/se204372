@@ -1,6 +1,7 @@
 import React from 'react'
 import {Navbar , Container ,Nav}from 'react-bootstrap'
 import Home from './view/home';
+import './style/Navbar.css';
 function App() {
 
   return (
