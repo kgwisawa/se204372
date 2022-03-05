@@ -1,9 +1,9 @@
 import React from 'react'
 import {Navbar , Container ,Nav}from 'react-bootstrap'
-
+import './style/Navbar.css'
 function navbar() {
   return (
-  <Navbar bg="light" variant="light">
+  <Navbar className='bar'>
     <Container>
     <Navbar.Brand href="#home">Navbar</Navbar.Brand>
     <Nav className="me-auto">
