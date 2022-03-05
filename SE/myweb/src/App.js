@@ -1,39 +1,19 @@
-import "./App.css";
-import { useState } from "react";
-import Axios from "axios";
-import Navbar from "./navbar";
-
+import React from 'react'
+import {Navbar , Container ,Nav}from 'react-bootstrap'
+import Home from './view/home';
 function App() {
-  const [companyList, setCompanyList] = useState([]);
-  const getCompany = () => {
-    Axios.get("http://localhost:3001/company").then((response) => {
-      setCompanyList(response.data);
-    });
-  };
+
   return (
-    
-    <div className="App container">
-    <Navbar></Navbar>
-      <h1>Test</h1>
-      <div className="information">
-        <br />
-        <br />
-        <button class="btn btn-primary" onClick={getCompany}>
-          Show company
-        </button>
-        {companyList.map((val, key) => {
-          return (
-            <div className="employee card">
-              <div className="card-body text-left">
-                <p className="card-text">id: {val.cp_id}</p>
-                <p className="card-text">Name: {val.cp_name}</p>
-                <p className="card-text">link: {val.cp_link}</p>
-            </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <Navbar className='bar'>
+    <Container>
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="me-auto">
+      <Nav.Link href="Home">Home</Nav.Link>
+      <Nav.Link href="#features">Features</Nav.Link>
+      <Nav.Link href="#pricing">Pricing</Nav.Link>
+    </Nav>
+    </Container>
+  </Navbar>
   );
 }
 
