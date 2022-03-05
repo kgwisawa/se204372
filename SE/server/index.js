@@ -70,7 +70,7 @@ app.post("/create/company", (req, res) => {
 
   app.delete("/delete/company", (req, res) => {
     const id = req.params.id;
-    db.query("DELETE FROM company WHERE id = ?", id, (err, result) => {
+    db.query("DELETE FROM company WHERE cp_id = ?", id, (err, result) => {
       if (err) {
         console.log(err);
       } else {
