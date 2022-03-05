@@ -1,6 +1,5 @@
 import {React, useState } from "react";
 import Axios from "axios";
-import Navbar from "./navbar";
 import "../App.css";
 
 function Home() {
