@@ -19,8 +19,9 @@ function Home() {
     ];
   return (
     <div className="App">
+      <br/>
       {getCompany()}
-      <Carousel breakPoints={breakPoints}>
+      <Carousel breakPoints={breakPoints} showArrows={false} enableAutoPlay={true}>
         {companyList.map((val, key) => {
           return (
             // <div className="employee card">
