@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500&display=swap');
+.head {
+    font-size: 60px;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.doc {
+    font-size: 40px;
+    font-family: 'Fredoka', sans-serif;
+    margin-left: 20px;
+}
+.boxhead {
+    display:flex;
+    height: 100px;
+    /* background-color: black; */
+    justify-content: center;
+    align-items: center;
+}
+
+.boxdoc{
+    display:flex;
+    height: 60px;
+    /* background-color: black; */
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+   
+
+}
+
+boxcontent {
+
+    margin: 20px;
+    width: 450px;
+    height: 250px;
+    border-radius: 25px;
+    box-shadow: 3px 3px 4px 3px;
+    box-shadow: inset;
+}
+
+
+.boxct1 {
+    display: flex;
+    height: 50%;
+}
+
+.boxct2 {
+    display: flex;
+    height: 50%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /* background-color: aqua; */
+}
+
+
+
+contenttxt {
+    font-size: 35px;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 5px;
+}
+
+boxdownload {
+    display: flex;
+    font-size: 25px;
+    font-family: 'Fredoka', sans-serif;
+    border-radius: 20px;
+    padding:  5px  15px  5px  15px ;
+    box-shadow: 2px 2px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 20px;
+    margin-bottom: 10px;  
+    color: #FFF;
+    background-color: #009879;  
+}
+
+.icon {
+    display: flex;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+}
+
+.boxheadtable {
+    /* background-color: #256ce1; */
+    display:flex;
+    width: 100%;
+    height: 70px;
+}
+
+.headtable {
+    /* background-color:aquamarine; */
+    display:flex;
+    width: 50%;
+    height: 100%;
+    font-size: 25px;
+    font-family: 'Fredoka', sans-serif;
+    /* padding: 15px; */
+    margin-left: 15px;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+
+.boxtable {
+    /* background-color: #256ce1; */
+    display:flex;
+    width: 100%;
+    height: 100%;
+}
+
+.contable {
+    display:flex;
+    width: 50%;
+    height: 100%;
+    /* padding-left: 15px; */
+    justify-content: center;
+    /* align-items: flex-start; */
+    /* background-color: aqua; */
+
+}
+
+
+.content-table {
+    border-collapse: collapse;
+    margin: 10px  15px 0 15px  ;
+    font-size: 0.9em;
+    width: 90%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .content-table th,
+  .content-table td {
+    padding: 12px 15px;
+  }
+  
+  .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  
+  .content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+  }
+  
+  
