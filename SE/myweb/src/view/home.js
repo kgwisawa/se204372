@@ -1,32 +1,34 @@
-import {React, useState } from "react";
+import { React, useState } from "react";
 import Axios from "axios";
 import "../App.css";
 
 import Carousel from "react-elastic-carousel";
 
 import Item from "./Item";
-const ip ="192.168.0.246";
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 },
-];
+const ip = "192.168.0.246";
 
 function Home() {
+  const [companyList, setCompanyList] = useState([]);
+  const getCompany = () => {
+    Axios.get("http://" + ip + ":3001/company").then((response) => {
+      setCompanyList(response.data);
+    });
+  };
 
-    const [companyList, setCompanyList] = useState([]);
-    const getCompany = () => {
-      Axios.get("http://"+ip+":3001/company").then((response) => {
-        setCompanyList(response.data);
-      });
-    };
-    
   return (
     <div className="App">
-      <br/>
+      <br />
       {getCompany()}
-      <Carousel breakPoints={breakPoints} showArrows={false} >
+      <Carousel
+        outerSpacing={200}
+        itemPadding={[10, 10]}
+        pagination={false}
+        showArrows={false}
+        enableAutoPlay={true}
+        itemsToShow={4}
+        autoPlaySpeed={1500}
+        itemsToScroll={4}
+      >
         {companyList.map((val, key) => {
           return (
             // <div className="employee card">
@@ -39,9 +41,9 @@ function Home() {
             <Item>{val.cp_name}</Item>
           );
         })}
-        </Carousel>
+      </Carousel>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
