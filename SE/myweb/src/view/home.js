@@ -44,7 +44,8 @@ function Home() {
       </Carousel>
     </div>
     <br/>
-    <h1>Kuyyyy</h1>
+    <br/>
+    <h3>News</h3>
     <Carousel
         itemPadding={[10, 10]}
         pagination={false}
