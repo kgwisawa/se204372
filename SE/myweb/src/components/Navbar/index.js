@@ -14,9 +14,12 @@ const Navbar = () => {
   return (
     <>
       <Nav>
+      
         <NavLink to='/'>
           <img src={require('../../images/KU Internship.png')} alt='logo' />
-        </NavLink>
+       </NavLink>
+     
+      <box>
         <Bars />
         <NavMenu>
           <NavLink to='/new' activeStyle>
@@ -32,6 +35,7 @@ const Navbar = () => {
         <NavBtn>
           <NavBtnLink to='/signin'>Sign In</NavBtnLink>
         </NavBtn>
+      </box>
       </Nav>
     </>
   );
