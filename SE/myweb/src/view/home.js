@@ -20,7 +20,6 @@ function Home() {
       <br />
       {getCompany()}
       <Carousel
-        outerSpacing={200}
         itemPadding={[10, 10]}
         pagination={false}
         showArrows={false}
