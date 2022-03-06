@@ -2,8 +2,17 @@ import {React, useState } from "react";
 import Axios from "axios";
 import "../App.css";
 
+import Carousel from "react-elastic-carousel";
+
 import Item from "./Item";
 const ip ="192.168.0.246";
+const breakPoints = [
+  { width: 1, itemsToShow: 1 },
+  { width: 550, itemsToShow: 2 },
+  { width: 768, itemsToShow: 3 },
+  { width: 1200, itemsToShow: 4 },
+];
+
 function Home() {
 
     const [companyList, setCompanyList] = useState([]);
@@ -17,6 +26,7 @@ function Home() {
     <div className="App">
       <br/>
       {getCompany()}
+      <Carousel breakPoints={breakPoints} showArrows={false} >
         {companyList.map((val, key) => {
           return (
             // <div className="employee card">
@@ -29,6 +39,7 @@ function Home() {
             <Item>{val.cp_name}</Item>
           );
         })}
+        </Carousel>
     </div>
   )
 }
