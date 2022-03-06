@@ -17,6 +17,7 @@ function Home() {
 
   return (
     <div className="App">
+    <div className="App">
       <br />
       {getCompany()}
       <Carousel
@@ -41,6 +42,11 @@ function Home() {
           );
         })}
       </Carousel>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <h1>Kuyyyy</h1>
     </div>
   );
 }
