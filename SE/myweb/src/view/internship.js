@@ -23,7 +23,7 @@ const Internship = (props) => {
 const [companyList, setCompanyList] = useState([]);
 const getCompany = () => {
   if( start === 1){
-    Axios.get("http://" + ip + ":3001/company").then((response) => {
+    Axios.get("http://" + ip + ":3001/internshipinsit").then((response) => {
       setCompanyList(response.data);
       start = 0;
     });
@@ -115,10 +115,10 @@ const getCompany = () => {
             // </div>
             // </div>
             <tr>
+            <td>{val.id_date}</td>
             <td>{val.cp_name}</td>
-            <td>{val.cp_name}</td>
-            <td>{val.cp_name}</td>
-            <td>{val.cp_name}</td>
+            <td>{val.id_status}</td>
+            <td>DELETE</td>
             </tr>
           );
         })}

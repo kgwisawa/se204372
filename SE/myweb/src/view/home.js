@@ -3,7 +3,7 @@ import Axios from "axios";
 import "../App.css";
 
 import Carousel from "react-elastic-carousel";
-import InfiniteCarousel from 'react-leaf-carousel';
+// import InfiniteCarousel from 'react-leaf-carousel';
 import Item from "./Item";
 const ip = "192.168.0.246";
 var start = 1;
