@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import "../style/internship.css";
+import {  Link } from 'react-router-dom';
 import Axios from "axios";
 const Icon = () => {
   if (true) {
@@ -16,12 +17,16 @@ const Icon = () => {
 };
 
 
+// function test(id){
+//   alert(id);
+// }
+
 
 var start = 1;
 const Internship = (props) => {
   const ip = "192.168.0.246";
   // var s = props.start;
-  
+
 
 const [companyList, setCompanyList] = useState([]);
 const getCompany = () => {
@@ -34,9 +39,7 @@ const getCompany = () => {
 
 };
 
-const test = (id) => {
-  alert(id);
-}
+
 
 
 
@@ -93,9 +96,11 @@ const test = (id) => {
       <div className="boxheadtable">
         <div className="headtable">
           <div>Status Document internship</div>
+          <Link to='/new' className="add">New</Link>
         </div>
         <div className="headtable">
-          <div>Status Document internship</div>
+          <div>Internship result</div>
+          <Link to='/new' className="add">New</Link>
         </div> 
       </div>
       
@@ -114,44 +119,43 @@ const test = (id) => {
   <tbody>
   {companyList.map((val, key) => {
           return (
-            // <div className="employee card">
-            //   <div className="card-body text-left">
-            //     <p className="card-text">id: {val.cp_id}</p>
-            //     <p className="card-text">Name: {val.cp_name}</p>
-            //     <p className="card-text">link: {val.cp_link}</p>
-            // </div>
-            // </div>
             <tr>
             <td className="txttable">{val.id_date}</td>
             <td className="txttable">{val.cp_name}</td>
             <td className="txttable">{val.id_status}</td>
-            <button className="btDelete" onClick={test(val.id_id)}>Delete</button>
+            <td><Link to='/new' params={{ id: val.id_id}} className="btDelete">Delete</Link></td>
             </tr>
           );
         })}
-    {/* <tr>
-      <td>1</td>
-      <td>Domenic</td>
-      <td>88,110</td>
-      <td>dcode</td>
-    </tr>
-    <tr class="active-row">
-      <td>2</td>
-      <td>Sally</td>
-      <td>72,400</td>
-      <td>Students</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Nick</td>
-      <td>52,300</td>
-      <td>dcode</td>
-    </tr> */}
   </tbody>
 </table>
           </div>
 
-
+          <div className="contable">
+          <table class="content-table">
+      {getCompany()}
+  <thead>
+    <tr>
+      <th className="txtheadtable">Date</th>
+      <th className="txtheadtable">NameCompany</th>
+      <th className="txtheadtable">Status</th>
+      <th className="txtheadtable">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {companyList.map((val, key) => {
+          return (
+            <tr>
+            <td className="txttable">{val.id_date}</td>
+            <td className="txttable">{val.cp_name}</td>
+            <td className="txttable">{val.id_status}</td>
+            <td><Link to='/new' params={{ id: val.id_id}} className="btDelete">Delete</Link></td>
+            </tr>
+          );
+        })}
+  </tbody>
+</table>
+          </div>
       </div>
     </div>
   );

@@ -191,4 +191,19 @@ boxdownload {
       color: #FFF;
       font-family: 'Fredoka', sans-serif;
       font-size: 15px;
+      text-decoration: none;
+  }
+  .add {
+    display: flex;
+    width: 50px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #256ce1;
+    color: #FFF;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
   }
