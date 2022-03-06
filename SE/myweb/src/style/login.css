@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+.form-box {
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius: 23px;
+    box-shadow: 3px 3px 5px;
+}
+.boxbox {
+    display: flex;
+    position: absolute;
+    width: 800px;
+    height: 500px;
+    margin-left: 50px;
+    flex-direction: row;
+
+}
+.button-box{
+    width: 380px;
+    height: 80px;
+    margin: -4px ;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+}
+.toggle-btn{
+    padding: 30px 77px;
+    background: transparent;
+    /* border: none ; */
+    outline: 0;
+    position: relative;
+    border-right-color: black;
+    border-width: 2px;
+    border-color: #ff61241f;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+
+
+}
+
+.line {
+    display: flex;
+    width: 10px;
+    height: 10px;
+    position:absolute;
+background-color: black;
+
+}
+
+.form-box h1{
+    text-align: center;
+    padding: 50px 0 15px 0;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 50px;
+    text-shadow: 1px 1px 2px;
+
+}
+
+.form-box form{
+    padding: 0 40px ;
+    box-sizing: border-box;
+}
+form .txt_field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+.txt_field input{
+    width: 100%;
+    padding: 0px 5px ;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+
+}
+.txt_field label{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .2s;
+    font-family: 'Fredoka', sans-serif;
+    text-shadow: 1px 1px ;
+}
+.txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 2;
+    background: #2691d9;
+    transition: .2s;
+}
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label{
+    top: -5px;
+    color: #2691d9;
+}
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before{
+    width: 100%;
+}
+input[type="submit"]{
+    width: 50%;
+    height: 40px;
+    border-radius: 25px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Fredoka', sans-serif;
+}
+.box{
+    display: flex;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.bg {
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    width: 500px;
+    height: 500px;
+    background-image: url('../images/mounten.jpg');
+}
+
+
+
