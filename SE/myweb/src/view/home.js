@@ -6,13 +6,17 @@ import Carousel from "react-elastic-carousel";
 import InfiniteCarousel from 'react-leaf-carousel';
 import Item from "./Item";
 const ip = "192.168.0.246";
+var start = 1;
 
 function Home() {
   const [companyList, setCompanyList] = useState([]);
   const getCompany = () => {
+    if(start === 1)
     Axios.get("http://" + ip + ":3001/company").then((response) => {
       setCompanyList(response.data);
+      start = 0;
     });
+
   };
 
   return (

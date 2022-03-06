@@ -10,24 +10,31 @@ import {
 
 import '../../style/Navbar.css'
 
+function refreshPage() {
+  setTimeout(()=>{
+      window.location.reload(false);
+  }, 10);
+  console.log('page to reload')
+}
+
 const Navbar = () => {
   return (
     <>
       <Nav>
       
-        <NavLink to='/'>
+        <NavLink to='/' onClick={refreshPage}>
           <img src={require('../../images/KU Internship.png')} alt='logo' />
        </NavLink>
      
       <box>
         <Bars />
         <NavMenu>
-          <NavLink to='/new' activeStyle>
+          <NavLink to='/new' activeStyle onClick={refreshPage} >
+          
             <textnav>News</textnav>
           </NavLink>
-          <NavLink to='/internship' activeStyle>
-          <textnav>Internship</textnav>
-            
+          <NavLink to='/internship' activeStyle onClick={refreshPage} >
+          <textnav  >Internship</textnav>
           </NavLink>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}

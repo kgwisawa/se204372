@@ -1,6 +1,6 @@
-import React from "react";
+import { React, useState } from "react";
 import "../style/internship.css";
-
+import Axios from "axios";
 const Icon = () => {
   if (true) {
     return (
@@ -14,8 +14,25 @@ const Icon = () => {
     return <div />;
   }
 };
+var start = 1;
+const Internship = (props) => {
+  const ip = "192.168.0.246";
+  // var s = props.start;
+  
 
-const Internship = () => {
+const [companyList, setCompanyList] = useState([]);
+const getCompany = () => {
+  if( start === 1){
+    Axios.get("http://" + ip + ":3001/company").then((response) => {
+      setCompanyList(response.data);
+      start = 0;
+    });
+  }
+
+};
+
+
+
   return (
     <div>
       {/* /////////////////////head */}
@@ -78,6 +95,7 @@ const Internship = () => {
       <div className="boxtable">
           <div className="contable">
           <table class="content-table">
+      {getCompany()}
   <thead>
     <tr>
       <th>Rank</th>
@@ -87,7 +105,24 @@ const Internship = () => {
     </tr>
   </thead>
   <tbody>
-    <tr>
+  {companyList.map((val, key) => {
+          return (
+            // <div className="employee card">
+            //   <div className="card-body text-left">
+            //     <p className="card-text">id: {val.cp_id}</p>
+            //     <p className="card-text">Name: {val.cp_name}</p>
+            //     <p className="card-text">link: {val.cp_link}</p>
+            // </div>
+            // </div>
+            <tr>
+            <td>{val.cp_name}</td>
+            <td>{val.cp_name}</td>
+            <td>{val.cp_name}</td>
+            <td>{val.cp_name}</td>
+            </tr>
+          );
+        })}
+    {/* <tr>
       <td>1</td>
       <td>Domenic</td>
       <td>88,110</td>
@@ -104,7 +139,7 @@ const Internship = () => {
       <td>Nick</td>
       <td>52,300</td>
       <td>dcode</td>
-    </tr>
+    </tr> */}
   </tbody>
 </table>
           </div>
