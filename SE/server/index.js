@@ -130,8 +130,8 @@ app.get('/loginadmin', (req,res) =>{
 
 //////////////////////////////////////////////////////////// read
 
-app.get('/loginadmin', (req,res) =>{
-  db.query("SELECT * FROM loginadmin", (err, result) => {
+app.get('/internshipinsit', (req,res) =>{
+  db.query("SELECT ln_id , cp_name , ln_name , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
       if(err) {
           console.log(err);
       } else {
