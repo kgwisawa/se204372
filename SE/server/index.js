@@ -131,7 +131,7 @@ app.get('/loginadmin', (req,res) =>{
 //////////////////////////////////////////////////////////// read
 
 app.get('/internshipinsit', (req,res) =>{
-  db.query("SELECT id_date ,ln_id , cp_name , ln_name , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
+  db.query("SELECT id_id id_date ,ln_id , cp_name , ln_name , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
       if(err) {
           console.log(err);
       } else {

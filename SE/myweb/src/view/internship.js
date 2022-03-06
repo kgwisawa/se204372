@@ -14,6 +14,9 @@ const Icon = () => {
     return <div />;
   }
 };
+
+
+
 var start = 1;
 const Internship = (props) => {
   const ip = "192.168.0.246";
@@ -30,6 +33,10 @@ const getCompany = () => {
   }
 
 };
+
+const test = (id) => {
+  alert(id);
+}
 
 
 
@@ -98,10 +105,10 @@ const getCompany = () => {
       {getCompany()}
   <thead>
     <tr>
-      <th>Date</th>
-      <th>NameCompany</th>
-      <th>Status</th>
-      <th>Delete</th>
+      <th className="txtheadtable">Date</th>
+      <th className="txtheadtable">NameCompany</th>
+      <th className="txtheadtable">Status</th>
+      <th className="txtheadtable">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -115,10 +122,10 @@ const getCompany = () => {
             // </div>
             // </div>
             <tr>
-            <td>{val.id_date}</td>
-            <td>{val.cp_name}</td>
-            <td>{val.id_status}</td>
-            <td>DELETE</td>
+            <td className="txttable">{val.id_date}</td>
+            <td className="txttable">{val.cp_name}</td>
+            <td className="txttable">{val.id_status}</td>
+            <button className="btDelete" onClick={test(val.id_id)}>Delete</button>
             </tr>
           );
         })}
