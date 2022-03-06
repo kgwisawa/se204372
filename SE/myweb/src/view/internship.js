@@ -98,10 +98,10 @@ const getCompany = () => {
       {getCompany()}
   <thead>
     <tr>
-      <th>Rank</th>
-      <th>Name</th>
-      <th>Points</th>
-      <th>Team</th>
+      <th>Date</th>
+      <th>NameCompany</th>
+      <th>Status</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
