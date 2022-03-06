@@ -6,8 +6,8 @@ export const Nav = styled.nav`
   background: #000;
   height: 80px;
   display: flex;
-  justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1000px) / 2);
+  justify-content: flex-end;
+  ${'' /* padding: 0.5rem calc((100vw - 1000px) / 2); */}
   z-index: 10;
   /* Third Nav */
   /* justify-content: flex-start; */
@@ -43,6 +43,7 @@ export const Bars = styled(FaBars)`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
+  ${'' /* justify-content: space-between; */}
   margin-right: -24px;
   /* Second Nav */
   /* margin-right: 24px; */
@@ -77,6 +78,7 @@ export const NavBtnLink = styled(Link)`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   /* Second Nav */
+
   margin-left: 24px;
   &:hover {
     transition: all 0.2s ease-in-out;

@@ -1,8 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&family=Fredoka&display=swap');
 * {
   font-family: 'Sora', sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+textnav {
+  font-size: 20px;
+  font-family: 'Fredoka', sans-serif;
+}
+
+img {
+  position: absolute;
+  margin-left: -80% ;
 }

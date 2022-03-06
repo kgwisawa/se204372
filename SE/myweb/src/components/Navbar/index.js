@@ -8,26 +8,23 @@ import {
   NavBtnLink
 } from './NavbarElements';
 
+import '../../style/Navbar.css'
+
 const Navbar = () => {
   return (
     <>
       <Nav>
         <NavLink to='/'>
-          <img src={require('../../images/logo.svg')} alt='logo' />
+          <img src={require('../../images/KU Internship.png')} alt='logo' />
         </NavLink>
         <Bars />
         <NavMenu>
-          <NavLink to='/about' activeStyle>
-            About
+          <NavLink to='/new' activeStyle>
+            <textnav>News</textnav>
           </NavLink>
-          <NavLink to='/services' activeStyle>
-            Services
-          </NavLink>
-          <NavLink to='/contact-us' activeStyle>
-            Contact Us
-          </NavLink>
-          <NavLink to='/sign-up' activeStyle>
-            Sign Up
+          <NavLink to='/internship' activeStyle>
+          <textnav>Internship</textnav>
+            
           </NavLink>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
