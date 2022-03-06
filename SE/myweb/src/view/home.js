@@ -3,11 +3,12 @@ import Axios from "axios";
 import "../App.css";
 
 import Item from "./Item";
+const ip ="192.168.0.246";
 function Home() {
 
     const [companyList, setCompanyList] = useState([]);
     const getCompany = () => {
-      Axios.get("http://localhost:3001/company").then((response) => {
+      Axios.get("http://"+ip+":3001/company").then((response) => {
         setCompanyList(response.data);
       });
     };
