@@ -26,7 +26,7 @@ function Home() {
         showArrows={false}
         enableAutoPlay={true}
         itemsToShow={4}
-        autoPlaySpeed={1500}
+        autoPlaySpeed={10000}
         itemsToScroll={4}
       >
         {companyList.map((val, key) => {
@@ -44,32 +44,16 @@ function Home() {
       </Carousel>
     </div>
     <br/>
-    <br/>
-    <br/>
     <h1>Kuyyyy</h1>
-    <InfiniteCarousel breakpoints={[
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
-    ]}
-    dots={true}
-    showSides={true}
-    sidesOpacity={.5}
-    sideSize={.1}
-    slidesToScroll={1}
-    slidesToShow={1}
-    scrollOnDevice={true}>
+    <Carousel
+        itemPadding={[10, 10]}
+        pagination={false}
+        showArrows={false}
+        enableAutoPlay={true}
+        itemsToShow={1}
+        autoPlaySpeed={20000}
+        itemsToScroll={1}
+      >
       <Item><h1>k1</h1></Item>
       <Item><h1>k2</h1></Item>
       <Item><h1>k3</h1></Item>
@@ -78,7 +62,7 @@ function Home() {
       <Item><h1>k6</h1></Item>
       <Item><h1>k7</h1></Item>
       <Item><h1>k8</h1></Item>
-    </InfiniteCarousel>
+    </Carousel>
     </div>
   );
 }
