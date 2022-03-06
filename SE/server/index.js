@@ -109,7 +109,7 @@ app.get('/loginnisit', (req,res) =>{
 //////////////////////////////////////////////////////////// read
 
 app.get('/loginadmin', (req,res) =>{
-  db.query("SELECT * FROM loginadmin", (err, result) => {
+  db.query("SELECT * FROM loginadmin INNER JOIN position AS p ON p.po_id = loginadmin.po_id", (err, result) => {
       if(err) {
           console.log(err);
       } else {
