@@ -55,6 +55,7 @@ function Home() {
       <br />
       <br />
       <h3>News</h3>
+      <br/>
       <Carousel
         itemPadding={[10, 10]}
         // pagination={false}
@@ -64,9 +65,9 @@ function Home() {
         autoPlaySpeed={10000}
         itemsToScroll={1}
       >
-        <img src={require('../images/News_1.jpg')} width="900" height ="400"/>
-        <img src={require('../images/News_2.jpg')} width="900" height ="400"/>
-        <img src={require('../images/News_3.jpg')} width="900" height ="400"/>
+        <img src={require('../images/News_3.png')} width="60%" height = "60%"draggable="false"/>
+        <img src={require('../images/News_1.png')} width="60%" height = "60%"draggable="false"/>
+        <img src={require('../images/News_2.png')} width="60%" height = "60%"draggable="false"/>
 
       </Carousel>
     </div>
