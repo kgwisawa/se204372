@@ -119,6 +119,8 @@ app.get('/loginadmin', (req,res) =>{
 });
 
 
+
+
 //////////////////////////////////////////////////////////// Model loginadmin end
 
 //-----------------------------------------------------------------------------------------//
@@ -126,12 +128,59 @@ app.get('/loginadmin', (req,res) =>{
 //-----------------------------------------------------------------------------------------//
 
 
-//////////////////////////////////////////////////////////// Model internshipinsit
+//////////////////////////////////////////////////////////// Model internshipdocument
 
 //////////////////////////////////////////////////////////// read
 
-app.get('/internshipinsit', (req,res) =>{
-  db.query("SELECT id_id, id_date ,ln_id , cp_name , ln_name , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
+app.get('/internshipdocument', (req,res) =>{
+  db.query("SELECT  ln_id  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
+      if(err) {
+          console.log(err);
+      } else {
+          res.send(result);
+      }
+  });
+});
+
+//////////////////////////////////////////////////////////// add
+app.post("/create/internshipdocument", (req, res) => {
+  const ln_id = req.body.ln_id;
+  const id_date = req.body.id_date;
+  const cp_id = req.body.cp_id;
+  const id_position = req.body.id_position;
+  const id_sdate = req.body.id_sdate;
+  const id_edate = req.body.id_edate;
+  const id_file = req.body.id_file;
+  const id_tfile1 = req.body.id_tfile1;
+  const id_tfile2 = req.body.id_tfile2;
+  const id_status = req.body.id_status;
+  const id_confirm = req.body.id_confirm;
+
+  db.query(
+    "INSERT INTO internshipdocument (ln_id  , id_date ,  cp_id  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_tfile1`,`id_tfile2`,`id_status`,`id_confirm`) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+    [ln_id , id_date, cp_id ,id_position,id_sdate,id_edate,id_file ,id_tfile1,id_tfile2, id_status, id_confirm],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Values Inserted");
+      }
+    }
+  );
+});
+
+
+//////////////////////////////////////////////////////////// Model internshipinsit end
+
+//-----------------------------------------------------------------------------------------//
+
+
+//////////////////////////////////////////////////////////// Model internshipresult
+
+//////////////////////////////////////////////////////////// read
+
+app.get('/internshipresult', (req,res) =>{
+  db.query("SELECT ln_id , ln_name , cp_name , ir_date , ir_image ,ir_status FROM internshipresult JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
       if(err) {
           console.log(err);
       } else {
@@ -141,7 +190,7 @@ app.get('/internshipinsit', (req,res) =>{
 });
 
 
-//////////////////////////////////////////////////////////// Model internshipinsit end
+//////////////////////////////////////////////////////////// Model internshipresult end
 
 //-----------------------------------------------------------------------------------------//
 
