@@ -89,7 +89,7 @@ app.post("/create/company", (req, res) => {
 //////////////////////////////////////////////////////////// read
 
 app.get('/loginnisit', (req,res) =>{
-  db.query("SELECT * FROM loginnisit", (err, result) => {
+  db.query("SELECT email , password FROM loginnisit", (err, result) => {
       if(err) {
           console.log(err);
       } else {
@@ -109,7 +109,7 @@ app.get('/loginnisit', (req,res) =>{
 //////////////////////////////////////////////////////////// read
 
 app.get('/loginadmin', (req,res) =>{
-  db.query("SELECT * FROM loginadmin INNER JOIN position AS p ON p.po_id = loginadmin.po_id", (err, result) => {
+  db.query("SELECT email , password , po_name FROM loginadmin INNER JOIN position AS p ON p.po_id = loginadmin.po_id", (err, result) => {
       if(err) {
           console.log(err);
       } else {
