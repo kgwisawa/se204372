@@ -19,12 +19,18 @@ function refreshPage() {
 
 
 
-const Navbar = () => {
-  const status =  '1';
+const Navbar = (props) => {
+  const status = props.status;
   const [pathh, setpathh] = useState("");
   const [pathin, setpathin] = useState("");
   const [path, setpath] = useState("");
   const [text, settext] = useState("");
+
+  // function setstatus(){
+  //   if(status === '2' || '3'){
+  //     status = 1;
+  //   }
+  // }
 
   useEffect(() => {
 
@@ -35,7 +41,9 @@ const Navbar = () => {
       settext('Sign in');
 
     }else if(status === '2'){
-      setpath('/signin');
+      setpathh('/new')
+      setpathin('/internship');
+      setpath('/new-start');
       settext('Sign Out')
     }else{
       setpath('/signin');
@@ -69,6 +77,7 @@ const Navbar = () => {
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
         <NavBtn>
+  
          <NavBtnLink to={path}  onClick={refreshPage} >{text}</NavBtnLink>
         </NavBtn>
       </box>

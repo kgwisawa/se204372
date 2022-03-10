@@ -2,6 +2,16 @@ import { React, useState } from "react";
 import "../style/internship.css";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+
+
+
+function refreshPage() {
+  setTimeout(()=>{
+      window.location.reload(false);
+  }, 10);
+  console.log('page to reload')
+}
+
 const Icon = () => {
   if (true) {
     return (
@@ -89,7 +99,7 @@ const Internship = (props) => {
       <div className="boxheadtable">
         <div className="headtable">
           <div>Status Document internship</div>
-          <Link to="/newinternship" className="add">
+          <Link to="/newinternship" className="add" onClick={refreshPage} >
             New
           </Link>
         </div>

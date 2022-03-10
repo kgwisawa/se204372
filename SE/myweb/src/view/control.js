@@ -13,15 +13,21 @@ function Control(props) {
     useEffect(() => {
      
             if(props.start === 'home-start'){
-              setcomponents(<Home/>);
+              setcomponents(<Home />);
             }
             else if(props.start === 'internship-start'){
               setcomponents(<Login/>);
             }
+            else if(props.start === 'signin-start'){
+              setcomponents(<Login/>);
+            }
+            if(props.start === 'home'){
+              setcomponents(<Home/>);
+            }
             else if(props.start === 'internship'){
               setcomponents(<Internship/>);
             }
-            else if(props.start === 'signin-start'){
+            else if(props.start === 'signin'){
               setcomponents(<Login/>);
             }
             else if(props.start === 'newinternship'){
@@ -31,7 +37,7 @@ function Control(props) {
 
   return (
     <div>
-        <Navbar/>
+        <Navbar status={props.status}/>
         {components}
     </div>
   )
