@@ -138,8 +138,8 @@ input[type="submit"]{
     background-position: center;
     background-size: cover;
     display: flex;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 682px;
     background-image: url('../images/mounten.jpg');
 }
 
