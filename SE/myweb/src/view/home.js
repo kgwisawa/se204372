@@ -63,33 +63,13 @@ function Home() {
         showArrows={false}
         enableAutoPlay={true}
         itemsToShow={1}
-        autoPlaySpeed={20000}
+        autoPlaySpeed={10000}
         itemsToScroll={1}
       >
-        <Item>
-          <h1>k1</h1>
-        </Item>
-        <Item>
-          <h1>k2</h1>
-        </Item>
-        <Item>
-          <h1>k3</h1>
-        </Item>
-        <Item>
-          <h1>k4</h1>
-        </Item>
-        <Item>
-          <h1>k5</h1>
-        </Item>
-        <Item>
-          <h1>k6</h1>
-        </Item>
-        <Item>
-          <h1>k7</h1>
-        </Item>
-        <Item>
-          <h1>k8</h1>
-        </Item>
+        <img src={require('../images/News_1.jpg')} width="900" height ="400"/>
+        <img src={require('../images/News_2.jpg')} width="900" height ="400"/>
+        <img src={require('../images/News_3.jpg')} width="900" height ="400"/>
+
       </Carousel>
     </div>
   );
