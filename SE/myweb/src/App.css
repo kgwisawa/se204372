@@ -45,3 +45,29 @@
   margin: 0;
   padding: 0;
 }
+
+.info {
+  display: flex;
+  width: 80px;
+  height: 50px;
+  margin-top: 180px;
+  margin-left:100px 0px;
+  position:absolute;
+  align-items:center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.bt {
+  display: flex;
+  width: 80px;
+  height: 50px;
+  align-items:center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-decoration: none;
+}
