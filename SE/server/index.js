@@ -4,7 +4,12 @@ const mysql = require('mysql');
 const cors = require('cors');
 
 app.use(cors());
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 app.use(express.json());
+
+
 
 const db = mysql.createConnection({
     user: "root",
@@ -89,7 +94,7 @@ app.post("/create/company", (req, res) => {
 //////////////////////////////////////////////////////////// read
 
 app.get('/loginnisit', (req,res) =>{
-  db.query("SELECT email , password FROM loginnisit", (err, result) => {
+  db.query("SELECT ln_id ,email , password FROM loginnisit", (err, result) => {
       if(err) {
           console.log(err);
       } else {
@@ -133,7 +138,7 @@ app.get('/loginadmin', (req,res) =>{
 //////////////////////////////////////////////////////////// read
 
 app.get('/internshipdocument', (req,res) =>{
-  db.query("SELECT  ln_id  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
+  db.query("SELECT  id_id , ln_id , ln_name , email  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
       if(err) {
           console.log(err);
       } else {
@@ -169,6 +174,26 @@ app.post("/create/internshipdocument", (req, res) => {
   );
 });
 
+//////////////////////////////////////////////////////////// update
+
+app.put("/update/internshipdocument", (req, res) => {
+  const id = req.body.id;
+  const status = req.body.status;
+
+
+  db.query(
+    "UPDATE internshipdocument SET id_status = ? WHERE id_id = ?",
+    [ status ,id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
 
 //////////////////////////////////////////////////////////// Model internshipinsit end
 
@@ -180,13 +205,33 @@ app.post("/create/internshipdocument", (req, res) => {
 //////////////////////////////////////////////////////////// read
 
 app.get('/internshipresult', (req,res) =>{
-  db.query("SELECT ln_id , ln_name , cp_name , ir_date , ir_image ,ir_status FROM internshipresult JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
+  db.query("SELECT ir_id, ln_id , ln_name ,email , cp_name , ir_date , ir_image ,ir_status FROM internshipresult JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
       if(err) {
           console.log(err);
       } else {
           res.send(result);
       }
   });
+});
+
+//////////////////////////////////////////////////////////// update
+
+app.put("/update/internshipresult", (req, res) => {
+  const id = req.body.id;
+  const status = req.body.status;
+
+
+  db.query(
+    "UPDATE internshipresult SET ir_status = ? WHERE ir_id = ?",
+    [ status ,id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
 });
 
 
