@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Nav,
   NavLink,
@@ -7,7 +7,7 @@ import {
   NavBtn,
   NavBtnLink
 } from './NavbarElements';
-
+import { useParams } from "react-router-dom";
 import '../../style/Navbar.css'
 
 function refreshPage() {
@@ -17,9 +17,48 @@ function refreshPage() {
   console.log('page to reload')
 }
 
-const Navbar = () => {
+
+
+const Navbar = (props) => {
+  const { id } = useParams();
+  const status = props.status;
+  const [pathh, setpathh] = useState("");
+  const [pathin, setpathin] = useState("");
+  const [path, setpath] = useState("");
+  const [text, settext] = useState("");
+
+  const nisitpath = ['/new/'+id,'/internship/'+id]
+  // function setstatus(){
+  //   if(status === '2' || '3'){
+  //     status = 1;
+  //   }
+  // }
+
+  useEffect(() => {
+
+    if(status === '1'){
+      setpathh('/new-start')
+      setpathin('/internship-start');
+      setpath('/signin-start');
+      settext('Sign in');
+
+    }else if(status === '2'){
+      setpathh(nisitpath[0])
+      setpathin(nisitpath[1]);
+      setpath('/new-start');
+      settext('Sign Out')
+    }else{
+      setpath('/signin');
+      settext('Sign Out')
+    }
+  }, []);
+
+
+
+
   return (
     <>
+
       <Nav>
       
         <NavLink to='/' onClick={refreshPage}>
@@ -29,18 +68,19 @@ const Navbar = () => {
       <box>
         <Bars />
         <NavMenu>
-          <NavLink to='/new' activeStyle onClick={refreshPage} >
+          <NavLink to={pathh} activeStyle onClick={refreshPage} >
           
             <textnav>News</textnav>
           </NavLink>
-          <NavLink to='/internship' activeStyle onClick={refreshPage} >
+          <NavLink to={pathin} activeStyle onClick={refreshPage} >
           <textnav  >Internship</textnav>
           </NavLink>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+  
+         <NavBtnLink to={path}  onClick={refreshPage} >{text}</NavBtnLink>
         </NavBtn>
       </box>
       </Nav>

@@ -1,6 +1,7 @@
 import { React, useState ,input} from "react";
 import Axios from "axios";
 import "../App.css";
+import { useParams } from "react-router-dom";
 
 import Carousel from "react-elastic-carousel";
 import Item from "./Item";
@@ -10,12 +11,16 @@ const ip = "192.168.0.246";
 var start = 1;
 
 function Home() {
+
+  const { id } = useParams();
+
   const [companyList, setCompanyList] = useState([]);
   const getCompany = () => {
     if (start === 1)
       Axios.get("http://" + ip + ":3001/company").then((response) => {
         setCompanyList(response.data);
-        // alert(response.data)
+        // alert(location.state.name);
+        // alert(props.location.name)
         start = 0;
       });
   };
@@ -44,7 +49,7 @@ function Home() {
                 {val.cp_name}
                 <div className="info">
                   <a href={val.cp_link} target="_blank" className="bt">
-                    Info
+                    Info 
                   </a>
                 </div>
               </Item>
@@ -55,6 +60,7 @@ function Home() {
       <br />
       <br />
       <h3>News</h3>
+      <br/>
       <Carousel
         itemPadding={[10, 10]}
         // pagination={false}
@@ -64,9 +70,9 @@ function Home() {
         autoPlaySpeed={10000}
         itemsToScroll={1}
       >
-        <img src={require('../images/News_1.jpg')} width="900" height ="400"/>
-        <img src={require('../images/News_2.jpg')} width="900" height ="400"/>
-        <img src={require('../images/News_3.jpg')} width="900" height ="400"/>
+        <img src={require('../images/News_3.png')} width="60%" height = "60%"draggable="false"/>
+        <img src={require('../images/News_1.png')} width="60%" height = "60%"draggable="false"/>
+        <img src={require('../images/News_2.png')} width="60%" height = "60%"draggable="false"/>
 
       </Carousel>
     </div>
