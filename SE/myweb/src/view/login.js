@@ -43,7 +43,7 @@ function Login() {
     for (let i = 0; i < users.length; i++) {
 
       if (email === users[i].email && password === users[i].password) {
-        const path = "/new/"+email;
+        const path = "/new/"+users[i].ln_id;
         navigate(path);
         return;
       }

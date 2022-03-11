@@ -1,51 +1,69 @@
-import React, { useEffect, useState , Component  } from "react";
+import React, { useEffect, useState, Component } from "react";
 import "../style/add_internship.css";
-import 'react-dropdown/style.css'
+import "react-dropdown/style.css";
 // import { Checkbox } from 'react-native-paper';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { Link, useParams , useNavigate  } from "react-router-dom";
 import Axios from "axios";
-import Dropdown from 'react-dropdown'
-
+import Dropdown from "react-dropdown";
+import Moment from "react-moment";
+import moment from "moment";
+import "moment-timezone";
 
 const userData = [{ name: "ฝึกงาน" }, { name: "สหกิจศึกษา" }];
 
-
 function Add_internship() {
- 
+
+  const navigate = useNavigate();
+
+
+  const { id } = useParams();
+  const start = moment().format("l");
   const [company, setcompany] = useState([]);
   const [companyList, setCompanyList] = useState([]);
+
+  function setcp(data) {
+    // alert(companyList[0].cp_name );
+    for(let i in companyList){
+      if(companyList[i].cp_name === data){
+          setcp_id(companyList[i].cp_id);
+          // alert(companyList[i].cp_id)
+      }
+    }
+  }
+
   const getCompany = () => {
-       Axios.get("http://" + ip + ":3001/company").then((response) => {
-        setCompanyList(response.data);
-        for(let i in companyList){
-          // alert(companyList[i].cp_name)
-          company.push(companyList[i].cp_name);
-        }
-        // alert(companyList[0].cp_name)
-      });
+    Axios.get("http://" + ip + ":3001/company").then((response) => {
+      setCompanyList(response.data);
+      for (let i in companyList) {
+        // alert(companyList[i].cp_name)
+        company.push(companyList[i].cp_name);
+      }
+      // alert(companyList[0].cp_name)
+    });
   };
 
-  function setcom(){
-    for(let i in companyList){
+  function setcom() {
+    for (let i in companyList) {
       // alert(companyList[i].cp_name)
       company.push(companyList[i].cp_name);
     }
     return company;
   }
-
-  const [ln_id, setln_id] = useState("");
-  const [id_date, setid_date] = useState("");
   const [cp_name, setcp_name] = useState("");
-  const [id_confirm, setid_confirm] = useState("");
+
+  const [id_date, setid_date] = useState(start);
+  const [id_confirm, setid_confirm] = useState("-");
+  const [id_file, setid_file] = useState("-");
+  const [id_tfile1, setid_tfile1] = useState("-");
+  const [id_tfile2, setid_tfile2] = useState("-");
+  const [cp_id, setcp_id] = useState("CP001");
+  const [ln_id, setln_id] = useState(id);
+
   const [id_status, setid_status] = useState("pending");
-
-
   const [id_position, setid_position] = useState("");
   const [id_sdate, setid_sdate] = useState("");
   const [id_edate, setid_edate] = useState("");
- 
-
 
   const [internship, setinternship] = useState([]);
 
@@ -74,38 +92,47 @@ function Add_internship() {
 
   const ip = "192.168.0.246";
 
-  // const addinternship = () => {
-  //   Axios.post("http://" + ip + ":3001/create/addinternship", {
-  //     id_date: id_date,
-  //     ln_id: ln_id,
-  //     cp_name: cp_name,
-  //     id_position: id_position,
-  //     id_sdate: id_sdate,
-  //     id_file: baseImage,
-  //     id_status: id_status,
-  //     id_edate: id_edate,
-  //     id_confirm: id_confirm,
-  //   }).then(() => {
-  //     setinternship([
-  //       ...internship,
-  //       {
-  //         id_date: id_date,
-  //         ln_id: ln_id,
-  //         cp_name: cp_name,
-  //         id_position: id_position,
-  //         id_sdate: id_sdate,
-  //         id_file: baseImage,
-  //         id_status: id_status,
-  //         id_edate: id_edate,
-  //         id_confirm: id_confirm,
-  //       },
-  //     ]);
-  //   });
-  // };
+  const addinternship = () => {
+    Axios.post("http://" + ip + ":3001/create/internshipdocument", {
+      ln_id: ln_id,
+      id_date: id_date,
+      cp_id: cp_id,
+      id_position: id_position,
+      id_sdate: id_sdate,
+      id_edate: id_edate,
+      id_file: baseImage,
+      id_tfile1: id_tfile1,
+      id_tfile2: id_tfile2,
+      id_status: id_status,
+      id_confirm: id_confirm,
+    }).then(() => {
+      setinternship([
+        ...internship,
+        {
+          ln_id: ln_id,
+          id_date: id_date,
+          cp_id: cp_id,
+          id_position: id_position,
+          id_sdate: id_sdate,
+          id_edate: id_edate,
+          id_file: baseImage,
+          id_tfile1: id_tfile1,
+          id_tfile2: id_tfile2,
+          id_status: id_status,
+          id_confirm: id_confirm,
+        },
+      ]);
+    });
+
+    alert("submit successful");
+    navigate("/internship/"+id);
+
+  };
 
   useEffect(() => {
     setUsers(userData);
     getCompany();
+    // alert(start)
   }, []);
 
   const handleChange = (e) => {
@@ -139,10 +166,6 @@ function Add_internship() {
           ))}
         </div>
 
-
-
- 
-
         <div className="txt_field-in">
           <input
             type={"text"}
@@ -154,10 +177,16 @@ function Add_internship() {
           <span></span>
           <label>Position</label>
         </div>
-        
+
         <div>
-        <Dropdown options={setcom()}  placeholder="Select Company" />
-  </div>
+          <Dropdown
+            options={setcom()}
+            placeholder="Select Company"
+            onChange={(event) => {
+             setcp(event.value);
+            }}
+          />
+        </div>
         <div className="txt_field-in">
           <input
             type={"text"}
@@ -193,7 +222,7 @@ function Add_internship() {
 
         <div className="button-st-in">
           <div className="box">
-            <input type={"submit"} value="Apply" />
+            <input type={"submit"} value="Apply" onClick={addinternship} />
           </div>
 
           <Link to="/new" className="btCancel">

@@ -56,7 +56,7 @@ const Internship = (props) => {
         
       for(let i in fdata){
        
-        if(fdata[i].email === id){
+        if(fdata[i].ln_id === id){
           itemdata.push(fdata[i]);
         } 
       }
@@ -73,7 +73,7 @@ const Internship = (props) => {
       
     for(let i in fdata){
      
-      if(fdata[i].email === id){
+      if(fdata[i].ln_id === id){
         itemdata.push(fdata[i]);
       } 
     }
