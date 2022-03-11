@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState ,useEffect} from "react";
 import "../style/internship.css";
 import { Link,useParams } from "react-router-dom";
 import Axios from "axios";
@@ -30,7 +30,7 @@ const Icon = () => {
 //   alert(id);
 // }
 
-var start = 1;
+
 const Internship = (props) => {
 
   const { id } = useParams();
@@ -38,15 +38,32 @@ const Internship = (props) => {
   // var s = props.start;
 
   const [data, setdata] = useState([]);
-  const getCompany = () => {
-    if (start === 1) {
-      Axios.get("http://" + ip + ":3001/internshipinsit").then((response) => {
+
+
+  useEffect(() => {
+    getCompany();
+
+  }, []);
+
+
+  function getCompany ()  {
+      Axios.get("http://" + ip + ":3001/internshipdocument").then((response) => {
+      
+      const fdata = response.data;
+      const itemdata = [];
         
-        setdata(response.data);
-        start = 0;
+      for(let i in fdata){
+       
+        if(fdata[i].email === id){
+          itemdata.push(fdata[i]);
+        } 
+      }
+      setdata(itemdata);
       });
-    }
   };
+
+  
+
 
   
 
@@ -119,7 +136,7 @@ const Internship = (props) => {
       <div className="boxtable">
         <div className="contable">
           <table class="content-table">
-            {getCompany()}
+          
             <thead>
               <tr>
                 <th className="txtheadtable">Date</th>
@@ -153,7 +170,6 @@ const Internship = (props) => {
 
         <div className="contable">
           <table class="content-table">
-            {getCompany()}
             <thead>
               <tr>
                 <th className="txtheadtable">Date</th>
