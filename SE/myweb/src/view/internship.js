@@ -161,7 +161,7 @@ const Internship = (props) => {
                 <th className="txtheadtable">Date</th>
                 <th className="txtheadtable">NameCompany</th>
                 <th className="txtheadtable">Status</th>
-                <th className="txtheadtable">Delete</th>
+        
               </tr>
             </thead>
             <tbody>
@@ -171,15 +171,6 @@ const Internship = (props) => {
                     <td className="txttable">{val.id_date}</td>
                     <td className="txttable">{val.cp_name}</td>
                     <td className="txttable">{val.id_status}</td>
-                    <td>
-                      <Link
-                        to="/new"
-                        params={{ id: val.id_id }}
-                        className="btDelete"
-                      >
-                        Delete
-                      </Link>
-                    </td>
                   </tr>
                 );
               })}
