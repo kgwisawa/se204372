@@ -40,31 +40,26 @@ function Login() {
 
 
   const getVal = () => {
-    for (let i = 0; i < users.length || i < admins.length; i++) {
+    for (let i = 0; i < users.length; i++) {
 
       if (email === users[i].email && password === users[i].password) {
         const path = "/new/"+email;
         navigate(path);
-        // refreshPage();
         return;
       }
-      else if (email === admins[i].email && password === admins[i].password) {
-        // alert(admins[i].email + " " + admins[i].password)
+    }
+    for(let i = 0 ; i < admins.length ; i++){
+        if (email === admins[i].email && password === admins[i].password) {
 
         if(admins[i].po_name === 'admin'){
           navigate("/new-admin" );
-          // alert("Admin: "+admins[i].po_name);
-          // refreshPage();
           return;
         }
         else if(admins[i].po_name === "teacher"){
           navigate("/new-teacher");
-          // alert("Teacher: "+admins[i].po_name);
-          // refreshPage();
           return;
         }
       }
-      
     }
   };
 
