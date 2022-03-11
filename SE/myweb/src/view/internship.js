@@ -38,15 +38,17 @@ const Internship = (props) => {
   // var s = props.start;
 
   const [data, setdata] = useState([]);
+  const [dataresult, setdataresult] = useState([]);
 
 
   useEffect(() => {
-    getCompany();
+    getinterndoc();
+    getinternresult();
 
   }, []);
 
 
-  function getCompany ()  {
+  function getinterndoc ()  {
       Axios.get("http://" + ip + ":3001/internshipdocument").then((response) => {
       
       const fdata = response.data;
@@ -61,6 +63,23 @@ const Internship = (props) => {
       setdata(itemdata);
       });
   };
+
+
+  function getinternresult ()  {
+    Axios.get("http://" + ip + ":3001/internshipresult").then((response) => {
+    
+    const fdata = response.data;
+    const itemdata = [];
+      
+    for(let i in fdata){
+     
+      if(fdata[i].email === id){
+        itemdata.push(fdata[i]);
+      } 
+    }
+    setdataresult(itemdata);
+    });
+};
 
   
 
@@ -121,7 +140,7 @@ const Internship = (props) => {
       <div className="boxheadtable">
         <div className="headtable">
           <div>Status Document internship</div>
-          <Link to="/newinternship" className="add" onClick={refreshPage} >
+          <Link to={"/newinternship/"+id} className="add" onClick={refreshPage} >
             New
           </Link>
         </div>
@@ -179,12 +198,12 @@ const Internship = (props) => {
               </tr>
             </thead>
             <tbody>
-              {data.map((val, key) => {
+              {dataresult.map((val, key) => {
                 return (
                   <tr>
-                    <td className="txttable">{val.id_date}</td>
+                    <td className="txttable">{val.ir_date}</td>
                     <td className="txttable">{val.cp_name}</td>
-                    <td className="txttable">{val.id_status}</td>
+                    <td className="txttable">{val.ir_status}</td>
                   </tr>
                 );
               })}
