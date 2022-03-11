@@ -7,7 +7,7 @@ import {
   NavBtn,
   NavBtnLink
 } from './NavbarElements';
-
+import { useParams } from "react-router-dom";
 import '../../style/Navbar.css'
 
 function refreshPage() {
@@ -20,12 +20,14 @@ function refreshPage() {
 
 
 const Navbar = (props) => {
+  const { id } = useParams();
   const status = props.status;
   const [pathh, setpathh] = useState("");
   const [pathin, setpathin] = useState("");
   const [path, setpath] = useState("");
   const [text, settext] = useState("");
 
+  const nisitpath = ['/new/'+id,'/internship/'+id]
   // function setstatus(){
   //   if(status === '2' || '3'){
   //     status = 1;
@@ -41,8 +43,8 @@ const Navbar = (props) => {
       settext('Sign in');
 
     }else if(status === '2'){
-      setpathh('/new')
-      setpathin('/internship');
+      setpathh(nisitpath[0])
+      setpathin(nisitpath[1]);
       setpath('/new-start');
       settext('Sign Out')
     }else{

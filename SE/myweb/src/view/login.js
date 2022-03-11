@@ -2,15 +2,26 @@
 import React, { useState } from "react";
 import "../style/login.css";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 const ip = "192.168.0.246";
+
 
 let start = 1;
 let end = 1;
+function refreshPage() {
+  setTimeout(()=>{
+      window.location.reload(false);
+  }, 10);
+  console.log('page to reload')
+}
 
 function Login() {
+  const navigate = useNavigate();
 
   const [email,setEmail] = useState('');
   const [password , setPassword] = useState('');
+
+  const [path , setpath] = useState('/new-start');
 
   const [users, setUser] = useState([]);
   const [admins, setAdmin] = useState([]);
@@ -27,24 +38,33 @@ function Login() {
       end = 0;
     });
 
+
   const getVal = () => {
     for (let i = 0; i < users.length || i < admins.length; i++) {
 
       if (email === users[i].email && password === users[i].password) {
-        alert(users[i].email + " " + users[i].password);
+        const path = "/new/"+email;
+        navigate(path);
+        // refreshPage();
+        return;
       }
       else if (email === admins[i].email && password === admins[i].password) {
-        alert(admins[i].email + " " + admins[i].password)
+        // alert(admins[i].email + " " + admins[i].password)
+
         if(admins[i].po_name === 'admin'){
-          alert("Admin: "+admins[i].po_name);
+          navigate("/new-admin" );
+          // alert("Admin: "+admins[i].po_name);
+          // refreshPage();
+          return;
         }
         else if(admins[i].po_name === "teacher"){
-          alert("Teacher: "+admins[i].po_name);
+          navigate("/new-teacher");
+          // alert("Teacher: "+admins[i].po_name);
+          // refreshPage();
+          return;
         }
       }
-      else {
-        alert("Wrong Email or Password");
-      }
+      
     }
   };
 
@@ -66,7 +86,8 @@ function Login() {
             <label>Password</label>
           </div>
           <div className="box">
-            <input type={"submit"} value="Login" onClick={getVal} />
+          <input type={"submit"} value="Login" onClick={getVal} />
+          {/* <Link to={path} onClick={getVal}>Login</Link> */}
           </div>
         </form>
       </div>

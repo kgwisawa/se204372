@@ -5,8 +5,11 @@ import Home from './home';
 import Internship from './internship';
 import Login from "./login";
 import Add_internship from "./add_internship";
+import { useParams } from 'react-router-dom'
 
 function Control(props) {
+
+    const { id } = useParams();
 
     const [components, setcomponents] = useState(<Home/>);
 
@@ -22,6 +25,7 @@ function Control(props) {
               setcomponents(<Login/>);
             }
             if(props.start === 'home'){
+              
               setcomponents(<Home/>);
             }
             else if(props.start === 'internship'){

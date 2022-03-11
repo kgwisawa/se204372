@@ -1,29 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , Component  } from "react";
 import "../style/add_internship.css";
+import 'react-dropdown/style.css'
 // import { Checkbox } from 'react-native-paper';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import Dropdown from 'react-dropdown'
+
 
 const userData = [{ name: "ฝึกงาน" }, { name: "สหกิจศึกษา" }];
 
+
 function Add_internship() {
-  // const [name, setName] = useState("");
-  // const [age, setAge] = useState(0);
-  // const [country, setCountry] = useState("");
-  // const [position, setPosition] = useState("");
-  // const [wage, setWage] = useState(0);
-  // const [newWage, setNewWage] = useState(0);
+ 
+  const [company, setcompany] = useState([]);
+  const [companyList, setCompanyList] = useState([]);
+  const getCompany = () => {
+       Axios.get("http://" + ip + ":3001/company").then((response) => {
+        setCompanyList(response.data);
+        for(let i in companyList){
+          // alert(companyList[i].cp_name)
+          company.push(companyList[i].cp_name);
+        }
+        // alert(companyList[0].cp_name)
+      });
+  };
+
+  function setcom(){
+    for(let i in companyList){
+      // alert(companyList[i].cp_name)
+      company.push(companyList[i].cp_name);
+    }
+    return company;
+  }
 
   const [ln_id, setln_id] = useState("");
   const [id_date, setid_date] = useState("");
   const [cp_name, setcp_name] = useState("");
+  const [id_confirm, setid_confirm] = useState("");
+  const [id_status, setid_status] = useState("pending");
+
+
   const [id_position, setid_position] = useState("");
   const [id_sdate, setid_sdate] = useState("");
-  const [id_status, setid_status] = useState("");
   const [id_edate, setid_edate] = useState("");
-  const [id_confirm, setid_confirm] = useState("");
-
+ 
 
 
   const [internship, setinternship] = useState([]);
@@ -84,6 +105,7 @@ function Add_internship() {
 
   useEffect(() => {
     setUsers(userData);
+    getCompany();
   }, []);
 
   const handleChange = (e) => {
@@ -117,29 +139,9 @@ function Add_internship() {
           ))}
         </div>
 
-        <div className="txt_field-in">
-          <input
-            type={"text"}
-            required
-            onChange={(event) => {
-              setln_id(event.target.value);
-            }}
-          />
-          <span></span>
-          <label>Nisit id</label>
-        </div>
 
-        <div className="txt_field-in">
-          <input
-            type={"text"}
-            required
-            onChange={(event) => {
-              setcp_name(event.target.value);
-            }}
-          />
-          <span></span>
-          <label>Company Name</label>
-        </div>
+
+ 
 
         <div className="txt_field-in">
           <input
@@ -152,7 +154,10 @@ function Add_internship() {
           <span></span>
           <label>Position</label>
         </div>
-
+        
+        <div>
+        <Dropdown options={setcom()}  placeholder="Select Company" />
+  </div>
         <div className="txt_field-in">
           <input
             type={"text"}

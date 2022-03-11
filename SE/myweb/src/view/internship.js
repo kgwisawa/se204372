@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import "../style/internship.css";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import Axios from "axios";
 
 
@@ -32,18 +32,23 @@ const Icon = () => {
 
 var start = 1;
 const Internship = (props) => {
+
+  const { id } = useParams();
   const ip = "192.168.0.246";
   // var s = props.start;
 
-  const [companyList, setCompanyList] = useState([]);
+  const [data, setdata] = useState([]);
   const getCompany = () => {
     if (start === 1) {
       Axios.get("http://" + ip + ":3001/internshipinsit").then((response) => {
-        setCompanyList(response.data);
+        
+        setdata(response.data);
         start = 0;
       });
     }
   };
+
+  
 
   return (
     <div>
@@ -124,7 +129,7 @@ const Internship = (props) => {
               </tr>
             </thead>
             <tbody>
-              {companyList.map((val, key) => {
+              {data.map((val, key) => {
                 return (
                   <tr>
                     <td className="txttable">{val.id_date}</td>
@@ -158,7 +163,7 @@ const Internship = (props) => {
               </tr>
             </thead>
             <tbody>
-              {companyList.map((val, key) => {
+              {data.map((val, key) => {
                 return (
                   <tr>
                     <td className="txttable">{val.id_date}</td>
