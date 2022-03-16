@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Sarabun:wght@200&display=swap');
+.modal_content{
+    /* font-family: 'Fredoka', sans-serif; */
+    font-family: 'Sarabun', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.button-styles{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    /* background-color: green; */
+    /* width: 241px; */
+    /* height: 59px; */
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%,400%);
+}
+.btn-input1 {
+    display: flex;
+    position: absolute;
+    /* background-color: green; */
+    margin-left: -150px;
+
+}
+.btn-input2 {
+    display: flex;
+    position: absolute;
+    /* background-color: green; */
+    margin-left: 25px;
+}
+.close-button{
+    display: flex;
+    position: absolute;
+    /* background-color: green; */
+    /* margin-top: 30px; */
+    /* width: 100px; */
+    /* height: 59px; */
+    left: 35%;
+    transform: translate(0%,300%);
+    /* padding: 10px; */
+
+}
+
+.content-modal{
+    /* background-color: black; */
+    font-family: 'Fredoka', sans-serif;
+}
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  border: 2px solid #000;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+.btn-3 {
+  line-height: 39px;
+  padding: 0;
+}
+.btn-3:hover{
+  background: transparent;
+  color: #000;
+}
+.btn-3 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: #000;
+  transition: all 0.3s ease;
+}
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3:hover:before {
+  height: 100%;
+}
+.btn-3:hover:after {
+  width: 100%;
+}
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: #000;
+  transition: all 0.3s ease;
+}
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3 span:hover:before {
+  height: 100%;
+}
+.btn-3 span:hover:after {
+  width: 100%;
+}
+.inputText_inModal{
+    display: flex;
+    width: 380px;
+    height: 120px;
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+    vertical-align: text-top;
+    resize: none;
+
+
+}

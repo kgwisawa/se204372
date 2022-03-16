@@ -14,7 +14,7 @@ function Control(props) {
     const [components, setcomponents] = useState(<Home/>);
 
     useEffect(() => {
-     
+
             if(props.start === 'home-start'){
               setcomponents(<Home />);
             }
@@ -25,7 +25,7 @@ function Control(props) {
               setcomponents(<Login/>);
             }
             if(props.start === 'home'){
-              
+
               setcomponents(<Home/>);
             }
             else if(props.start === 'internship'){

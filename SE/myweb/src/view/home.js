@@ -7,7 +7,7 @@ import Carousel from "react-elastic-carousel";
 import Item from "./Item";
 
 
-const ip = "192.168.0.246";
+const ip = "192.168.0.239";
 var start = 1;
 
 function Home() {
@@ -24,10 +24,10 @@ function Home() {
         start = 0;
       });
   };
-  
+
 
   return (
-    
+
     <div className="App">
       <div className="App">
 
@@ -49,7 +49,7 @@ function Home() {
                 {val.cp_name}
                 <div className="info">
                   <a href={val.cp_link} target="_blank" className="bt">
-                    Info 
+                    Info
                   </a>
                 </div>
               </Item>

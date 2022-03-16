@@ -34,7 +34,7 @@ const Icon = () => {
 const Internship = (props) => {
 
   const { id } = useParams();
-  const ip = "192.168.0.246";
+  const ip = "192.168.0.239";
   // var s = props.start;
 
   const [data, setdata] = useState([]);
@@ -50,15 +50,15 @@ const Internship = (props) => {
 
   function getinterndoc ()  {
       Axios.get("http://" + ip + ":3001/internshipdocument").then((response) => {
-      
+
       const fdata = response.data;
       const itemdata = [];
-        
+
       for(let i in fdata){
-       
+
         if(fdata[i].ln_id === id){
           itemdata.push(fdata[i]);
-        } 
+        }
       }
       setdata(itemdata);
       });
@@ -67,28 +67,28 @@ const Internship = (props) => {
 
   function getinternresult ()  {
     Axios.get("http://" + ip + ":3001/internshipresult").then((response) => {
-    
+
     const fdata = response.data;
     const itemdata = [];
-      
+
     for(let i in fdata){
-     
+
       if(fdata[i].ln_id === id){
         itemdata.push(fdata[i]);
-      } 
+      }
     }
     setdataresult(itemdata);
     });
 };
 
-  
 
 
-  
+
+
 
   return (
     <div>
-    
+
       {/* /////////////////////head */}
       <div className="boxhead">
         <h1 className="head">Internship</h1>
@@ -155,13 +155,13 @@ const Internship = (props) => {
       <div className="boxtable">
         <div className="contable">
           <table class="content-table">
-          
+
             <thead>
               <tr>
                 <th className="txtheadtable">Date</th>
                 <th className="txtheadtable">NameCompany</th>
                 <th className="txtheadtable">Status</th>
-        
+
               </tr>
             </thead>
             <tbody>
@@ -185,7 +185,7 @@ const Internship = (props) => {
                 <th className="txtheadtable">Date</th>
                 <th className="txtheadtable">NameCompany</th>
                 <th className="txtheadtable">Status</th>
-                
+
               </tr>
             </thead>
             <tbody>
