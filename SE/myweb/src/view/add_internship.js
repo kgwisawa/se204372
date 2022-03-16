@@ -64,6 +64,7 @@ function Add_internship() {
   const [id_position, setid_position] = useState("");
   const [id_sdate, setid_sdate] = useState("");
   const [id_edate, setid_edate] = useState("");
+  const [id_year, setid_year] = useState("");
 
   const [internship, setinternship] = useState([]);
 
@@ -90,7 +91,7 @@ function Add_internship() {
     });
   };
 
-  const ip = "192.168.0.246";
+  const ip = "192.168.0.239";
 
   const addinternship = () => {
     Axios.post("http://" + ip + ":3001/create/internshipdocument", {
@@ -105,6 +106,7 @@ function Add_internship() {
       id_tfile2: id_tfile2,
       id_status: id_status,
       id_confirm: id_confirm,
+      id_year: id_year,
     }).then(() => {
       setinternship([
         ...internship,
@@ -120,6 +122,7 @@ function Add_internship() {
           id_tfile2: id_tfile2,
           id_status: id_status,
           id_confirm: id_confirm,
+          id_year: id_year,
         },
       ]);
     });
@@ -209,6 +212,18 @@ function Add_internship() {
           />
           <span></span>
           <label>End Date</label>
+        </div>
+
+        <div className="txt_field-in">
+          <input
+            type={"text"}
+            required
+            onChange={(event) => {
+              setid_year(event.target.value);
+            }}
+          />
+          <span></span>
+          <label>Year</label>
         </div>
 
         <div>

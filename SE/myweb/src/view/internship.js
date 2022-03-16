@@ -161,6 +161,7 @@ const Internship = (props) => {
                 <th className="txtheadtable">Date</th>
                 <th className="txtheadtable">NameCompany</th>
                 <th className="txtheadtable">Status</th>
+                <th className="txtheadtable">reason</th>
 
               </tr>
             </thead>
@@ -171,6 +172,7 @@ const Internship = (props) => {
                     <td className="txttable">{val.id_date}</td>
                     <td className="txttable">{val.cp_name}</td>
                     <td className="txttable">{val.id_status}</td>
+                    <td className="txttable">{val.id_comment}</td>
                   </tr>
                 );
               })}
@@ -195,6 +197,7 @@ const Internship = (props) => {
                     <td className="txttable">{val.ir_date}</td>
                     <td className="txttable">{val.cp_name}</td>
                     <td className="txttable">{val.ir_status}</td>
+                    
                   </tr>
                 );
               })}

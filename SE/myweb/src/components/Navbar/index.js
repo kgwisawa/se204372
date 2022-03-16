@@ -61,7 +61,7 @@ const Navbar = (props) => {
 
       <Nav>
       
-        <NavLink to='/' onClick={refreshPage}>
+        <NavLink to='/new-start' onClick={refreshPage}>
           <img src={require('../../images/KU Internship.png')} alt='logo' />
        </NavLink>
      

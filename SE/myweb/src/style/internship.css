@@ -149,7 +149,9 @@ boxdownload {
   
   .content-table th,
   .content-table td {
-    padding: 12px 15px;
+    padding: 12px 15px ;
+    max-width: 110px;
+    
   }
   
   .content-table tbody tr {
