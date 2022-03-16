@@ -113,6 +113,7 @@ export default function InternshipDoc_staff() {
   return (
     <div className="inbox">
       <div className="boxsearch">
+      <div className="txtco">Filter</div>
         <div className="searchfilter">
           <Dropdown
             options={fileterlist}
@@ -133,7 +134,9 @@ export default function InternshipDoc_staff() {
               searchfilter(dropdown, event.target.value),
             ]}
           ></input>
+
         </div>
+
       </div>
       <div className="Modal_styles">
         <Modal
@@ -220,6 +223,7 @@ export default function InternshipDoc_staff() {
           </div>
         </Modal>
       </div>
+      <div className="content">
       <table className="tableinstaff">
         <thead className="theadinstaff">
           <tr>
@@ -261,6 +265,7 @@ export default function InternshipDoc_staff() {
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
