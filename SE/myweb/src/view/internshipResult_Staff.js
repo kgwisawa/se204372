@@ -14,7 +14,7 @@ function refreshPage() {
   window.location.reload(false);
 }
 
-export default function internshipResult_Staff() {
+export default function InternshipResult_Staff() {
   const [showModal, setModal] = useState(false);
   const [internshipResult, setinternshipResult] = useState([]);
   const [ModalValue, setModalValue] = useState([]);
@@ -52,7 +52,7 @@ export default function internshipResult_Staff() {
   getResult();
 
   return (
-    <div>
+    <div className="">
       <div className="modal_content">
         <Modal
           isOpen={showModal}

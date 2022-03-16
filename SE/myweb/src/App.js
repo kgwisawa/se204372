@@ -20,6 +20,10 @@ function App() {
         <Route path='/internship/:id' element={<Control start="internship" status="2"/>}  />
         <Route path='/signin/:id' element={<Control start="signin" status="2"/>}  />
         <Route path='/newinternship/:id' element={<Control start="newinternship" status="2"/>}  />
+
+        <Route path='/new-t/:id' element={<Control start="home-t" status="3"/>}  />
+        <Route path='/internship-t/:id' element={<Control start="internship-t" status="3"/>}  />
+        <Route path='/signin-t/:id' element={<Control start="signin" status="3"/>}  />
       </Routes>
     </Router>
 

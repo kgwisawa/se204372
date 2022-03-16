@@ -1,4 +1,4 @@
-import "../intern2.scss";
+//  import "../intern2.scss";
 import Modal from "react-modal";
 import { useState } from "react";
 import Axios from "axios";
@@ -14,7 +14,7 @@ function refreshPage() {
   console.log("page to reload");
 }
 
-export default function internshipDoc_staff() {
+export default function InternshipDoc_staff() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [updateid, setUpdateid] = useState([]);
   const [internshipdocumentList, setInternshipdocumentList] = useState([]);

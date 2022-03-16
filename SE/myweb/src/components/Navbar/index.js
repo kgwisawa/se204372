@@ -28,6 +28,7 @@ const Navbar = (props) => {
   const [text, settext] = useState("");
 
   const nisitpath = ['/new/'+id,'/internship/'+id]
+  const tpath = ['/new-t/'+id,'/internship-t/'+id]
   // function setstatus(){
   //   if(status === '2' || '3'){
   //     status = 1;
@@ -45,6 +46,11 @@ const Navbar = (props) => {
     }else if(status === '2'){
       setpathh(nisitpath[0])
       setpathin(nisitpath[1]);
+      setpath('/new-start');
+      settext('Sign Out')
+    }else if(status === '3'){
+      setpathh(tpath[0])
+      setpathin(tpath[1]);
       setpath('/new-start');
       settext('Sign Out')
     }else{

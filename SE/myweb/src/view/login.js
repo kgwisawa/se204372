@@ -56,7 +56,7 @@ function Login() {
           return;
         }
         else if(admins[i].po_name === "teacher"){
-          navigate("/new-teacher");
+          navigate("/new-t");
           return;
         }
       }
