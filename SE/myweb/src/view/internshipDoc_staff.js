@@ -1,4 +1,4 @@
-//  import "../intern2.scss";
+ import "../intern2.scss";
 import Modal from "react-modal";
 import { useState } from "react";
 import Axios from "axios";
@@ -156,7 +156,7 @@ export default function InternshipDoc_staff() {
           }}
           contentLabel="Example Modal"
         >
-          <div>
+          <div className="">
             <br />
             <div className="text_detail">
               {/* {updateid.id_id} */}
@@ -220,18 +220,18 @@ export default function InternshipDoc_staff() {
           </div>
         </Modal>
       </div>
-      <table>
-        <thead>
+      <table className="tableinstaff">
+        <thead className="theadinstaff">
           <tr>
-            <th>Year</th>
-            <th>Date(M/D/Y)</th>
-            <th>NisitID</th>
-            <th>Name</th>
-            <th>Company</th>
-            <th>Position</th>
-            <th>File</th>
-            <th>Status</th>
-            <th>Update Status</th>
+            <th className="thinstaff">Year</th>
+            <th className="thinstaff">Date(M/D/Y)</th>
+            <th className="thinstaff">NisitID</th>
+            <th className="thinstaff">Name</th>
+            <th className="thinstaff">Company</th>
+            <th className="thinstaff">Position</th>
+            <th className="thinstaff">File</th>
+            <th className="thinstaff">Status</th>
+            <th className="thinstaff">Update Status</th>
           </tr>
         </thead>
         <tbody>
@@ -241,20 +241,20 @@ export default function InternshipDoc_staff() {
             const status = "status status-" + val.id_status;
             return (
               <tr>
-                <td>{val.id_year}</td>
-                <td>{val.id_date}</td>
-                <td>{val.ln_id}</td>
-                <td>{val.ln_name}</td>
-                <td>{val.cp_name}</td>
-                <td>{val.id_position}</td>
-                <td>
-                  <a href={val.id_file} download={name}>
+                <td className="tdinstaff">{val.id_year}</td>
+                <td className="tdinstaff">{val.id_date}</td>
+                <td className="tdinstaff">{val.ln_id}</td>
+                <td className="tdinstaff">{val.ln_name}</td>
+                <td className="tdinstaff">{val.cp_name}</td>
+                <td className="tdinstaff">{val.id_position}</td>
+                <td className="tdinstaff">
+                  <a href={val.id_file} download={name} className="ainstaff">
                     download
                   </a>
                 </td>
                 <td class={status}>{val.id_status}</td>
                 <td>
-                  <a onClick={() => openModal(val)}>click</a>
+                  <a onClick={() => openModal(val)} className="ainstaff">click</a>
                 </td>
               </tr>
             );

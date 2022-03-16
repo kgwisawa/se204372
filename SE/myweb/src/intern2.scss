@@ -28,7 +28,7 @@ $radius: 0.2rem;
   margin: 0;
   padding: 0;
 }
-body {
+.bodyinstaff {
   font-family: Mukta, sans-serif;
   height: 100vh;
   width: 100%;
@@ -40,19 +40,19 @@ body {
   background-color: $clr-gray100;
 }
 
-table {
+.tableinstaff {
   border-collapse: collapse;
   box-shadow: 0 5px 10px $clr-gray300;
   background-color: white;
   text-align: center;
   overflow: hidden;
 
-  thead {
+  .theadinstaff {
     box-shadow: 0 5px 10px $clr-gray300;
     background-color: $clr-gray300;
   }
 
-  th {
+  .thinstaff {
     padding: 1rem 2rem;
     // text-transform: uppercase;
     letter-spacing: 0.1rem;
@@ -60,12 +60,12 @@ table {
     font-weight: 900;
   }
 
-  td {
+  .tdinstaff {
     padding: 1rem 1.5rem;
     font-size: larger;
   }
 
-  a {
+  .ainstaff {
     text-decoration: none;
     color: $clr-link;
   }
