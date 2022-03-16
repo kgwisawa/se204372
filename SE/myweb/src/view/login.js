@@ -8,12 +8,12 @@ const ip = "192.168.0.239";
 
 let start = 1;
 let end = 1;
-function refreshPage() {
-  setTimeout(()=>{
-      window.location.reload(false);
-  }, 10);
-  console.log('page to reload')
-}
+// function refreshPage() {
+//   setTimeout(()=>{
+//       window.location.reload(false);
+//   }, 10);
+//   console.log('page to reload')
+// }
 
 function Login() {
   const navigate = useNavigate();
@@ -21,7 +21,6 @@ function Login() {
   const [email,setEmail] = useState('');
   const [password , setPassword] = useState('');
 
-  const [path , setpath] = useState('/new-start');
 
   const [users, setUser] = useState([]);
   const [admins, setAdmin] = useState([]);
@@ -56,7 +55,8 @@ function Login() {
           return;
         }
         else if(admins[i].po_name === "teacher"){
-          navigate("/new-t");
+          const path = "/new-t/"+users[i].ln_id;
+          navigate(path);
           return;
         }
       }
