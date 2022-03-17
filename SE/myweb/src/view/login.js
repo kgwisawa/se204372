@@ -55,7 +55,7 @@ function Login() {
           return;
         }
         else if(admins[i].po_name === "teacher"){
-          const path = "/new-t/"+users[i].ln_id;
+          const path = "/new-t/"+users[i].la_id;
           navigate(path);
           return;
         }

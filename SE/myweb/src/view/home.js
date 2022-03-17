@@ -59,7 +59,6 @@ function Home() {
       </div>
       <br />
       <br />
-      <h3>News</h3>
       <br/>
       <Carousel
         itemPadding={[10, 10]}
