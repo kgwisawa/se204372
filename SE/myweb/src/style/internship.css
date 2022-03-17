@@ -78,7 +78,8 @@ contenttxt {
     margin-right: 20px;
     margin-bottom: 10px;  
     color: #FFF;
-    background-color: #009879;  
+    background-color: #009879;
+    text-decoration: none;  
 }
 
 .icon {
