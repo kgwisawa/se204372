@@ -66,16 +66,16 @@ const Navbar = (props) => {
     <>
 
       <Nav>
-      
+
         <NavLink to='/new-start' onClick={refreshPage}>
           <img src={require('../../images/KU Internship.png')} alt='logo' />
        </NavLink>
-     
+
       <box>
         <Bars />
         <NavMenu>
           <NavLink to={pathh} activeStyle onClick={refreshPage} >
-          
+
             <textnav>News</textnav>
           </NavLink>
           <NavLink to={pathin} activeStyle onClick={refreshPage} >
@@ -85,7 +85,7 @@ const Navbar = (props) => {
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
         <NavBtn>
-  
+
          <NavBtnLink to={path}  onClick={refreshPage} >{text}</NavBtnLink>
         </NavBtn>
       </box>

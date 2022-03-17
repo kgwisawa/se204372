@@ -28,7 +28,7 @@ $radius: 0.2rem;
   padding: 0;
 }
 
-body {
+.Return_body {
   font-family: Mukta, sans-serif;
   height: 100vh;
   display: grid;
@@ -39,19 +39,19 @@ body {
   background-color: $clr-gray100;
 }
 
-table {
+.return_table {
   border-collapse: collapse;
   box-shadow: 0 5px 10px $clr-gray300;
   background-color: white;
   text-align: center;
   overflow: hidden;
 
-  thead {
+  .return_tablethead {
     box-shadow: 0 5px 10px $clr-gray300;
     background-color: $clr-gray300;
   }
 
-  th {
+  .return_tableth {
     padding: 1rem 2rem;
     // text-transform: uppercase;
     letter-spacing: 0.1rem;
@@ -59,12 +59,12 @@ table {
     font-weight: 900;
   }
 
-  td {
+  .return_tabletd {
     padding: 1rem 2rem;
     font-size: larger;
   }
 
-  a {
+  .return_tablea {
     text-decoration: none;
     color: $clr-link;
   }

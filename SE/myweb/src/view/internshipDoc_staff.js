@@ -4,6 +4,7 @@ import { useState } from "react";
 import Axios from "axios";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import { Link,useParams } from "react-router-dom";
 
 const ip = "192.168.0.239";
 var start = 1;
@@ -14,7 +15,12 @@ function refreshPage() {
   console.log("page to reload");
 }
 
-export default function InternshipDoc_staff() {
+function refreshPage1() {
+  window.location.reload(false);
+}
+
+export default function InternshipDoc_staff(props) {
+  const { id } = useParams();
   const [modalIsOpen, setIsOpen] = useState(false);
   const [updateid, setUpdateid] = useState([]);
   const [internshipdocumentList, setInternshipdocumentList] = useState([]);
@@ -118,7 +124,7 @@ export default function InternshipDoc_staff() {
           <Dropdown
             options={fileterlist}
             placeholder="ทั้งหมด"
-          
+
             onChange={(event) => [
               searchfilter(event.value, searchKey),
               setDropdown(event.value),
@@ -137,6 +143,10 @@ export default function InternshipDoc_staff() {
           ></input>
 
         </div>
+        <div>
+          <Link to={"/internship-r-t/"+id} onClick={refreshPage1}>kuy</Link>
+
+        </div>
 
       </div>
       <div className="Modal_styles">
@@ -148,7 +158,7 @@ export default function InternshipDoc_staff() {
               display: "flex",
             },
             content: {
-              width: "35%",
+              width: "40%",
               height: "90%",
               alignItems: "center",
               justifyContent: "center",
@@ -184,8 +194,8 @@ export default function InternshipDoc_staff() {
               <div className="contxtm">
               <h4 className="txtm">Position</h4>
               <h4 className="txtm2">{updateid.id_position}</h4></div>
-           
-          
+
+
               <div className="contxtm">
               <h4 className="txtm">Start Date</h4>
               <h4 className="txtm2">{updateid.id_sdate}</h4></div>
@@ -194,10 +204,10 @@ export default function InternshipDoc_staff() {
               <h4 className="txtm">Start Date</h4>
               <h4 className="txtm2">{updateid.id_edate}</h4></div>
 
-           
+
               <br />
               <div className="contxtm">
-              
+
               <a className="btfile" href={updateid.id_file} download={namefile}>
               DownloadFile {updateid.ln_id}_{updateid.ln_name}
               </a>

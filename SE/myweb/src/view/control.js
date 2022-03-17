@@ -6,6 +6,7 @@ import Internship from "./internship";
 import InternshipDoc_staff from "./internshipDoc_staff";
 import Login from "./login";
 import Add_internship from "./add_internship";
+import InternshipResult_Staff from "./internshipResult_Staff"
 import { useParams } from "react-router-dom";
 
 function Control(props) {
@@ -38,7 +39,9 @@ function Control(props) {
       setcomponents(<InternshipDoc_staff />);
     } else if (props.start === "signin") {
       setcomponents(<Login />);
-    } 
+    }else if (props.start === "internship-r-t") {
+      setcomponents(<InternshipResult_Staff />);
+    }
     //*?  ////////////////////////////////////// T
   }, []);
 

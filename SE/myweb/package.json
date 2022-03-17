@@ -30,6 +30,7 @@
     "react-search-box": "^2.2.1",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
+    "scss": "^0.2.4",
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },

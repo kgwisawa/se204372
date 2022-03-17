@@ -8,7 +8,7 @@ import Moment from "react-moment";
 
 const ip = "192.168.0.239";
 var start = 1;
-var btn = 0 ;
+var btn = 0;
 
 function refreshPage() {
   window.location.reload(false);
@@ -36,23 +36,23 @@ export default function InternshipResult_Staff() {
       });
   };
 
-  const updateStatus = (status, id , a) => {
-    btn = a ;
-    var details = document.getElementById('textinput').value ;
+  const updateStatus = (status, id, a) => {
+    btn = a;
+    var details = document.getElementById("textinput").value;
     Axios.put("http://" + ip + ":3001/update/internshipresult", {
       id: id,
       status: status,
       detail: details,
     }).then((response) => {});
-    if(btn == 1){
-      refreshPage()
+    if (btn == 1) {
+      refreshPage();
     }
   };
 
   getResult();
 
   return (
-    <div className="">
+    <div>
       <div className="modal_content">
         <Modal
           isOpen={showModal}
@@ -76,12 +76,13 @@ export default function InternshipResult_Staff() {
           contentLabel="Example Modal"
         >
           <div className="content-modal">
-            <div>
+            <div className="">
               Date: {<Moment format="MM/DD/YYYY">{ModalValue.ir_date}</Moment>}{" "}
               <br />
               ID: {ModalValue.ln_id} <br />
               Name: {ModalValue.ln_name} <br />
-              Company: {ModalValue.cp_name}<br/>
+              Company: {ModalValue.cp_name}
+              <br />
             </div>
             <div className="button-styles">
               <div className="btn-input1">
@@ -95,17 +96,22 @@ export default function InternshipResult_Staff() {
               <div className="btn-input2">
                 <button
                   class="custom-btn btn-3"
-                  onClick={() => updateStatus("decline", ModalValue.ir_id , 1)}
+                  onClick={() => updateStatus("decline", ModalValue.ir_id, 1)}
                 >
                   <span>Disapprove</span>
                 </button>
               </div>
             </div>
           </div>
-          <div>
-            <a>เหตุผลการไม่อนุมัติ</a><br/>
-              <textarea id="textinput" className="inputText_inModal" res ></textarea>
-            </div>
+          <div className="">
+            <a>เหตุผลการไม่อนุมัติ</a>
+            <br />
+            <textarea
+              id="textinput"
+              className="inputText_inModal"
+              res
+            ></textarea>
+          </div>
 
           <div className="close-button">
             <div>
@@ -117,39 +123,47 @@ export default function InternshipResult_Staff() {
         </Modal>
       </div>
 
-      <table>
-        <thead>
+      <table className="return_table">
+        <thead className="return_tablethead">
           <tr>
-          <th>Date</th>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Company</th>
-            <th>File</th>
-            <th>Status</th>
-            <th>Update status</th>
+            <th className="return_tableth">Date</th>
+            <th className="return_tableth">ID</th>
+            <th className="return_tableth">Name</th>
+            <th className="return_tableth">Company</th>
+            <th className="return_tableth">File</th>
+            <th className="return_tableth">Status</th>
+            <th className="return_tableth">Update status</th>
           </tr>
         </thead>
         <tbody>
           {internshipResult.map((val, key) => {
             return (
               <tr>
-              <td>{<Moment format="DD/MM/YYYY">{val.ir_date}</Moment>}</td>
-                <td>{val.ln_id}</td>
-                <td>{val.ln_name}</td>
-                <td>{val.cp_name}</td>
-                <td>
-                  <a href={val.ir_image} download={"internshipResult_"+val.ln_id+".pdf"}>
-                  download
+                <td className="return_tabletd">
+                  {<Moment format="DD/MM/YYYY">{val.ir_date}</Moment>}
+                </td>
+                <td className="return_tabletd">{val.ln_id}</td>
+                <td className="return_tabletd">{val.ln_name}</td>
+                <td className="return_tabletd">{val.cp_name}</td>
+                <td className="return_tabletd">
+                  <a
+                    className="return_tablea"
+                    href={val.ir_image}
+                    download={"internshipResult_" + val.ln_id + ".pdf"}
+                  >
+                    download
                   </a>
                 </td>
-                <td>
+                <td className="return_tabletd">
                   <p class={"status status-" + val.ir_status}>
                     {val.ir_status}
                   </p>
                 </td>
-                <td>
+                <td className="return_tabletd">
                   {" "}
-                  <a onClick={() => openModal(val)}>Click</a>
+                  <a className="return_tablea" onClick={() => openModal(val)}>
+                    Click
+                  </a>
                 </td>
               </tr>
             );

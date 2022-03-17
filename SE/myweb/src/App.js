@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path='/project/65_memo_care' exact element={<Control start="signin-start" status="1" />} /> 
+      <Route path='/project/65_memo_care' exact element={<Control start="signin-start" status="1" />} />
         <Route path='/new-start' element={<Control start="home-start" status="1"/>}  />
         <Route path='/internship-start' element={<Control start="internship-start" status="1"/>}  />
         <Route path='/signin-start' element={<Control start="signin-start" status="1"/>}  />
@@ -24,6 +24,7 @@ function App() {
         <Route path='/new-t/:id' element={<Control start="home-t" status="3"/>}  />
         <Route path='/internship-t/:id' element={<Control start="internship-t" status="3"/>}  />
         <Route path='/signin-t/:id' element={<Control start="signin" status="3"/>}  />
+        <Route path='/internship-r-t/:id' element={<Control start="internship-r-t" status="3"/>}  />
       </Routes>
     </Router>
 
