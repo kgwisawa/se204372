@@ -48,10 +48,10 @@ $radius: 0.2rem;
   background-color: white;
   text-align: center;
   overflow: hidden;
-  width: 90%;
-border-radius: 10px;
+  width: 75%;
+  border-radius: 10px;
   .theadinstaff {
-
+    
     box-shadow: 0 5px 10px $clr-gray300;
     background-color: #009879;
 
@@ -63,6 +63,7 @@ border-radius: 10px;
     letter-spacing: 0.1rem;
     font-size: 18px;
     font-weight: 900;
+    color: #ffff;
     font-family: 'IBM Plex Sans Thai', sans-serif;
   }
 
