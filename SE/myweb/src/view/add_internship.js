@@ -181,21 +181,27 @@ function Add_internship() {
     setUsers(tempUser);
   };
 
+ 
+
   const FormatDateS = (sdate) =>{
   var s = moment(sdate).format("DD/MM/YYYY")
 
-  if(moment(sdate).isAfter(moment())){
-    setid_sdate(s);
-  }else{
+  if(moment(sdate).isBefore(moment())){
     document.getElementById("sdate").value = moment().format("DD/MM/YYYY");
+      // alert("S")
+  }else{
+    setid_sdate(s);
   }
   }
 
   const FormatDateE = (edate) =>{
     var e = moment(edate).format("DD/MM/YYYY")
     let sum = id_sdate;
-    sum.replace('/', '-')
-    
+    if(moment(edate).isBefore(sum[6]+sum[7]+sum[8]+sum[9]+"-"+sum[3]+sum[4]+"-"+sum[0]+sum[1])){
+      document.getElementById("edate").value = moment().format("DD/MM/YYYY");
+    }else{
+      setid_edate(e);
+    }
   }
 
   const selectYear = () =>{
@@ -266,7 +272,8 @@ function Add_internship() {
             required
             id="sdate"
             className="date-input"
-            onChange={(event) => FormatDateS(event.target.value)}
+            onChange={(event) => {FormatDateS(event.target.value)
+            }}
           />
          
 
