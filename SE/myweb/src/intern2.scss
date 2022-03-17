@@ -51,10 +51,10 @@ $radius: 0.2rem;
   width: 85%;
 border-radius: 10px;
   .theadinstaff {
-    
+
     box-shadow: 0 5px 10px $clr-gray300;
     background-color: $clr-gray300;
-    
+
   }
 
   .thinstaff {
@@ -135,7 +135,7 @@ border-radius: 10px;
   flex-direction: row;
   align-items: center;
   margin-top: 30px;
- 
+
 }
 .text_detail{
   font-family: 'IBM Plex Sans Thai', sans-serif;
@@ -228,7 +228,7 @@ border-radius: 10px;
   content: "";
   right: 0;
   bottom: 0;
-   
+
   background: #000;
   transition: all 0.3s ease;
 }
@@ -283,7 +283,7 @@ border-radius: 10px;
 .txtco{
   font-size: 25px;
   margin-left: 80px;
-  
+
   font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 
@@ -377,4 +377,5 @@ border-radius: 10px;
   border-radius: 5px;
     padding: 10px;
     font-family: 'IBM Plex Sans Thai', sans-serif;
+  resize: none;
 }

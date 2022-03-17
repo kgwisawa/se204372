@@ -1,10 +1,10 @@
- import "../intern2.scss";
+import "../intern2.scss";
 import Modal from "react-modal";
 import { useState } from "react";
 import Axios from "axios";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import { Link,useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ip = "192.168.0.239";
 var start = 1;
@@ -119,12 +119,11 @@ export default function InternshipDoc_staff(props) {
   return (
     <div className="inbox">
       <div className="boxsearch">
-      <div className="txtco">Filter</div>
+        <div className="txtco">Filter</div>
         <div className="searchfilter">
           <Dropdown
             options={fileterlist}
             placeholder="ทั้งหมด"
-
             onChange={(event) => [
               searchfilter(event.value, searchKey),
               setDropdown(event.value),
@@ -141,12 +140,16 @@ export default function InternshipDoc_staff(props) {
               searchfilter(dropdown, event.target.value),
             ]}
           ></input>
-
         </div>
-        <div>
-          <Link to={"/internship-r-t/"+id} onClick={refreshPage}>kuy</Link>
+        <div className="btn_link">
+          <Link
+            to={"/internship-r-t/" + id}
+            className="Link_btn"
+            onClick={refreshPage}
+          >
+            InterShipResult
+          </Link>
         </div>
-
       </div>
       <div className="Modal_styles">
         <Modal
@@ -174,46 +177,55 @@ export default function InternshipDoc_staff(props) {
             <div className="text_detail">
               {/* {updateid.id_id} */}
               <div className="contxtm">
-              <h4 className="txtm">Date(M/D/Y)</h4>
-              <h4 className="txtm2">{updateid.id_date}</h4></div>
+                <h4 className="txtm">Date(M/D/Y)</h4>
+                <h4 className="txtm2">{updateid.id_date}</h4>
+              </div>
 
               <div className="contxtm">
-              <h4 className="txtm">NisitID</h4>
-              <h4 className="txtm2">{updateid.ln_id}</h4></div>
-
-
-              <div className="contxtm">
-              <h4 className="txtm">Name</h4>
-              <h4 className="txtm2">{updateid.ln_name}</h4></div>
+                <h4 className="txtm">NisitID</h4>
+                <h4 className="txtm2">{updateid.ln_id}</h4>
+              </div>
 
               <div className="contxtm">
-              <h4 className="txtm">Company</h4>
-              <h4 className="txtm2">{updateid.cp_name}</h4></div>
+                <h4 className="txtm">Name</h4>
+                <h4 className="txtm2">{updateid.ln_name}</h4>
+              </div>
 
               <div className="contxtm">
-              <h4 className="txtm">Position</h4>
-              <h4 className="txtm2">{updateid.id_position}</h4></div>
-
-
-              <div className="contxtm">
-              <h4 className="txtm">Start Date</h4>
-              <h4 className="txtm2">{updateid.id_sdate}</h4></div>
+                <h4 className="txtm">Company</h4>
+                <h4 className="txtm2">{updateid.cp_name}</h4>
+              </div>
 
               <div className="contxtm">
-              <h4 className="txtm">Start Date</h4>
-              <h4 className="txtm2">{updateid.id_edate}</h4></div>
+                <h4 className="txtm">Position</h4>
+                <h4 className="txtm2">{updateid.id_position}</h4>
+              </div>
 
+              <div className="contxtm">
+                <h4 className="txtm">Start Date</h4>
+                <h4 className="txtm2">{updateid.id_sdate}</h4>
+              </div>
+
+              <div className="contxtm">
+                <h4 className="txtm">Start Date</h4>
+                <h4 className="txtm2">{updateid.id_edate}</h4>
+              </div>
 
               <br />
               <div className="contxtm">
-
-              <a className="btfile" href={updateid.id_file} download={namefile}>
-              DownloadFile {updateid.ln_id}_{updateid.ln_name}
-              </a>
+                <a
+                  className="btfile"
+                  href={updateid.id_file}
+                  download={namefile}
+                >
+                  DownloadFile {updateid.ln_id}_{updateid.ln_name}
+                </a>
               </div>
             </div>
             <br />
-            <label for="comment" className="reasont">เหตุผล:</label>
+            <label for="comment" className="reasont">
+              เหตุผล:
+            </label>
             <br />
             <textarea
               id="comment"
@@ -260,47 +272,51 @@ export default function InternshipDoc_staff(props) {
         </Modal>
       </div>
       <div className="content">
-      <table className="tableinstaff">
-        <thead className="theadinstaff">
-          <tr>
-            <th className="thinstaff">Year</th>
-            <th className="thinstaff">Date(M/D/Y)</th>
-            <th className="thinstaff">NisitID</th>
-            <th className="thinstaff">Name</th>
-            <th className="thinstaff">Company</th>
-            <th className="thinstaff">Position</th>
-            <th className="thinstaff">File</th>
-            <th className="thinstaff">Status</th>
-            <th className="thinstaff">Update Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {getCompany()}
-          {internshipdocumentList.map((val, key) => {
-            const name = val.ln_id + "_" + val.ln_name + ".pdf";
-            const status = "status status-" + val.id_status;
-            return (
-              <tr>
-                <td className="tdinstaff">{val.id_year}</td>
-                <td className="tdinstaff">{val.id_date}</td>
-                <td className="tdinstaff">{val.ln_id}</td>
-                <td className="tdinstaff">{val.ln_name}</td>
-                <td className="tdinstaff">{val.cp_name}</td>
-                <td className="tdinstaff">{val.id_position}</td>
-                <td className="tdinstaff">
-                  <a href={val.id_file} download={name} className="ainstaff">
-                    download
-                  </a>
-                </td>
-                <td className="tdinstaff"><div className={status}>{val.id_status}</div></td>
-                <td>
-                  <a onClick={() => openModal(val)} className="ainstaff">click</a>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+        <table className="tableinstaff">
+          <thead className="theadinstaff">
+            <tr>
+              <th className="thinstaff">Year</th>
+              <th className="thinstaff">Date(M/D/Y)</th>
+              <th className="thinstaff">NisitID</th>
+              <th className="thinstaff">Name</th>
+              <th className="thinstaff">Company</th>
+              <th className="thinstaff">Position</th>
+              <th className="thinstaff">File</th>
+              <th className="thinstaff">Status</th>
+              <th className="thinstaff">Update Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {getCompany()}
+            {internshipdocumentList.map((val, key) => {
+              const name = val.ln_id + "_" + val.ln_name + ".pdf";
+              const status = "status status-" + val.id_status;
+              return (
+                <tr>
+                  <td className="tdinstaff">{val.id_year}</td>
+                  <td className="tdinstaff">{val.id_date}</td>
+                  <td className="tdinstaff">{val.ln_id}</td>
+                  <td className="tdinstaff">{val.ln_name}</td>
+                  <td className="tdinstaff">{val.cp_name}</td>
+                  <td className="tdinstaff">{val.id_position}</td>
+                  <td className="tdinstaff">
+                    <a href={val.id_file} download={name} className="ainstaff">
+                      download
+                    </a>
+                  </td>
+                  <td className="tdinstaff">
+                    <div className={status}>{val.id_status}</div>
+                  </td>
+                  <td>
+                    <a onClick={() => openModal(val)} className="ainstaff">
+                      click
+                    </a>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

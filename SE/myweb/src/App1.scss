@@ -17,7 +17,7 @@ $clr-paid: #c8e6c9;
 $clr-paid-font: #388e3c;
 $clr-link: #2962ff;
 
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500&display=swap');
 $radius: 0.2rem;
 
 *,
@@ -100,3 +100,33 @@ $radius: 0.2rem;
     background-color: $clr-gray200;
   }
 }
+.btn_link{
+    display: flex;
+    margin-left: 620px;
+    //background-color: #161d34;
+    width: 180px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px ;
+    border: solid;
+    background-color: #e1e5ee;
+
+}
+.Link_btn{
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 19px;
+  font-weight: bold;
+  text-shadow: black 0.2px 0.8px;
+}
+
+.index{
+  display: flex;
+  //background-color: #161d34;
+  margin-top: 6%;
+  justify-content: center;
+  align-items: center;
+}
+
