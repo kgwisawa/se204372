@@ -18,13 +18,9 @@ function Add_internship() {
 
 
   const { id } = useParams();
-  const start = moment().format("DD/MM/YYYY");
+  const start = moment().format("l");
   const [company, setcompany] = useState([]);
   const [companyList, setCompanyList] = useState([]);
-  const [year , setYear] = useState([]);
-  const [pickYear , setPickYear] = useState("");
-
-
 
   function setcp(data) {
     // alert(companyList[0].cp_name );
@@ -34,7 +30,7 @@ function Add_internship() {
           // alert(companyList[i].cp_id)
       }
     }
-  };
+  }
 
   const getCompany = () => {
     Axios.get("http://" + ip + ":3001/company").then((response) => {
@@ -59,8 +55,6 @@ function Add_internship() {
   const [id_date, setid_date] = useState(start);
   const [id_confirm, setid_confirm] = useState("-");
   const [id_file, setid_file] = useState("-");
-  const [id_tfile1, setid_tfile1] = useState("-");
-  const [id_tfile2, setid_tfile2] = useState("-");
   const [cp_id, setcp_id] = useState("CP001");
   const [ln_id, setln_id] = useState(id);
 
@@ -70,8 +64,10 @@ function Add_internship() {
   const [id_edate, setid_edate] = useState("");
   const [id_year, setid_year] = useState("");
 
-
   const [internship, setinternship] = useState([]);
+
+
+
 
   const [users, setUsers] = useState([]);
   const [baseImage, setBaseImage] = useState("");
@@ -107,8 +103,6 @@ function Add_internship() {
       id_sdate: id_sdate,
       id_edate: id_edate,
       id_file: baseImage,
-      id_tfile1: id_tfile1,
-      id_tfile2: id_tfile2,
       id_status: id_status,
       id_confirm: id_confirm,
       id_year: id_year,
@@ -123,8 +117,6 @@ function Add_internship() {
           id_sdate: id_sdate,
           id_edate: id_edate,
           id_file: baseImage,
-          id_tfile1: id_tfile1,
-          id_tfile2: id_tfile2,
           id_status: id_status,
           id_confirm: id_confirm,
           id_year: id_year,
@@ -140,8 +132,6 @@ function Add_internship() {
   useEffect(() => {
     setUsers(userData);
     getCompany();
-    selectYear();
-
     // alert(start)
   }, []);
 
@@ -156,35 +146,8 @@ function Add_internship() {
     setUsers(tempUser);
   };
 
-  const FormatDateS = (sdate) =>{
-  var s = moment(sdate).format("DD/MM/YYYY")
-  setid_sdate(s);
-  }
-
-  const FormatDateE = (edate) =>{
-    var e = moment(edate).format("DD/MM/YYYY")
-    setid_edate(e);
-  }
-
-  const selectYear = () =>{
-    var years = new Date().getFullYear();
-
-    // alert(years + typeof years)
-
-    let sum = [] ;
-
-
-    for (let i = 0 ; i<10 ; i++){
-      sum.push(years-i);
-      //alert(years-i)
-    }
-  setYear(sum);
-  }
-
-
-
   return (
-    <div className="form-box-in">
+    <div className="form-box-in2">
       <h1>Apply Internship</h1>
 
       <form action="">
@@ -202,8 +165,8 @@ function Add_internship() {
             </div>
           ))}
         </div>
-
-        <div className="txt_field-in">
+        <br/>
+        {/* <div className="txt_field-in">
           <input
             type={"text"}
             required
@@ -213,7 +176,7 @@ function Add_internship() {
           />
           <span></span>
           <label>Position</label>
-        </div>
+        </div> */}
 
         <div>
           <Dropdown
@@ -224,50 +187,46 @@ function Add_internship() {
             }}
           />
         </div>
-        <div className="txt_field-in">
+
+        {/* <div className="txt_field-in">
         <label>Start Date</label>
           <input
             type={"date"}
             required
-            id="sdate"
             className="date-input"
-            onChange={(event) => FormatDateS(event.target.value)}
-          />
-          <span></span>
-
-        </div>
-
-        <div className="txt_field-in">
-          <input
-            type={"date"}
-            required
-            id="edate"
-            className="date-input"
-            onChange={(event) => FormatDateE(event.target.value)}
-          />
-          <span></span>
-          <label>End Date</label>
-        </div>
-
-        <div className="txt_field-in">
-
-        <Dropdown
-          options={year}
-          placeholder="Select Year"
-          onChange={(event) =>{setid_year(event.value)}}
-        />
-
-          {/* <input
-            type={"text"}
-            required
             onChange={(event) => {
-              setid_year((event.target.value));
+              setid_sdate(event.target.value);
             }}
           />
           <span></span>
-          <label>Year</label> */}
-        </div>
 
+        </div> */}
+
+        {/* <div className="txt_field-in">
+          <input
+            type={"date"}
+            required
+            className="date-input"
+            onChange={(event) => {
+              setid_edate(event.target.value);
+            }}
+          />
+          <span></span>
+          <label>End Date</label>
+        </div> */}
+
+        {/* <div className="txt_field-in">
+          <input
+            type={"text"}
+            required
+            onChange={(event) => {
+              setid_year(event.target.value);
+            }}
+          />
+          <span></span>
+          <label>Year</label>
+        </div> */}
+        <br/>
         <div>
           <input
             type="file"

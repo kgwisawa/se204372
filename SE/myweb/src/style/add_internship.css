@@ -18,14 +18,14 @@
     /* background-color: black; */
     justify-content: center;
     width: 100%;
-    
+
 }
 
 .form-check-in {
      /* background-color: black; */
 
      margin-left: 20px;
-     
+
 }
 
 .btCancel-in {
@@ -54,6 +54,17 @@
     box-shadow: 3px 3px 5px;
 }
 
+.form-box-in2 {
+    width: 500px;
+    height: 430px;
+    position: relative;
+    margin: 6% auto;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius: 23px;
+    box-shadow: 3px 3px 5px;
+}
+
 
 
 .form-check-label-in{
@@ -70,7 +81,7 @@
     justify-content: center;
     align-items: center;
     margin-left: 40px;
-   
+
 }
 
 
@@ -83,7 +94,22 @@
 
 }
 
+.form-box-in2 h1{
+    text-align: center;
+    padding: 50px 0 15px 0;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 40px;
+    text-shadow: 1px 1px 2px;
+
+}
+
 .form-box-in form{
+    padding: 0 40px ;
+    display: block;
+
+}
+
+.form-box-in2 form{
     padding: 0 40px ;
     display: block;
 
@@ -147,7 +173,7 @@ input[type="submit"]{
 }
 .box-in{
     display: flex;
-    
+
     width: 200px;
     height: 90px;
     align-items: center;
@@ -171,5 +197,9 @@ input[type="submit"]{
     display: flex;
 }
 
+.date-input{
+    margin-left: 100px;
+    margin-top: 5px;
+}
 
 

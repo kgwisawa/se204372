@@ -8,7 +8,7 @@ import Login from "./login";
 import Add_internship from "./add_internship";
 import InternshipResult_Staff from "./internshipResult_Staff"
 import { useParams } from "react-router-dom";
-
+import Add_internshipReuslt from "./add_internshipReuslt"
 function Control(props) {
   const { id } = useParams();
 
@@ -31,6 +31,9 @@ function Control(props) {
       setcomponents(<Login />);
     } else if (props.start === "newinternship") {
       setcomponents(<Add_internship />);
+    }
+    else if (props.start === "newinternshipresult") {
+      setcomponents(<Add_internshipReuslt />);
     }
     //*?  ////////////////////////////////////// N
     else if (props.start === "home-t") {

@@ -91,7 +91,7 @@ const Internship = (props) => {
             <a
               href="https://bit.ly/3HPMQyY"
               target="_blank"
-              className="boxdownload" 
+              className="boxdownload"
             >
               Download
             </a>
@@ -107,7 +107,7 @@ const Internship = (props) => {
           <a
               href="https://bit.ly/3HPMQyY"
               target="_blank"
-              className="boxdownload" 
+              className="boxdownload"
             >
               <Icon/>
               Download
@@ -124,12 +124,12 @@ const Internship = (props) => {
           <a
               href="https://bit.ly/3HPMQyY"
               target="_blank"
-              className="boxdownload" 
+              className="boxdownload"
             >
               <Icon/>
               Download
             </a>
-      
+
           </div>
         </boxcontent>
       </div>
@@ -147,7 +147,7 @@ const Internship = (props) => {
         </div>
         <div className="headtable">
           <div>Internship result</div>
-          <Link to="/new" className="add">
+          <Link to={"/newinternshipresult/"+id} className="add" onClick={refreshPage} >
             New
           </Link>
         </div>
