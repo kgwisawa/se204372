@@ -276,7 +276,7 @@ export default function InternshipDoc_staff(props) {
           <thead className="theadinstaff">
             <tr>
               <th className="thinstaff">Year</th>
-              <th className="thinstaff">Date(M/D/Y)</th>
+              <th className="thinstaff">Date(D/M/Y)</th>
               <th className="thinstaff">NisitID</th>
               <th className="thinstaff">Name</th>
               <th className="thinstaff">Company</th>
