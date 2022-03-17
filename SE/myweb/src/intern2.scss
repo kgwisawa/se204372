@@ -379,3 +379,28 @@ border-radius: 10px;
     font-family: 'IBM Plex Sans Thai', sans-serif;
   resize: none;
 }
+.btn_linkr{
+  width: 60%;
+  justify-content: right;
+  display: flex;
+  align-items: center;
+}
+.Link_btnr{
+  display: flex;
+  //background-color: #161d34;
+  width: max-content;
+  height: max-content;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Fredoka', sans-serif;
+  border:solid;
+  background-color: #e1e5ee;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 20px;
+  font-weight: bold;
+  // text-shadow: black 0.2px 0.8px;
+  box-shadow: #4f546c  3px 3px;
+}

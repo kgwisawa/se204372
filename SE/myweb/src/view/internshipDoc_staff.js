@@ -141,13 +141,13 @@ export default function InternshipDoc_staff(props) {
             ]}
           ></input>
         </div>
-        <div className="btn_link">
+        <div className="btn_linkr">
           <Link
             to={"/internship-r-t/" + id}
-            className="Link_btn"
+            className="Link_btnr"
             onClick={refreshPage}
           >
-            InterShipResult
+            InternShip Result
           </Link>
         </div>
       </div>
