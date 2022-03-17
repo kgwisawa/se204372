@@ -118,6 +118,7 @@ export default function InternshipDoc_staff() {
           <Dropdown
             options={fileterlist}
             placeholder="ทั้งหมด"
+          
             onChange={(event) => [
               searchfilter(event.value, searchKey),
               setDropdown(event.value),
@@ -147,8 +148,8 @@ export default function InternshipDoc_staff() {
               display: "flex",
             },
             content: {
-              width: 550,
-              height: 550,
+              width: "35%",
+              height: "90%",
               alignItems: "center",
               justifyContent: "center",
               top: "50%",
@@ -163,26 +164,52 @@ export default function InternshipDoc_staff() {
             <br />
             <div className="text_detail">
               {/* {updateid.id_id} */}
-              <h4>Date(M/D/Y): {updateid.id_date}</h4>
-              <h4>NisitID: {updateid.ln_id}</h4>
-              <h4>Name: {updateid.ln_name}</h4>
-              <h4>Company: {updateid.cp_name}</h4>
-              <h4>Position: {updateid.id_position}</h4>
-              <h4>Start Date: {updateid.id_sdate}</h4>
-              <h4>End Date: {updateid.id_edate}</h4>
+              <div className="contxtm">
+              <h4 className="txtm">Date(M/D/Y)</h4>
+              <h4 className="txtm2">{updateid.id_date}</h4></div>
+
+              <div className="contxtm">
+              <h4 className="txtm">NisitID</h4>
+              <h4 className="txtm2">{updateid.ln_id}</h4></div>
+
+
+              <div className="contxtm">
+              <h4 className="txtm">Name</h4>
+              <h4 className="txtm2">{updateid.ln_name}</h4></div>
+
+              <div className="contxtm">
+              <h4 className="txtm">Company</h4>
+              <h4 className="txtm2">{updateid.cp_name}</h4></div>
+
+              <div className="contxtm">
+              <h4 className="txtm">Position</h4>
+              <h4 className="txtm2">{updateid.id_position}</h4></div>
+           
+          
+              <div className="contxtm">
+              <h4 className="txtm">Start Date</h4>
+              <h4 className="txtm2">{updateid.id_sdate}</h4></div>
+
+              <div className="contxtm">
+              <h4 className="txtm">Start Date</h4>
+              <h4 className="txtm2">{updateid.id_edate}</h4></div>
+
+           
               <br />
-              <h4>Download File:</h4>
-              <a href={updateid.id_file} download={namefile}>
-                {updateid.ln_id}_{updateid.ln_name}
+              <div className="contxtm">
+              
+              <a className="btfile" href={updateid.id_file} download={namefile}>
+              DownloadFile {updateid.ln_id}_{updateid.ln_name}
               </a>
+              </div>
             </div>
             <br />
-            <label for="comment">เหตุผล:</label>
+            <label for="comment" className="reasont">เหตุผล:</label>
             <br />
             <textarea
               id="comment"
               name="comment"
-              style={{ resize: "none", width: "350px", height: "120px" }}
+              className="reason"
               onChange={(event) => setNewComment(event.target.value)}
             ></textarea>
             <br />
@@ -192,7 +219,7 @@ export default function InternshipDoc_staff() {
             <div className="btn_styles">
               <div className="btn-accept">
                 <button
-                  className="custom-btn btn-3"
+                  className="custom-btn1 "
                   onClick={() => [
                     updateFile("accept", updateid.id_id),
                     closeModal(),
@@ -206,7 +233,7 @@ export default function InternshipDoc_staff() {
               <br />
               <div className="btn-decline">
                 <button
-                  className="custom-btn btn-3"
+                  className="custom-btn2 "
                   onClick={() => [checkcomment(updateid.id_id)]}
                 >
                   <span>Decline</span>

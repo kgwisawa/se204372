@@ -31,7 +31,7 @@ $radius: 0.2rem;
   padding: 0;
 }
 .bodyinstaff {
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
   height: 100vh;
   width: 100%;
   display: grid;
@@ -52,6 +52,7 @@ $radius: 0.2rem;
   .theadinstaff {
     box-shadow: 0 5px 10px $clr-gray300;
     background-color: $clr-gray300;
+    
   }
 
   .thinstaff {
@@ -60,11 +61,13 @@ $radius: 0.2rem;
     letter-spacing: 0.1rem;
     font-size: 18;
     font-weight: 900;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
   }
 
   .tdinstaff {
     padding: 1rem 1.5rem;
     font-size: larger;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
   }
 
   .ainstaff {
@@ -132,28 +135,60 @@ $radius: 0.2rem;
  
 }
 .text_detail{
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+
 }
 .custom-btn {
   width: 130px;
   height: 40px;
   padding: 10px 25px;
+  background-color: #000;
   border: 2px solid #000;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
   font-weight: 500;
-  background: transparent;
+  color: #FFF;
+  border-radius: 10px;
+  margin-top: -10px;
+}
+.custom-btn1 {
+  width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  background-color: #009879;
+  border: 2px solid #009879;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-weight: 500;
   cursor: pointer;
+  color: #FFF;
+  border-radius: 10px;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
+  margin: 10px;
+}
+.custom-btn2 {
+  width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  background-color: #c62828;
+  border: 2px solid #c62828;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  color: #FFF;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  margin: 10px;
 }
 .btn-3 {
   line-height: 39px;
   padding: 0;
 }
 .btn-3:hover{
-  background: transparent;
-  color: #000;
+  background:  #000;
+  color: #FFF;
 }
 .btn-3 span {
   position: relative;
@@ -190,6 +225,7 @@ $radius: 0.2rem;
   content: "";
   right: 0;
   bottom: 0;
+   
   background: #000;
   transition: all 0.3s ease;
 }
@@ -208,7 +244,7 @@ $radius: 0.2rem;
   width: 100%;
 }
 .Modal_styles{
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -227,6 +263,8 @@ $radius: 0.2rem;
 }
 .btn_styles{
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content{
@@ -243,5 +281,97 @@ $radius: 0.2rem;
   font-size: 25px;
   margin-left: 80px;
   
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.txtm{
+  background-color:#161d34;
+  display: flex;
+  color: #FFF;
+  align-items: center;
+  padding-right: 20px;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 10px;
+  margin-right: -5px;
+  width: 180px;
+  box-shadow: #4f546c  3px 3px;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.txtm2{
+  background-color:#FFF;
+  border-style: solid;
+  border-width: 4px;
+  border-color: #000;
+  display: flex;
+  color: #000;
+  align-items: center;
+  padding-right: 10px;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  width: 480px;
+  box-shadow: #4f546c  3px 3px;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+
+}
+
+.contxtm{
+  display: flex;
+  align-items: center;
+}
+
+
+.btfile{
+  background-color:#161d34;
+  display: flex;
+  color: #FFF;
+  align-items: center;
+  padding-right: 20px;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 10px;
+  box-shadow: #4f546c  3px 3px;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.btfile:hover{
+  background-color:#009879;
+  display: flex;
+  color: #FFF;
+  align-items: center;
+  padding-right: 20px;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 10px;
+  box-shadow: #4f546c  3px 3px;
+ font-family: 'IBM Plex Sans Thai', sans-serif;
+
+}
+
+.reasont{
+  background-color:#161d34;
+  display: flex;
+  color: #FFF;
+  align-items: center;
+  padding-right: 20px;
+  border-radius: 5px;
+  height: 40px;
+  padding-left: 10px;
+  box-shadow: #4f546c  3px 3px;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.reason{
+  width: 100%;
+  height: 100px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: #000;
+  border-radius: 5px;
+    padding: 10px;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
 }
