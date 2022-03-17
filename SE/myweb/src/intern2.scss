@@ -48,8 +48,9 @@ $radius: 0.2rem;
   background-color: white;
   text-align: center;
   overflow: hidden;
-  width: 75%;
+  width: 95%;
   border-radius: 10px;
+  
   .theadinstaff {
     
     box-shadow: 0 5px 10px $clr-gray300;
@@ -68,7 +69,8 @@ $radius: 0.2rem;
   }
 
   .tdinstaff {
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1.0rem 1.0rem ;
+    padding-top: 1.0rem;
     font-size: 18px;
     font-family: 'IBM Plex Sans Thai', sans-serif;
   }
@@ -382,10 +384,11 @@ $radius: 0.2rem;
 }
 .btn_linkr{
   width: 60%;
-  justify-content: right;
+  justify-content: flex-end;
   display: flex;
   align-items: center;
 }
+
 .Link_btnr{
   display: flex;
   //background-color: #161d34;

@@ -20,6 +20,21 @@ function Add_internship() {
   const [company, setcompany] = useState([]);
   const [companyList, setCompanyList] = useState([]);
 
+  const [nisitinfo, setnisitinfo] = useState([]);
+
+  const getinfo = () => {
+    Axios.get("http://" + ip + ":3001/loginnisit").then((response) => {
+      const data = response.data;
+      for (let i in data) {
+        if (data[i].ln_id == id) {
+          setnisitinfo(data[i]);
+          // alert(data[i].ln_name)
+          return;
+        }
+      }
+    });
+  };
+
   function setcp(data) {
     // alert(companyList[0].cp_name );
     for (let i in companyList) {
@@ -28,6 +43,13 @@ function Add_internship() {
         // alert(companyList[i].cp_id)
       }
     }
+  }
+
+  function refreshPage() {
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 100);
+    console.log("page to reload");
   }
 
   const getCompany = () => {
@@ -48,24 +70,17 @@ function Add_internship() {
     }
     return company;
   }
-  const [cp_name, setcp_name] = useState("");
 
   const [id_date, setid_date] = useState(start);
-  const [id_confirm, setid_confirm] = useState("-");
-  const [id_file, setid_file] = useState("-");
-  const [cp_id, setcp_id] = useState("CP001");
+  const [cp_id, setcp_id] = useState(null);
   const [ln_id, setln_id] = useState(id);
 
   const [id_status, setid_status] = useState("pending");
-  const [id_position, setid_position] = useState("");
-  const [id_sdate, setid_sdate] = useState("");
-  const [id_edate, setid_edate] = useState("");
-  const [id_year, setid_year] = useState("");
 
   const [internship, setinternship] = useState([]);
 
   const [users, setUsers] = useState([]);
-  const [baseImage, setBaseImage] = useState("");
+  const [baseImage, setBaseImage] = useState(null);
   const uploadImage = async (e) => {
     const file = e.target.files[0];
     const base64 = await convertBase64(file);
@@ -90,6 +105,10 @@ function Add_internship() {
   const ip = "192.168.0.239";
 
   const addinternship = () => {
+    
+    if (cp_id == null || baseImage == null ) {
+      return
+    }
     Axios.post("http://" + ip + ":3001/create/internshipresult", {
       ln_id: ln_id,
       ir_date: id_date,
@@ -116,6 +135,7 @@ function Add_internship() {
   useEffect(() => {
     setUsers(userData);
     getCompany();
+    getinfo();
     // alert(start)
   }, []);
 
@@ -149,6 +169,12 @@ function Add_internship() {
             </div>
           ))}
         </div>
+        <br />
+
+        <div className="nisitinfo2">
+          {nisitinfo.ln_id} {nisitinfo.ln_name}
+        </div>
+
         <br />
         {/* <div className="txt_field-in">
           <input
@@ -214,6 +240,7 @@ function Add_internship() {
         <div>
           <input
             type="file"
+            required
             onChange={(e) => {
               uploadImage(e);
             }}
@@ -224,8 +251,11 @@ function Add_internship() {
           <div className="box">
             <input type={"submit"} value="Apply" onClick={addinternship} />
           </div>
-
-          <Link to="/new" className="btCancel">
+          <Link
+            to={"/internship/" + id}
+            className="btCancel"
+            onClick={refreshPage}
+          >
             Cancel
           </Link>
           {/* <input type={"submit"} value="Cancel" /> */}

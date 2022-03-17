@@ -25,6 +25,20 @@ function Add_internship() {
   const [pickYear , setPickYear] = useState("");
 
 
+  const [nisitinfo, setnisitinfo] = useState([]);
+  
+  const getinfo = () => {
+      Axios.get("http://" + ip + ":3001/loginnisit").then((response) => {
+        const data = response.data
+        for(let i in data){
+          if(data[i].ln_id == id){
+            setnisitinfo(data[i]);
+            // alert(data[i].ln_name)
+            return
+          }  
+        }
+      });
+  };
 
   function setcp(data) {
     // alert(companyList[0].cp_name );
@@ -61,20 +75,20 @@ function Add_internship() {
   const [id_file, setid_file] = useState("-");
   const [id_tfile1, setid_tfile1] = useState("-");
   const [id_tfile2, setid_tfile2] = useState("-");
-  const [cp_id, setcp_id] = useState("CP001");
+  const [cp_id, setcp_id] = useState(null);
   const [ln_id, setln_id] = useState(id);
 
   const [id_status, setid_status] = useState("pending");
-  const [id_position, setid_position] = useState("");
-  const [id_sdate, setid_sdate] = useState("");
+  const [id_position, setid_position] = useState(null);
+  const [id_sdate, setid_sdate] = useState(""); 
   const [id_edate, setid_edate] = useState("");
-  const [id_year, setid_year] = useState("");
+  const [id_year, setid_year] = useState(null);
 
 
   const [internship, setinternship] = useState([]);
 
   const [users, setUsers] = useState([]);
-  const [baseImage, setBaseImage] = useState("");
+  const [baseImage, setBaseImage] = useState(null);
   const uploadImage = async (e) => {
     const file = e.target.files[0];
     const base64 = await convertBase64(file);
@@ -98,7 +112,19 @@ function Add_internship() {
 
   const ip = "192.168.0.239";
 
+  function refreshPage() {
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 100);
+    console.log("page to reload");
+  }
+
   const addinternship = () => {
+
+    if (cp_id == null || baseImage == null || id_position == null || id_year == null) {
+      return
+    }
+
     Axios.post("http://" + ip + ":3001/create/internshipdocument", {
       ln_id: ln_id,
       id_date: id_date,
@@ -131,7 +157,6 @@ function Add_internship() {
         },
       ]);
     });
-
     alert("submit successful");
     navigate("/internship/"+id);
 
@@ -141,7 +166,7 @@ function Add_internship() {
     setUsers(userData);
     getCompany();
     selectYear();
-
+    getinfo();
     // alert(start)
   }, []);
 
@@ -158,12 +183,19 @@ function Add_internship() {
 
   const FormatDateS = (sdate) =>{
   var s = moment(sdate).format("DD/MM/YYYY")
-  setid_sdate(s);
+
+  if(moment(sdate).isAfter(moment())){
+    setid_sdate(s);
+  }else{
+    document.getElementById("sdate").value = moment().format("DD/MM/YYYY");
+  }
   }
 
   const FormatDateE = (edate) =>{
     var e = moment(edate).format("DD/MM/YYYY")
-    setid_edate(e);
+    let sum = id_sdate;
+    sum.replace('/', '-')
+    
   }
 
   const selectYear = () =>{
@@ -203,6 +235,8 @@ function Add_internship() {
           ))}
         </div>
 
+        <div className="nisitinfo">{nisitinfo.ln_id} {nisitinfo.ln_name}</div>
+
         <div className="txt_field-in">
           <input
             type={"text"}
@@ -219,6 +253,7 @@ function Add_internship() {
           <Dropdown
             options={setcom()}
             placeholder="Select Company"
+            required
             onChange={(event) => {
              setcp(event.value);
             }}
@@ -233,7 +268,7 @@ function Add_internship() {
             className="date-input"
             onChange={(event) => FormatDateS(event.target.value)}
           />
-          <span></span>
+         
 
         </div>
 
@@ -245,7 +280,7 @@ function Add_internship() {
             className="date-input"
             onChange={(event) => FormatDateE(event.target.value)}
           />
-          <span></span>
+         
           <label>End Date</label>
         </div>
 
@@ -253,8 +288,10 @@ function Add_internship() {
 
         <Dropdown
           options={year}
+          required
           placeholder="Select Year"
-          onChange={(event) =>{setid_year(event.value)}}
+          onChange={(event) =>{setid_year(event.value) 
+          alert(event.value)}}
         />
 
           {/* <input
@@ -271,6 +308,7 @@ function Add_internship() {
         <div>
           <input
             type="file"
+            required
             onChange={(e) => {
               uploadImage(e);
             }}
@@ -282,7 +320,7 @@ function Add_internship() {
             <input type={"submit"} value="Apply" onClick={addinternship} />
           </div>
 
-          <Link to="/new" className="btCancel">
+          <Link to={"/internship/"+id} className="btCancel" onClick={refreshPage}> 
             Cancel
           </Link>
           {/* <input type={"submit"} value="Cancel" /> */}
