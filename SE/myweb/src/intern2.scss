@@ -48,12 +48,12 @@ $radius: 0.2rem;
   background-color: white;
   text-align: center;
   overflow: hidden;
-  width: 85%;
+  width: 90%;
 border-radius: 10px;
   .theadinstaff {
 
     box-shadow: 0 5px 10px $clr-gray300;
-    background-color: $clr-gray300;
+    background-color: #009879;
 
   }
 
@@ -106,7 +106,7 @@ border-radius: 10px;
   }
   //Color alternating rows
   tr:nth-child(even) {
-    background-color: $clr-gray200;
+    background-color: #e5f4f1;
   }
 }
 
@@ -389,12 +389,12 @@ border-radius: 10px;
   display: flex;
   //background-color: #161d34;
   width: max-content;
-  height: max-content;
+  height: 50px;
   padding: 5px;
   justify-content: center;
   align-items: center;
   font-family: 'Fredoka', sans-serif;
-  border:solid;
+  // border:solid;
   background-color: #e1e5ee;
   border-radius: 12px;
   text-decoration: none;

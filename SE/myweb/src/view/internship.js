@@ -1,15 +1,13 @@
-import { React, useState ,useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import "../style/internship.css";
-import { Link,useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Axios from "axios";
 
-
-
 function refreshPage() {
-  setTimeout(()=>{
-      window.location.reload(false);
+  setTimeout(() => {
+    window.location.reload(false);
   }, 10);
-  console.log('page to reload')
+  console.log("page to reload");
 }
 
 const Icon = () => {
@@ -30,9 +28,7 @@ const Icon = () => {
 //   alert(id);
 // }
 
-
 const Internship = (props) => {
-
   const { id } = useParams();
   const ip = "192.168.0.239";
   // var s = props.start;
@@ -40,55 +36,41 @@ const Internship = (props) => {
   const [data, setdata] = useState([]);
   const [dataresult, setdataresult] = useState([]);
 
-
   useEffect(() => {
     getinterndoc();
     getinternresult();
-
   }, []);
 
-
-  function getinterndoc ()  {
-      Axios.get("http://" + ip + ":3001/internshipdocument").then((response) => {
-
+  function getinterndoc() {
+    Axios.get("http://" + ip + ":3001/internshipdocument").then((response) => {
       const fdata = response.data;
       const itemdata = [];
 
-      for(let i in fdata){
-
-        if(fdata[i].ln_id === id){
+      for (let i in fdata) {
+        if (fdata[i].ln_id === id) {
           itemdata.push(fdata[i]);
         }
       }
       setdata(itemdata);
-      });
-  };
-
-
-  function getinternresult ()  {
-    Axios.get("http://" + ip + ":3001/internshipresult").then((response) => {
-
-    const fdata = response.data;
-    const itemdata = [];
-
-    for(let i in fdata){
-
-      if(fdata[i].ln_id === id){
-        itemdata.push(fdata[i]);
-      }
-    }
-    setdataresult(itemdata);
     });
-};
+  }
 
+  function getinternresult() {
+    Axios.get("http://" + ip + ":3001/internshipresult").then((response) => {
+      const fdata = response.data;
+      const itemdata = [];
 
-
-
-
+      for (let i in fdata) {
+        if (fdata[i].ln_id === id) {
+          itemdata.push(fdata[i]);
+        }
+      }
+      setdataresult(itemdata);
+    });
+  }
 
   return (
     <div>
-
       {/* /////////////////////head */}
       <div className="boxhead">
         <h1 className="head">Internship</h1>
@@ -106,7 +88,13 @@ const Internship = (props) => {
           </div>
 
           <div className="boxct2">
-            <boxdownload>Download</boxdownload>
+            <a
+              href="https://bit.ly/3HPMQyY"
+              target="_blank"
+              className="boxdownload" 
+            >
+              Download
+            </a>
           </div>
         </boxcontent>
 
@@ -116,10 +104,14 @@ const Internship = (props) => {
           </div>
 
           <div className="boxct2">
-            <boxdownload>
-              <Icon />
+          <a
+              href="https://bit.ly/3HPMQyY"
+              target="_blank"
+              className="boxdownload" 
+            >
+              <Icon/>
               Download
-            </boxdownload>
+            </a>
           </div>
         </boxcontent>
 
@@ -129,10 +121,15 @@ const Internship = (props) => {
           </div>
 
           <div className="boxct2">
-            <boxdownload>
-              <Icon />
+          <a
+              href="https://bit.ly/3HPMQyY"
+              target="_blank"
+              className="boxdownload" 
+            >
+              <Icon/>
               Download
-            </boxdownload>
+            </a>
+      
           </div>
         </boxcontent>
       </div>
@@ -140,13 +137,17 @@ const Internship = (props) => {
       <div className="boxheadtable">
         <div className="headtable">
           <div>Status Document internship</div>
-          <Link to={"/newinternship/"+id} className="add" onClick={refreshPage} >
+          <Link
+            to={"/newinternship/" + id}
+            className="add"
+            onClick={refreshPage}
+          >
             New
           </Link>
         </div>
         <div className="headtable">
           <div>Internship result</div>
-          <Link to="/new" className="add" >
+          <Link to="/new" className="add">
             New
           </Link>
         </div>
@@ -155,14 +156,12 @@ const Internship = (props) => {
       <div className="boxtable">
         <div className="contable">
           <table class="content-table">
-
             <thead>
               <tr>
                 <th className="txtheadtable">Date</th>
                 <th className="txtheadtable">NameCompany</th>
                 <th className="txtheadtable">Status</th>
                 <th className="txtheadtable">reason</th>
-
               </tr>
             </thead>
             <tbody>
@@ -172,7 +171,9 @@ const Internship = (props) => {
                   <tr>
                     <td className="txttable">{val.id_date}</td>
                     <td className="txttable">{val.cp_name}</td>
-                    <td className="txttable"><div className={status}>{val.id_status}</div></td>
+                    <td className="txttable">
+                      <div className={status}>{val.id_status}</div>
+                    </td>
                     <td className="txttable">{val.id_comment}</td>
                   </tr>
                 );
@@ -188,7 +189,6 @@ const Internship = (props) => {
                 <th className="txtheadtable">Date</th>
                 <th className="txtheadtable">NameCompany</th>
                 <th className="txtheadtable">Status</th>
-
               </tr>
             </thead>
             <tbody>
@@ -198,8 +198,9 @@ const Internship = (props) => {
                   <tr>
                     <td className="txttable">{val.ir_date}</td>
                     <td className="txttable">{val.cp_name}</td>
-                    <td className="txttable"><div className={status}>{val.ir_status}</div></td>
-                    
+                    <td className="txttable">
+                      <div className={status}>{val.ir_status}</div>
+                    </td>
                   </tr>
                 );
               })}

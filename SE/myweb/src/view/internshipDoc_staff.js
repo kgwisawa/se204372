@@ -207,7 +207,7 @@ export default function InternshipDoc_staff(props) {
               </div>
 
               <div className="contxtm">
-                <h4 className="txtm">Start Date</h4>
+                <h4 className="txtm">End Date</h4>
                 <h4 className="txtm2">{updateid.id_edate}</h4>
               </div>
 

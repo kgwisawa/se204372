@@ -66,7 +66,7 @@ contenttxt {
     margin-right: 5px;
 }
 
-boxdownload {
+.boxdownload {
     display: flex;
     font-size: 25px;
     font-family: 'Fredoka', sans-serif;
