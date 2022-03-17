@@ -167,11 +167,12 @@ const Internship = (props) => {
             </thead>
             <tbody>
               {data.map((val, key) => {
+                const status = "status status-" + val.id_status;
                 return (
                   <tr>
                     <td className="txttable">{val.id_date}</td>
                     <td className="txttable">{val.cp_name}</td>
-                    <td className="txttable">{val.id_status}</td>
+                    <td className="txttable"><div className={status}>{val.id_status}</div></td>
                     <td className="txttable">{val.id_comment}</td>
                   </tr>
                 );
@@ -192,11 +193,12 @@ const Internship = (props) => {
             </thead>
             <tbody>
               {dataresult.map((val, key) => {
+                const status = "status status-" + val.ir_status;
                 return (
                   <tr>
                     <td className="txttable">{val.ir_date}</td>
                     <td className="txttable">{val.cp_name}</td>
-                    <td className="txttable">{val.ir_status}</td>
+                    <td className="txttable"><div className={status}>{val.ir_status}</div></td>
                     
                   </tr>
                 );

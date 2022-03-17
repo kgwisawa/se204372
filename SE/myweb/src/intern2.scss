@@ -48,8 +48,10 @@ $radius: 0.2rem;
   background-color: white;
   text-align: center;
   overflow: hidden;
-
+  width: 85%;
+border-radius: 10px;
   .theadinstaff {
+    
     box-shadow: 0 5px 10px $clr-gray300;
     background-color: $clr-gray300;
     
@@ -59,14 +61,14 @@ $radius: 0.2rem;
     padding: 1rem 2rem;
     // text-transform: uppercase;
     letter-spacing: 0.1rem;
-    font-size: 18;
+    font-size: 18px;
     font-weight: 900;
     font-family: 'IBM Plex Sans Thai', sans-serif;
   }
 
   .tdinstaff {
     padding: 1rem 1.5rem;
-    font-size: larger;
+    font-size: 18px;
     font-family: 'IBM Plex Sans Thai', sans-serif;
   }
 
@@ -76,11 +78,12 @@ $radius: 0.2rem;
   }
 
   .status {
-    border-radius: $radius;
+    border-radius: 7px;
     background-color: red;
     padding: 0.2rem 1rem;
     text-align: center;
     align-items: center;
+    width: 100%;
 
     &-pending {
       background-color: $clr-pending;
@@ -138,7 +141,7 @@ $radius: 0.2rem;
   font-family: 'IBM Plex Sans Thai', sans-serif;
 
 }
-.custom-btn {
+.custom-btclo{
   width: 130px;
   height: 40px;
   padding: 10px 25px;
@@ -313,7 +316,7 @@ $radius: 0.2rem;
   padding-left: 10px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  width: 480px;
+  width: 550px;
   box-shadow: #4f546c  3px 3px;
   font-family: 'IBM Plex Sans Thai', sans-serif;
 

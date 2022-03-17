@@ -252,7 +252,7 @@ export default function InternshipDoc_staff(props) {
 
             <br />
             <div className="btn-close">
-              <button className="custom-btn btn-3" onClick={closeModal}>
+              <button className="custom-btclo" onClick={closeModal}>
                 <span>close</span>
               </button>
             </div>
@@ -292,7 +292,7 @@ export default function InternshipDoc_staff(props) {
                     download
                   </a>
                 </td>
-                <td class={status}>{val.id_status}</td>
+                <td className="tdinstaff"><div className={status}>{val.id_status}</div></td>
                 <td>
                   <a onClick={() => openModal(val)} className="ainstaff">click</a>
                 </td>

@@ -209,3 +209,25 @@ boxdownload {
     font-size: 18px;
     text-decoration: none;
   }
+.status {
+    border-radius: 7px;
+    background-color: red;
+    padding: 0.2rem 1rem;
+    text-align: center;
+    align-items: center;
+    width: 50%;
+}
+    .status-pending {
+      background-color: #fff0c2;
+      color: #a68b00;
+    }
+
+    .status-accept {
+      background-color: #c8e6c9;
+      color: #388e3c;
+    }
+
+    .status-decline {
+      background-color: #ffcdd2;
+      color: #c62828;
+    }
