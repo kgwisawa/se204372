@@ -144,8 +144,7 @@ export default function InternshipDoc_staff(props) {
 
         </div>
         <div>
-          <Link to={"/internship-r-t/"+id} onClick={refreshPage1}>kuy</Link>
-
+          <Link to={"/internship-r-t/"+id} onClick={refreshPage}>kuy</Link>
         </div>
 
       </div>
