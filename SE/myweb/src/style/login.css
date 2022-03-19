@@ -133,14 +133,15 @@ input[type="submit"]{
 }
 
 .bg {
-    justify-content: center;
-    align-items: center;
-    background-position: center;
-    background-size: cover;
+    /* justify-content: center;
+    align-items: center; */
+    /* background-position: center; */
+    /* background-size: cover; */
     display: flex;
     width: 100%;
-    height: 100%;
-    background-image: url('../images/mounten.jpg');
+    height: 881px;
+    background-image: url('../images/bglogin.jpg');
+
 }
 
 
