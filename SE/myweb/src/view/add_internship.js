@@ -110,7 +110,7 @@ function Add_internship() {
     });
   };
 
-  const ip = "192.168.0.239";
+  const ip = "localhost";
 
   function refreshPage() {
     setTimeout(() => {
@@ -197,7 +197,7 @@ function Add_internship() {
   const FormatDateE = (edate) =>{
     var e = moment(edate).format("DD/MM/YYYY")
     let sum = id_sdate;
-    if(moment(edate).isBefore(sum[6]+sum[7]+sum[8]+sum[9]+"-"+sum[3]+sum[4]+"-"+sum[0]+sum[1])){
+    if((moment(edate).isBefore(sum[6]+sum[7]+sum[8]+sum[9]+"-"+sum[3]+sum[4]+"-"+sum[0]+sum[1]))||moment(edate).isBefore(moment())){
       document.getElementById("edate").value = moment().format("DD/MM/YYYY");
     }else{
       setid_edate(e);
@@ -298,7 +298,7 @@ function Add_internship() {
           required
           placeholder="Select Year"
           onChange={(event) =>{setid_year(event.value) 
-          alert(event.value)}}
+          }}
         />
 
           {/* <input

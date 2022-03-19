@@ -7,7 +7,7 @@ import Carousel from "react-elastic-carousel";
 import Item from "./Item";
 
 
-const ip = "192.168.0.239";
+const ip = "localhost";
 var start = 1;
 
 function Home() {

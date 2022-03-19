@@ -30,7 +30,7 @@ const Icon = () => {
 
 const Internship = (props) => {
   const { id } = useParams();
-  const ip = "192.168.0.239";
+  const ip = "localhost";
   // var s = props.start;
 
   const [data, setdata] = useState([]);
@@ -105,8 +105,6 @@ const Internship = (props) => {
 
           <div className="boxct2">
           <a
-              href="https://bit.ly/3HPMQyY"
-              target="_blank"
               className="boxdownload"
             >
               <Icon/>
@@ -122,8 +120,6 @@ const Internship = (props) => {
 
           <div className="boxct2">
           <a
-              href="https://bit.ly/3HPMQyY"
-              target="_blank"
               className="boxdownload"
             >
               <Icon/>

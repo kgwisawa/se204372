@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import "../modalstyles.css";
 import Moment from "react-moment";
 
-const ip = "192.168.0.239";
+const ip = "localhost";
 var start = 1;
 var btn = 0;
 
@@ -92,7 +92,7 @@ export default function InternshipResult_Staff() {
           <div className="text_detail">
             <div className="contxtm">
               <h4 className="txtm">Date:</h4>
-              <h4 className="txtm2">{<Moment format="MM/DD/YYYY">{ModalValue.ir_date}</Moment>}</h4>
+              <h4 className="txtm2">{ModalValue.ir_date}</h4>
             </div>
 
             <div className="contxtm">
@@ -170,7 +170,7 @@ export default function InternshipResult_Staff() {
             return (
               <tr>
                 <td className="tdinstaff">
-                  {<Moment format="DD/MM/YYYY">{val.ir_date}</Moment>}
+                  {val.ir_date}
                 </td>
                 <td className="tdinstaff">{val.ln_id}</td>
                 <td className="tdinstaff">{val.ln_name}</td>
