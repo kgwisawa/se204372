@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "../style/login.css";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-const ip = "localhost";
+const ip = "192.168.0.249";
 
 
 let start = 1;
