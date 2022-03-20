@@ -135,7 +135,7 @@ app.get('/loginadmin', (req,res) =>{
 //*?-----------------------------------------------------------------------------------------  read
 
 app.get('/internshipdocument', (req,res) =>{
-  db.query("SELECT  id_comment,id_id , ln_id , ln_name ,id_year , email  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
+  db.query("SELECT  cp_id,id_comment,id_id , ln_id , ln_name ,id_year , email  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm`,id_other FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
       if(err) {
           console.log(err);
       } else {
@@ -145,24 +145,14 @@ app.get('/internshipdocument', (req,res) =>{
 });
 
 
-//*?-----------------------------------------------------------------------------------------  read nisit name id
 
-app.get('/internshipdocument', (req,res) =>{
-  db.query("SELECT ln_id , ln_name FROM internshipDocument JOIN loginNisit USING(ln_id)", (err, result) => {
-      if(err) {
-          console.log(err);
-      } else {
-          res.send(result);
-      }
-  });
-});
 
 
 
 //*?-----------------------------------------------------------------------------------------  read orderstatus
 
 app.get('/internshipdocument/orderstatus', (req,res) =>{
-  db.query("SELECT  id_comment,id_id , ln_id , ln_name ,id_year , email  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id) ORDER BY id_status DESC", (err, result) => {
+  db.query("SELECT  cp_id,id_comment,id_id , ln_id , ln_name ,id_year , email  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm`,id_other FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id) ORDER BY id_status DESC", (err, result) => {
       if(err) {
           console.log(err);
       } else {
@@ -174,7 +164,7 @@ app.get('/internshipdocument/orderstatus', (req,res) =>{
 //*?-----------------------------------------------------------------------------------------  read orderdate
 
 app.get('/internshipdocument/orderdate', (req,res) =>{
-  db.query("SELECT  id_comment,id_id , ln_id , ln_name ,id_year , email  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id) ORDER BY id_id DESC", (err, result) => {
+  db.query("SELECT  cp_id,id_comment,id_id , ln_id , ln_name ,id_year , email  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm`,id_other FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id) ORDER BY id_id DESC", (err, result) => {
       if(err) {
           console.log(err);
       } else {
@@ -186,7 +176,7 @@ app.get('/internshipdocument/orderdate', (req,res) =>{
 //*?-----------------------------------------------------------------------------------------  read orderyear
 
 app.get('/internshipdocument/orderyear', (req,res) =>{
-  db.query("SELECT  id_comment,id_id , ln_id , ln_name ,id_year , email  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm` FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id) ORDER BY id_year DESC", (err, result) => {
+  db.query("SELECT  cp_id,id_comment,id_id , ln_id , ln_name ,id_year , email  ,id_date ,  cp_name  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_status`,`id_confirm`,id_other FROM internshipDocument JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id) ORDER BY id_year DESC", (err, result) => {
       if(err) {
           console.log(err);
       } else {
@@ -220,12 +210,13 @@ app.post("/create/internshipdocument", (req, res) => {
   const id_file = req.body.id_file;
   const id_tfile1 = req.body.id_tfile1;
   const id_tfile2 = req.body.id_tfile2;
+  const id_other = req.body.id_other;
   const id_status = req.body.id_status;
   const id_confirm = req.body.id_confirm;
 
   db.query(
-    "INSERT INTO internshipdocument (ln_id  , id_date  , cp_id , id_year  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_tfile1`,`id_tfile2`,`id_status`,`id_confirm`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
-    [ln_id , id_date, cp_id,id_year ,id_position,id_sdate,id_edate,id_file ,id_tfile1,id_tfile2, id_status, id_confirm],
+    "INSERT INTO internshipdocument (ln_id  , id_date  , cp_id , id_year  , `id_position`, `id_sdate`,`id_edate`,`id_file`,`id_tfile1`,`id_tfile2`,id_other,`id_status`,`id_confirm`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+    [ln_id , id_date, cp_id,id_year ,id_position,id_sdate,id_edate,id_file ,id_tfile1,id_tfile2,id_other, id_status, id_confirm],
     (err, result) => {
       if (err) {
         console.log(err);
@@ -268,7 +259,7 @@ app.put("/update/internshipdocument", (req, res) => {
 //*?-----------------------------------------------------------------------------------------  read
 
 app.get('/internshipresult', (req,res) =>{
-  db.query("SELECT ir_id, ln_id , ln_name ,email , cp_name , ir_date , ir_image ,ir_status FROM internshipresult JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
+  db.query("SELECT ir_id, ln_id , ln_name ,email , cp_name , ir_date , ir_image ,ir_other,ir_status FROM internshipresult JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
       if(err) {
           console.log(err);
       } else {
@@ -284,10 +275,11 @@ app.post("/create/internshipresult", (req, res) => {
   const ir_date = req.body.ir_date;
   const ir_status = req.body.ir_status;
   const ir_image = req.body.ir_image;
+  const ir_other = req.body.ir_other;
 
   db.query(
-    "INSERT INTO internshipresult (ln_id,cp_id ,ir_date,ir_status,ir_image) VALUES (?,?,?,?,?)",
-    [ln_id,cp_id,ir_date, ir_status, ir_image],
+    "INSERT INTO internshipresult (ln_id,cp_id ,ir_date,ir_status,ir_image,ir_other) VALUES (?,?,?,?,?,?)",
+    [ln_id,cp_id,ir_date, ir_status, ir_image,ir_other],
     (err, result) => {
       if (err) {
         console.log(err);
