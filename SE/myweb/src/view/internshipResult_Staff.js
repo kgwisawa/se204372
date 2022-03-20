@@ -65,7 +65,7 @@ export default function InternshipResult_Staff() {
   getResult();
 
   return (
-    <div className="bgimg">
+    <div className="bgimgin">
     <div className="index">
       <div className="Modal_styles">
         <Modal

@@ -263,6 +263,7 @@ function Add_internship() {
   };
 
   return (
+    <div className="bgimgadd">
     <div className="form-box-in">
       <h1>Apply Internship</h1>
 
@@ -380,6 +381,7 @@ function Add_internship() {
           {/* <input type={"submit"} value="Cancel" /> */}
         </div>
       </form>
+    </div>
     </div>
   );
 }
