@@ -85,7 +85,20 @@ contenttxt {
     background-color: #ffffff;
     text-decoration: none;  
 }
-
+.box-head{
+  display: flex;
+  align-items: center;
+  background-color: #f3f3f3;
+  padding: auto;
+  padding-left: 10px;
+  border-radius: 10px;
+  margin-left: 35px;
+  box-shadow: #000 3px 3px 3px;
+}
+.txt-c{
+  font-family: 'Fredoka', sans-serif;
+  color: #000;
+}
 
 
 .icon {
@@ -263,7 +276,7 @@ contenttxt {
     }
 .bgimg{
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
   position: absolute;
   background-image: url('../images/bglogin.jpg');
   background-repeat: no-repeat;

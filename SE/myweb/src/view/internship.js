@@ -133,7 +133,8 @@ const Internship = (props) => {
 
       <div className="boxheadtable">
         <div className="headtable">
-          <div>Status Document internship</div>
+        <div className="box-head">
+          <div className="txt-c">Status Document internship</div>
           <Link
             to={"/newinternship/" + id}
             className="add"
@@ -141,12 +142,15 @@ const Internship = (props) => {
           >
             New
           </Link>
+          </div>
         </div>
         <div className="headtable">
-          <div>Internship result</div>
+        <div className="box-head">
+          <div className="txt-c">Internship result</div>
           <Link to={"/newinternshipresult/"+id} className="add" onClick={refreshPage} >
             New
           </Link>
+        </div>
         </div>
       </div>
 
