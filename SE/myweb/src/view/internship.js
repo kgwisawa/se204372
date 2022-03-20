@@ -70,7 +70,7 @@ const Internship = (props) => {
   }
 
   return (
-    <div>
+    <div className="bgimg">
       {/* /////////////////////head */}
       <div className="boxhead">
         <h1 className="head">Internship</h1>
