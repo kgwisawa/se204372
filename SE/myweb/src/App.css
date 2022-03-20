@@ -75,7 +75,7 @@
   /* border: 1px #333 solid; */
   border-radius: 10px;
 }
-.rec.rec-dot_hover,.rec.rec-dot_active,.rec.rec-dot_focus {
+.rec.rec-dot_hover,.rec.rec-dot_active,.rec.rec-dot:focus {
   background-color: #009879;
   box-shadow: 0 0 1px 3px rgba(255, 255, 255, 0.3);
   /* box-shadow: 0 0 1px 3px rgba(0, 152, 121, 0.7); */
