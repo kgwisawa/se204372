@@ -291,6 +291,7 @@ export default function InternshipDoc_staff(props) {
             {internshipdocumentList.map((val, key) => {
               const name = val.ln_id + "_" + val.ln_name + ".pdf";
               const status = "status status-" + val.id_status;
+              if(val.cp_id !== "CP000"){
               return (
                 <tr>
                   <td className="tdinstaff">{val.id_year}</td>
@@ -314,6 +315,30 @@ export default function InternshipDoc_staff(props) {
                   </td>
                 </tr>
               );
+              }else if(val.cp_id == "CP000"){
+                return(
+                <tr>
+                <td className="tdinstaff">{val.id_year}</td>
+                <td className="tdinstaff">{val.id_date}</td>
+                <td className="tdinstaff">{val.ln_id}</td>
+                <td className="tdinstaff">{val.ln_name}</td>
+                <td className="tdinstaff">{val.id_other}</td>
+                <td className="tdinstaff">{val.id_position}</td>
+                <td className="tdinstaff">
+                  <a href={val.id_file} download={name} className="ainstaff">
+                    download
+                  </a>
+                </td>
+                <td className="tdinstaff">
+                  <div className={status}>{val.id_status}</div>
+                </td>
+                <td>
+                  <a onClick={() => openModal(val)} className="ainstaff">
+                    click
+                  </a>
+                </td>
+              </tr>)
+              }
             })}
           </tbody>
         </table>
