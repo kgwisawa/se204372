@@ -65,6 +65,7 @@ export default function InternshipResult_Staff() {
   getResult();
 
   return (
+    <div className="bgimg">
     <div className="index">
       <div className="Modal_styles">
         <Modal
@@ -232,6 +233,7 @@ export default function InternshipResult_Staff() {
           })}
         </tbody>
       </table>
+    </div>
     </div>
   );
 }

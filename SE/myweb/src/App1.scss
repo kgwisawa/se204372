@@ -129,4 +129,11 @@ $radius: 0.2rem;
   justify-content: center;
   align-items: center;
 }
+.bgimg{
+  position: absolute;
+  background-image: url('../src/images/bglogin.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
 
