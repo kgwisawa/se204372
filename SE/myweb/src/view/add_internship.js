@@ -3,7 +3,7 @@ import "../style/add_internship.css";
 import "react-dropdown/style.css";
 // import { Checkbox } from 'react-native-paper';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link, useParams , useNavigate  } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import Dropdown from "react-dropdown";
 import Moment from "react-moment";
@@ -13,42 +13,40 @@ import "moment-timezone";
 const userData = [{ name: "ฝึกงาน" }, { name: "สหกิจศึกษา" }];
 
 function Add_internship() {
-
   const navigate = useNavigate();
-
 
   const { id } = useParams();
   const start = moment().format("DD/MM/YYYY");
   const [company, setcompany] = useState([]);
+  
   const [companyList, setCompanyList] = useState([]);
-  const [year , setYear] = useState([]);
-  const [pickYear , setPickYear] = useState("");
-
+  const [year, setYear] = useState([]);
+  const [pickYear, setPickYear] = useState("");
 
   const [nisitinfo, setnisitinfo] = useState([]);
-  
+
   const getinfo = () => {
-      Axios.get("http://" + ip + ":3001/loginnisit").then((response) => {
-        const data = response.data
-        for(let i in data){
-          if(data[i].ln_id == id){
-            setnisitinfo(data[i]);
-            // alert(data[i].ln_name)
-            return
-          }  
+    Axios.get("http://" + ip + ":3001/loginnisit").then((response) => {
+      const data = response.data;
+      for (let i in data) {
+        if (data[i].ln_id == id) {
+          setnisitinfo(data[i]);
+          // alert(data[i].ln_name)
+          return;
         }
-      });
+      }
+    });
   };
 
   function setcp(data) {
     // alert(companyList[0].cp_name );
-    for(let i in companyList){
-      if(companyList[i].cp_name === data){
-          setcp_id(companyList[i].cp_id);
-          // alert(companyList[i].cp_id)
+    for (let i in companyList) {
+      if (companyList[i].cp_name === data) {
+        setcp_id(companyList[i].cp_id);
+        // alert(companyList[i].cp_id)
       }
     }
-  };
+  }
 
   const getCompany = () => {
     Axios.get("http://" + ip + ":3001/company").then((response) => {
@@ -64,12 +62,20 @@ function Add_internship() {
   function setcom() {
     for (let i in companyList) {
       // alert(companyList[i].cp_name)
-      company.push(companyList[i].cp_name);
+      let set = true;
+      for (let j in company) {
+      if(companyList[i].cp_name === company[j]){
+        set = false;
+      }
+      }
+      if(set){
+        company.push(companyList[i].cp_name);
+      }
     }
     return company;
   }
   const [cp_name, setcp_name] = useState("");
-
+  const [othercp, setothercp] = useState("");
   const [id_date, setid_date] = useState(start);
   const [id_confirm, setid_confirm] = useState("-");
   const [id_file, setid_file] = useState("-");
@@ -80,10 +86,9 @@ function Add_internship() {
 
   const [id_status, setid_status] = useState("pending");
   const [id_position, setid_position] = useState(null);
-  const [id_sdate, setid_sdate] = useState(""); 
+  const [id_sdate, setid_sdate] = useState("");
   const [id_edate, setid_edate] = useState("");
   const [id_year, setid_year] = useState(null);
-
 
   const [internship, setinternship] = useState([]);
 
@@ -110,6 +115,28 @@ function Add_internship() {
     });
   };
 
+  const other = (type) => {
+    if(type === "CP000"){
+      return (
+        <div className="txt_field-in">
+          <input
+            type={"text"}
+            required
+            onChange={(event) => {
+              setothercp(event.target.value);
+            }}
+          />
+          <span></span>
+          <label>Other</label>
+        </div>
+      );
+    }
+    else{
+      return;
+    }
+
+  };
+
   const ip = "192.168.0.243";
 
   function refreshPage() {
@@ -120,9 +147,13 @@ function Add_internship() {
   }
 
   const addinternship = () => {
-
-    if (cp_id == null || baseImage == null || id_position == null || id_year == null) {
-      return
+    if (
+      cp_id == null ||
+      baseImage == null ||
+      id_position == null ||
+      id_year == null
+    ) {
+      return;
     }
 
     Axios.post("http://" + ip + ":3001/create/internshipdocument", {
@@ -138,6 +169,7 @@ function Add_internship() {
       id_status: id_status,
       id_confirm: id_confirm,
       id_year: id_year,
+      id_other:othercp
     }).then(() => {
       setinternship([
         ...internship,
@@ -154,12 +186,12 @@ function Add_internship() {
           id_status: id_status,
           id_confirm: id_confirm,
           id_year: id_year,
+          id_other:othercp
         },
       ]);
     });
     alert("submit successful");
-    navigate("/internship/"+id);
-
+    navigate("/internship/" + id);
   };
 
   useEffect(() => {
@@ -181,45 +213,54 @@ function Add_internship() {
     setUsers(tempUser);
   };
 
- 
+  const FormatDateS = (sdate) => {
+    var s = moment(sdate).format("DD/MM/YYYY");
 
-  const FormatDateS = (sdate) =>{
-  var s = moment(sdate).format("DD/MM/YYYY")
-
-  if(moment(sdate).isBefore(moment())){
-    document.getElementById("sdate").value = moment().format("DD/MM/YYYY");
+    if (moment(sdate).isBefore(moment())) {
+      document.getElementById("sdate").value = moment().format("DD/MM/YYYY");
       // alert("S")
-  }else{
-    setid_sdate(s);
-  }
-  }
+    } else {
+      setid_sdate(s);
+    }
+  };
 
-  const FormatDateE = (edate) =>{
-    var e = moment(edate).format("DD/MM/YYYY")
+  const FormatDateE = (edate) => {
+    var e = moment(edate).format("DD/MM/YYYY");
     let sum = id_sdate;
-    if((moment(edate).isBefore(sum[6]+sum[7]+sum[8]+sum[9]+"-"+sum[3]+sum[4]+"-"+sum[0]+sum[1]))||moment(edate).isBefore(moment())){
+    if (
+      moment(edate).isBefore(
+        sum[6] +
+          sum[7] +
+          sum[8] +
+          sum[9] +
+          "-" +
+          sum[3] +
+          sum[4] +
+          "-" +
+          sum[0] +
+          sum[1]
+      ) ||
+      moment(edate).isBefore(moment())
+    ) {
       document.getElementById("edate").value = moment().format("DD/MM/YYYY");
-    }else{
+    } else {
       setid_edate(e);
     }
-  }
+  };
 
-  const selectYear = () =>{
+  const selectYear = () => {
     var years = new Date().getFullYear();
 
     // alert(years + typeof years)
 
-    let sum = [] ;
+    let sum = [];
 
-
-    for (let i = 0 ; i<10 ; i++){
-      sum.push(years-i);
+    for (let i = 0; i < 10; i++) {
+      sum.push(years - i);
       //alert(years-i)
     }
-  setYear(sum);
-  }
-
-
+    setYear(sum);
+  };
 
   return (
     <div className="form-box-in">
@@ -241,7 +282,9 @@ function Add_internship() {
           ))}
         </div>
 
-        <div className="nisitinfo">{nisitinfo.ln_id} {nisitinfo.ln_name}</div>
+        <div className="nisitinfo">
+          {nisitinfo.ln_id} {nisitinfo.ln_name}
+        </div>
 
         <div className="txt_field-in">
           <input
@@ -254,29 +297,29 @@ function Add_internship() {
           <span></span>
           <label>Position</label>
         </div>
-
+        
         <div>
           <Dropdown
             options={setcom()}
             placeholder="Select Company"
             required
             onChange={(event) => {
-             setcp(event.value);
+              setcp(event.value);
             }}
           />
         </div>
+        {other(cp_id)}
         <div className="txt_field-in">
-        <label>Start Date</label>
+          <label>Start Date</label>
           <input
             type={"date"}
             required
             id="sdate"
             className="date-input"
-            onChange={(event) => {FormatDateS(event.target.value)
+            onChange={(event) => {
+              FormatDateS(event.target.value);
             }}
           />
-         
-
         </div>
 
         <div className="txt_field-in">
@@ -287,19 +330,19 @@ function Add_internship() {
             className="date-input"
             onChange={(event) => FormatDateE(event.target.value)}
           />
-         
+
           <label>End Date</label>
         </div>
 
         <div className="txt_field-in">
-
-        <Dropdown
-          options={year}
-          required
-          placeholder="Select Year"
-          onChange={(event) =>{setid_year(event.value) 
-          }}
-        />
+          <Dropdown
+            options={year}
+            required
+            placeholder="Select Year"
+            onChange={(event) => {
+              setid_year(event.value);
+            }}
+          />
 
           {/* <input
             type={"text"}
@@ -327,7 +370,11 @@ function Add_internship() {
             <input type={"submit"} value="Apply" onClick={addinternship} />
           </div>
 
-          <Link to={"/internship/"+id} className="btCancel" onClick={refreshPage}> 
+          <Link
+            to={"/internship/" + id}
+            className="btCancel"
+            onClick={refreshPage}
+          >
             Cancel
           </Link>
           {/* <input type={"submit"} value="Cancel" /> */}

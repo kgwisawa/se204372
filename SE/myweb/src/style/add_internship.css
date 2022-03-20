@@ -20,6 +20,15 @@
     width: 100%;
 
 }
+.checkbox-style-cp{
+    display: flex;
+    /* background-color: black; */
+    justify-content: flex-start;
+    margin-left: -20px;
+    margin-bottom: 20px;
+    width: 100%;
+
+}
 
 .form-check-in {
      /* background-color: black; */
@@ -45,7 +54,7 @@
 
 .form-box-in {
     width: 500px;
-    height: 800px;
+    height: 830px;
     position: relative;
     margin: 6% auto;
     background-color: whitesmoke;
@@ -56,7 +65,7 @@
 
 .form-box-in2 {
     width: 500px;
-    height: 500px;
+    height: 560px;
     position: relative;
     margin: 6% auto;
     background-color: whitesmoke;
