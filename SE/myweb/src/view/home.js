@@ -30,6 +30,7 @@ function Home() {
         <br />
         {getCompany()}
         <Carousel
+          className="rec.rec-dot"
           itemPadding={[10, 10]}
           // pagination={false}
           showArrows={false}
