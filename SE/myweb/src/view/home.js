@@ -2,17 +2,18 @@ import { React, useState, input } from "react";
 import Axios from "axios";
 import "../App.css";
 import { useParams } from "react-router-dom";
-
+import bgInItem from "../style/bgInItem.scss";
 import Carousel from "react-elastic-carousel";
 import Item from "./Item";
 
 const ip = "192.168.0.243";
 var start = 1;
-
+var set = 1;
 function Home() {
   const { id } = useParams();
 
   const [companyList, setCompanyList] = useState([]);
+  //const [image , setimage] = useState("");
   const getCompany = () => {
     if (start === 1)
       Axios.get("http://" + ip + ":3001/company").then((response) => {
@@ -42,14 +43,16 @@ function Home() {
           {companyList.map((val, key) => {
             if (val.cp_id !== "CP000") {
               return (
-                <Item>
-                  {val.cp_name}
+                <div className="item">
+                <div className={"item item" + val.cp_id}>
+                  {/* {val.cp_name} */}
                   <div className="info">
                     <a href={val.cp_link} target="_blank" className="bt">
                       Info
                     </a>
                   </div>
-                </Item>
+                </div>
+                </div>
               );
             }
           })}

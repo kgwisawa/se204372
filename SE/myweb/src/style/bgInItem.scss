@@ -1,0 +1,87 @@
+.item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 350px;
+    // //background-color: #009879;
+    color: #fff; 
+    margin: 15px;
+    font-size: 18px;
+    border-radius: 25px;
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    
+    &CP001{
+        // display: flex;
+        // position: absolute;
+    // width: 320px;
+    // height: 300px;
+
+    background-image: url(../images/drone.jpg);
+    background-size: contain;
+    }
+    &CP002{
+        // display: flex;
+        // position: absolute;
+    // width: 320px;
+    // height: 300px;
+
+    background-image: url(../images/vanness.jpg);
+    background-size: 325px 310px;
+    }
+    &CP003{
+        // display: flex;
+        // position: absolute;
+    // width: 320px;
+    // height: 300px;
+
+    background-image: url(../images/iig.jpg);
+    background-size: 325px 270px;
+    }
+    &CP004{
+        // display: flex;
+        // position: absolute;
+    // width: 320px;
+    // height: 300px;
+
+    background-image: url(../images/gofive.jpg);
+    background-size: 315px 290px;
+    }
+    &CP005{
+        // display: flex;
+        // position: absolute;
+    // width: 320px;
+    // height: 300px;
+
+    background-image: url(../images/lp.jpg);
+    background-size: 315px 300px;
+    }
+    &CP006{
+        // display: flex;
+        // position: absolute;
+    // width: 320px;
+    // height: 300px;
+
+    background-image: url(../images/db.jpg);
+    background-size: contain;
+    }
+    &CP007{
+        // display: flex;
+        // position: absolute;
+    // width: 320px;
+    // height: 300px;
+
+    background-image: url(../images/mdsoft.jpg);
+    background-size: 325px 310px;
+    }
+    &CP008{
+        // display: flex;
+        // position: absolute;
+    // width: 320px;
+    // height: 300px;
+
+    background-image: url(../images/jas.jpg);
+    background-size: contain ;
+    }
+}
