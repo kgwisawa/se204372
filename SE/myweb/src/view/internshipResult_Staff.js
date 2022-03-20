@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import "../modalstyles.css";
 import Moment from "react-moment";
 
-const ip = "192.168.0.249";
+const ip = "192.168.0.243";
 var start = 1;
 var btn = 0;
 

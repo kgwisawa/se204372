@@ -6,7 +6,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { Link, useParams } from "react-router-dom";
 
-const ip = "192.168.0.249";
+const ip = "192.168.0.243";
 var start = 1;
 function refreshPage() {
   setTimeout(() => {
