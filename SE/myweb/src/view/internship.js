@@ -70,8 +70,9 @@ const Internship = (props) => {
   }
 
   return (
-    <div>
+    <div className="bgimg">
       {/* /////////////////////head */}
+      <div>
       <div className="boxhead">
         <h1 className="head">Internship</h1>
       </div>
@@ -132,7 +133,8 @@ const Internship = (props) => {
 
       <div className="boxheadtable">
         <div className="headtable">
-          <div>Status Document internship</div>
+        <div className="box-head">
+          <div className="txt-c">Status Document internship</div>
           <Link
             to={"/newinternship/" + id}
             className="add"
@@ -140,12 +142,15 @@ const Internship = (props) => {
           >
             New
           </Link>
+          </div>
         </div>
         <div className="headtable">
-          <div>Internship result</div>
+        <div className="box-head">
+          <div className="txt-c">Internship result</div>
           <Link to={"/newinternshipresult/"+id} className="add" onClick={refreshPage} >
             New
           </Link>
+        </div>
         </div>
       </div>
 
@@ -163,6 +168,7 @@ const Internship = (props) => {
             <tbody>
               {data.map((val, key) => {
                 const status = "status status-" + val.id_status;
+                if(val.cp_id !== "CP000"){
                 return (
                   <tr>
                     <td className="txttable">{val.id_date}</td>
@@ -172,7 +178,18 @@ const Internship = (props) => {
                     </td>
                     <td className="txttable">{val.id_comment}</td>
                   </tr>
-                );
+                );}else{
+                  return (
+                    <tr>
+                      <td className="txttable">{val.id_date}</td>
+                      <td className="txttable">{val.id_other}</td>
+                      <td className="txttable">
+                        <div className={status}>{val.id_status}</div>
+                      </td>
+                      <td className="txttable">{val.id_comment}</td>
+                    </tr>
+                  )
+                }
               })}
             </tbody>
           </table>
@@ -190,6 +207,7 @@ const Internship = (props) => {
             <tbody>
               {dataresult.map((val, key) => {
                 const status = "status status-" + val.ir_status;
+                if(val.cp_id !== "CP000"){
                 return (
                   <tr>
                     <td className="txttable">{val.ir_date}</td>
@@ -198,11 +216,22 @@ const Internship = (props) => {
                       <div className={status}>{val.ir_status}</div>
                     </td>
                   </tr>
-                );
+                );}else{
+                  return (
+                    <tr>
+                    <td className="txttable">{val.ir_date}</td>
+                    <td className="txttable">{val.ir_other}</td>
+                    <td className="txttable">
+                      <div className={status}>{val.ir_status}</div>
+                    </td>
+                  </tr>
+                  )
+                }
               })}
             </tbody>
           </table>
         </div>
+      </div>
       </div>
     </div>
   );

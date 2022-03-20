@@ -66,7 +66,15 @@ function Add_internship() {
   function setcom() {
     for (let i in companyList) {
       // alert(companyList[i].cp_name)
-      company.push(companyList[i].cp_name);
+      let set = true;
+      for (let j in company) {
+      if(companyList[i].cp_name === company[j]){
+        set = false;
+      }
+      }
+      if(set){
+        company.push(companyList[i].cp_name);
+      }
     }
     return company;
   }
@@ -74,6 +82,7 @@ function Add_internship() {
   const [id_date, setid_date] = useState(start);
   const [cp_id, setcp_id] = useState(null);
   const [ln_id, setln_id] = useState(id);
+  const [othercp, setothercp] = useState("");
 
   const [id_status, setid_status] = useState("pending");
 
@@ -102,6 +111,27 @@ function Add_internship() {
     });
   };
 
+  const other = (type) => {
+    if(type === "CP000"){
+      return (
+        <div className="txt_field-in">
+          <input
+            type={"text"}
+            required
+            onChange={(event) => {
+              setothercp(event.target.value);
+            }}
+          />
+          <span></span>
+          <label>Other</label>
+        </div>
+      );
+    }
+    else{
+      return;
+    }
+
+  };
   const ip = "192.168.0.243";
 
   const addinternship = () => {
@@ -115,6 +145,7 @@ function Add_internship() {
       cp_id: cp_id,
       ir_image: baseImage,
       ir_status: id_status,
+      ir_other:othercp
     }).then(() => {
       setinternship([
         ...internship,
@@ -124,6 +155,7 @@ function Add_internship() {
           cp_id: cp_id,
           ir_image: baseImage,
           ir_status: id_status,
+          ir_other:othercp
         },
       ]);
     });
@@ -151,6 +183,7 @@ function Add_internship() {
   };
 
   return (
+    <div className="bgimgadd">
     <div className="form-box-in2">
       <h1>Apply Internship</h1>
 
@@ -197,6 +230,7 @@ function Add_internship() {
             }}
           />
         </div>
+        {other(cp_id)}
 
         {/* <div className="txt_field-in">
         <label>Start Date</label>
@@ -261,6 +295,7 @@ function Add_internship() {
           {/* <input type={"submit"} value="Cancel" /> */}
         </div>
       </form>
+    </div>
     </div>
   );
 }

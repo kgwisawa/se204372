@@ -65,6 +65,7 @@ export default function InternshipResult_Staff() {
   getResult();
 
   return (
+    <div className="bgimgin">
     <div className="index">
       <div className="Modal_styles">
         <Modal
@@ -167,6 +168,7 @@ export default function InternshipResult_Staff() {
         </thead>
         <tbody>
           {internshipResult.map((val, key) => {
+             if(val.cp_id !== "CP000"){
             return (
               <tr>
                 <td className="tdinstaff">
@@ -196,10 +198,42 @@ export default function InternshipResult_Staff() {
                   </a>
                 </td>
               </tr>
-            );
+            );}else if(val.cp_id == "CP000"){
+              return (
+                <tr>
+                  <td className="tdinstaff">
+                    {val.ir_date}
+                  </td>
+                  <td className="tdinstaff">{val.ln_id}</td>
+                  <td className="tdinstaff">{val.ln_name}</td>
+                  <td className="tdinstaff">{val.ir_other}</td>
+                  <td className="tdinstaff">
+                    <a
+                      className="ainstaff"
+                      href={val.ir_image}
+                      download={"internshipResult_" + val.ln_id + ".pdf"}
+                    >
+                      download
+                    </a>
+                  </td>
+                  <td className="tdinstaff">
+                    <p class={"status status-" + val.ir_status}>
+                      {val.ir_status}
+                    </p>
+                  </td>
+                  <td className="tdinstaff">
+                    {" "}
+                    <a className="ainstaff" onClick={() => openModal(val)}>
+                      Click
+                    </a>
+                  </td>
+                </tr>
+              )
+            }
           })}
         </tbody>
       </table>
+    </div>
     </div>
   );
 }
