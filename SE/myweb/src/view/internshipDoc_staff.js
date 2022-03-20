@@ -120,6 +120,7 @@ export default function InternshipDoc_staff(props) {
     <div className="bgimgindoc">
     <div >
       <div className="boxsearch">
+      <div className="box-s">
         <div className="txtco">Filter</div>
         <div className="searchfilter">
           <Dropdown
@@ -142,6 +143,8 @@ export default function InternshipDoc_staff(props) {
             ]}
           ></input>
         </div>
+      </div>
+        
         <div className="btn_linkr">
           <Link
             to={"/internship-r-t/" + id}
