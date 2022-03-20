@@ -72,6 +72,7 @@ const Internship = (props) => {
   return (
     <div className="bgimg">
       {/* /////////////////////head */}
+      <div>
       <div className="boxhead">
         <h1 className="head">Internship</h1>
       </div>
@@ -226,6 +227,7 @@ const Internship = (props) => {
             </tbody>
           </table>
         </div>
+      </div>
       </div>
     </div>
   );
