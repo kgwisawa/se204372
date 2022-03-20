@@ -102,7 +102,7 @@ function Add_internship() {
     });
   };
 
-  const ip = "192.168.0.249";
+  const ip = "192.168.0.243";
 
   const addinternship = () => {
     
