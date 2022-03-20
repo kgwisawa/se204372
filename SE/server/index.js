@@ -259,7 +259,7 @@ app.put("/update/internshipdocument", (req, res) => {
 //*?-----------------------------------------------------------------------------------------  read
 
 app.get('/internshipresult', (req,res) =>{
-  db.query("SELECT ir_id, ln_id , ln_name ,email , cp_name , ir_date , ir_image ,ir_other,ir_status FROM internshipresult JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
+  db.query("SELECT cp_id,ir_id, ln_id , ln_name ,email , cp_name , ir_date , ir_image ,ir_other,ir_status FROM internshipresult JOIN company  USING(cp_id) JOIN loginNisit USING(ln_id)", (err, result) => {
       if(err) {
           console.log(err);
       } else {
