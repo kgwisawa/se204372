@@ -117,7 +117,8 @@ export default function InternshipDoc_staff(props) {
     }
   };
   return (
-    <div className="inbox">
+    <div className="bgimgindoc">
+    <div >
       <div className="boxsearch">
         <div className="txtco">Filter</div>
         <div className="searchfilter">
@@ -343,6 +344,7 @@ export default function InternshipDoc_staff(props) {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   );
 }
