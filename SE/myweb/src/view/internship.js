@@ -163,6 +163,7 @@ const Internship = (props) => {
             <tbody>
               {data.map((val, key) => {
                 const status = "status status-" + val.id_status;
+                if(val.cp_id !== "CP000"){
                 return (
                   <tr>
                     <td className="txttable">{val.id_date}</td>
@@ -172,7 +173,18 @@ const Internship = (props) => {
                     </td>
                     <td className="txttable">{val.id_comment}</td>
                   </tr>
-                );
+                );}else{
+                  return (
+                    <tr>
+                      <td className="txttable">{val.id_date}</td>
+                      <td className="txttable">{val.id_other}</td>
+                      <td className="txttable">
+                        <div className={status}>{val.id_status}</div>
+                      </td>
+                      <td className="txttable">{val.id_comment}</td>
+                    </tr>
+                  )
+                }
               })}
             </tbody>
           </table>
@@ -190,6 +202,7 @@ const Internship = (props) => {
             <tbody>
               {dataresult.map((val, key) => {
                 const status = "status status-" + val.ir_status;
+                if(val.cp_id !== "CP000"){
                 return (
                   <tr>
                     <td className="txttable">{val.ir_date}</td>
@@ -198,7 +211,17 @@ const Internship = (props) => {
                       <div className={status}>{val.ir_status}</div>
                     </td>
                   </tr>
-                );
+                );}else{
+                  return (
+                    <tr>
+                    <td className="txttable">{val.ir_date}</td>
+                    <td className="txttable">{val.ir_other}</td>
+                    <td className="txttable">
+                      <div className={status}>{val.ir_status}</div>
+                    </td>
+                  </tr>
+                  )
+                }
               })}
             </tbody>
           </table>
