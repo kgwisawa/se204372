@@ -159,7 +159,7 @@ contenttxt {
     width: 90%;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: #000 3px 3px 3px;
   }
   
   .content-table thead tr {
