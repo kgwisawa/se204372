@@ -30,7 +30,7 @@ const Icon = () => {
 
 const Internship = (props) => {
   const { id } = useParams();
-  const ip = "192.168.0.243";
+  const ip = "localhost";
   // var s = props.start;
 
   const [data, setdata] = useState([]);

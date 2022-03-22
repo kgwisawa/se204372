@@ -6,7 +6,7 @@ import bgInItem from "../style/bgInItem.scss";
 import Carousel from "react-elastic-carousel";
 import Item from "./Item";
 
-const ip = "192.168.0.243";
+const ip = "localhost";
 var start = 1;
 var set = 1;
 function Home() {

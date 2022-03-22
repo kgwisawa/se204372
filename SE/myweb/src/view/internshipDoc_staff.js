@@ -6,7 +6,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { Link, useParams } from "react-router-dom";
 
-const ip = "192.168.0.243";
+const ip = "localhost";
 var start = 1;
 function refreshPage() {
   setTimeout(() => {
@@ -30,7 +30,7 @@ export default function InternshipDoc_staff(props) {
   const [fileternow, setFileternow] = useState("ทั้งหมด");
   const [searchKey, setSearchKey] = useState("");
   const [dropdown, setDropdown] = useState("ทั้งหมด");
-
+  const[company,setCompany] =useState("");
   const getCompany = () => {
     if (start === 1) {
       Axios.get("http://" + ip + ":3001/internshipdocument").then(
@@ -91,6 +91,11 @@ export default function InternshipDoc_staff(props) {
     }
   };
   function openModal(val) {
+    if(val.cp_id !== "CP000"){
+      setCompany(val.cp_name);
+    }else{
+      setCompany(val.id_other)
+    }
     setIsOpen(true);
     setUpdateid(val);
     setNamefile(val.ln_id + "_" + val.ln_name + ".pdf");
@@ -197,7 +202,7 @@ export default function InternshipDoc_staff(props) {
 
               <div className="contxtm">
                 <h4 className="txtm">Company</h4>
-                <h4 className="txtm2">{updateid.cp_name}</h4>
+                <h4 className="txtm2">{company}</h4>
               </div>
 
               <div className="contxtm">

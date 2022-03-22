@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import "../modalstyles.css";
 import Moment from "react-moment";
 
-const ip = "192.168.0.243";
+const ip = "localhost";
 var start = 1;
 var btn = 0;
 
@@ -21,8 +21,15 @@ export default function InternshipResult_Staff() {
   const [internshipResult, setinternshipResult] = useState([]);
   const [ModalValue, setModalValue] = useState([]);
   const [comment , setComment] = useState("");
+  const [company,setCompany] =useState("");
 
   const openModal = (val) => {
+    if(val.cp_id!=="CP000")
+    {
+      setCompany(val.cp_name);
+    }else{
+      setCompany(val.ir_other);
+    }
     setModalValue(val);
     setModal(true);
   };
@@ -108,7 +115,7 @@ export default function InternshipResult_Staff() {
 
             <div className="contxtm">
               <h4 className="txtm">Company:</h4>
-              <h4 className="txtm2">{ModalValue.cp_name}</h4>
+              <h4 className="txtm2">{company}</h4>
             </div>
 
 
