@@ -134,7 +134,7 @@ const Internship = (props) => {
       <div className="boxheadtable">
         <div className="headtable">
         <div className="box-head">
-          <div className="txt-c">Status Document internship</div>
+          <div className="txt-c">Internship document </div>
           <Link
             to={"/newinternship/" + id}
             className="add"
@@ -202,6 +202,7 @@ const Internship = (props) => {
                 <th className="txtheadtable">Date</th>
                 <th className="txtheadtable">NameCompany</th>
                 <th className="txtheadtable">Status</th>
+                <th className="txtheadtable">reason</th>
               </tr>
             </thead>
             <tbody>
@@ -215,6 +216,7 @@ const Internship = (props) => {
                     <td className="txttable">
                       <div className={status}>{val.ir_status}</div>
                     </td>
+                    <td className="txttable">{val.ir_detail}</td>
                   </tr>
                 );}else{
                   return (
@@ -224,6 +226,7 @@ const Internship = (props) => {
                     <td className="txttable">
                       <div className={status}>{val.ir_status}</div>
                     </td>
+                    <td className="txttable">{val.ir_detail}</td>
                   </tr>
                   )
                 }

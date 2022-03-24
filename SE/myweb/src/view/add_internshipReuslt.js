@@ -275,6 +275,7 @@ function Add_internship() {
           <input
             type="file"
             required
+            accept="application/pdf"
             onChange={(e) => {
               uploadImage(e);
             }}

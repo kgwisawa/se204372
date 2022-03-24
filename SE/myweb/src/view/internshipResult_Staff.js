@@ -121,7 +121,7 @@ export default function InternshipResult_Staff() {
 
           </div>
           <div className="reasont">
-            <a>เหตุผลการไม่อนุมัติ</a>
+            <a>เหตุผล:</a>
 
           </div>
           <br />
@@ -130,6 +130,7 @@ export default function InternshipResult_Staff() {
               className="reason"
               onChange={(event) => setComment(event.target.value)}
           ></textarea>
+          <i>เหตุผลเดิม:{ModalValue.ir_detail}</i>
           <div className="btn_styles">
               <div className="btn-accept">
                 <button

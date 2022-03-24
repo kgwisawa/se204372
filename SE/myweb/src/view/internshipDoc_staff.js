@@ -25,7 +25,7 @@ export default function InternshipDoc_staff(props) {
   const [updateid, setUpdateid] = useState([]);
   const [internshipdocumentList, setInternshipdocumentList] = useState([]);
   const [namefile, setNamefile] = useState("");
-  const [newComment, setNewComment] = useState("-");
+  const [newComment, setNewComment] = useState("");
   const fileterlist = ["ทั้งหมด", "สถานะ", "วันที่ยืนขอ", "ปีการศึกษา"];
   const [fileternow, setFileternow] = useState("ทั้งหมด");
   const [searchKey, setSearchKey] = useState("");
@@ -113,7 +113,7 @@ export default function InternshipDoc_staff(props) {
     });
   };
   const checkcomment = (id) => {
-    if (newComment !== "-") {
+    if (newComment !== "") {
       updateFile("decline", id);
       closeModal();
       refreshPage();
