@@ -137,7 +137,7 @@ function Add_internship() {
 
   };
 
-  const ip = "localhost";
+  const ip = "192.168.0.252";
 
   function refreshPage() {
     setTimeout(() => {
